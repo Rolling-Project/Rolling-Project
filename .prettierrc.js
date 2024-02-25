@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "bracketSpacing":  true, // 객체 리터럴에서 괄호에 공백 삽입
   "jsxBracketSameLine":  false, // JSX의 마지막 `>`를 다음 줄로 내릴지 여부
   "jsxSingleQuote":  true, // JSX에 작은 따옴표 사용 여부
