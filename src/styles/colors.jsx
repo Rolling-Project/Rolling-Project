@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
   'Purple-100': '#F8F0FF',
   'Purple-200': '#ECD9FF',
   'Purple-300': '#DCB9FF',
@@ -38,3 +38,5 @@ export const colors = {
   Surface: '#F6F8FF',
   'gray-light-gray-90': '#4A494F',
 };
+
+export default colors;
