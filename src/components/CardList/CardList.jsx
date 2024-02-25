@@ -1,38 +1,75 @@
 import * as Styled from "./CardList.styled";
-import a from "../../assets/arrow-left.svg";
-import b from "../../assets/arrow-right.svg";
+import PrevButton from "../../assets/arrow-left.svg";
+import NextButton from "../../assets/arrow-right.svg";
 import Card from "../common/Card/Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function CardList({title}) {
+function CardList({ title, list }) {
   const [scrollX, setScrollX] = useState(0);
+  const [currentCount, setCurrentCount] = useState(0);
+  const [buttonVisible, setButtonVisible] = useState({
+    prev: false,
+    next: true,
+  })
 
-  const as = () => {
-    setScrollX((prevScrollX) => prevScrollX - 18.88);
+  const handlePrevCard = () => {
+    setScrollX((prevScrollX) => prevScrollX + 18.87);
+    setCurrentCount((prevCount) => prevCount - 1);
   };
 
-  const ab = () => {
-    setScrollX((prevScrollX) => prevScrollX + 18.88);
+  const handleNextCard = () => {
+    setScrollX((prevScrollX) => prevScrollX - 18.87);
+    setCurrentCount((prevCount) => prevCount + 1);
   };
 
+  const check = (list) => {
+    if(list.length < 4){ // 리스트의 길이가 4보다 크다면
+      setButtonVisible({
+        prev: false,
+        next: true
+      })
+      return;
+    }
+
+    if(currentCount === list.length - 4){ // 리스트의 마지막을 볼 때
+      setButtonVisible({
+        prev: true,
+        next: false,
+      })
+      return;
+    }
+
+    if(currentCount === 0){ // 리스트의 처음을 볼 때
+      setButtonVisible({
+        prev: false,
+        next: true,
+      })
+      return
+    }
+
+    setButtonVisible({
+      prev: true,
+      next: true,
+    })
+  }
+  
+  useEffect(() => {
+    check(list);
+  }, [currentCount])
+  
   return (
     <>
       <Styled.ListTitle>{title}</Styled.ListTitle>
       <Styled.CardWrap>
         <Styled.CardContainer>
           <Styled.CardList style={{ marginLeft: `${scrollX}rem` }}>
-            <Card text="짱구" color="Orange-200" />
-            <Card text="훈이" color="Purple-200" />
-            <Card text="맹구" color="Blue-200" />
-            <Card text="유리" color="Green-200" />
-            <Card text="짱구" color="Orange-200" />
-            <Card text="훈이" color="Purple-200" />
-            <Card text="맹구" color="Blue-200" />
-            <Card text="유리" color="Green-200" />
+           {list?.map((data, idx) => {
+            return <Card key={idx} data={data}/>
+           })}
           </Styled.CardList>
         </Styled.CardContainer>
-        <Styled.PrevButton onClick={() => ab()} src={a} />
-        <Styled.NextButton onClick={() => as()} src={b} />
+        {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} />}
+        {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} />}
       </Styled.CardWrap>
       </>
   );

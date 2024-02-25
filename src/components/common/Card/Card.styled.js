@@ -21,10 +21,10 @@ export const Recipient = styled.p`
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 2.25rem;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  word-break: break-all;
 `;
 // 최근 메세지 상자
 export const RecentMessageBox = styled.div`
@@ -77,7 +77,7 @@ export const TextBoldEffect = styled.span`
 export const ReactionBox = styled.div`
   display: flex;
   gap: 0.5rem;
-  width: 14.5rem;
+  width: 14.3rem;
   padding-top: 1.1rem;
   margin-top: 2.69rem;
   border-top: 1.5px solid rgba(0, 0, 0, 0.12);

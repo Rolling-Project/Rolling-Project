@@ -4,22 +4,30 @@ import PurpleBackgroundImg from "../../../assets/purple-circle.svg";
 import BeigeBackgroundImg from "../../../assets/beige-rectangle.svg";
 import GreenBackgroundImg from "../../../assets/green-circle.svg";
 import BlueBackgroundImg from "../../../assets/blue-triangle.svg";
-const PURPLE = "Purple-200";
-const BEIGE = "Orange-200";
-const GREEN = "Green-200";
-const BLUE = "Blue-200";
 
 const backgroundImg = {
-  [PURPLE]: PurpleBackgroundImg,
-  [BEIGE]: BeigeBackgroundImg,
-  [GREEN]: GreenBackgroundImg,
-  [BLUE]: BlueBackgroundImg,
+  "purple": PurpleBackgroundImg,
+  "beige": BeigeBackgroundImg,
+  "green": GreenBackgroundImg,
+  "blue": BlueBackgroundImg,
 };
 
-function Card({ text, color }) {
+const colorConveter = (color) => {
+  switch(color){
+    case "beige": return "Orange-200"; 
+
+    case "blue": return "Blue-200";
+
+    case "green": return "Green-200";
+    
+    case "purple": return "Purple-200";
+  }
+}
+
+function Card({ data }) {
   return (
-    <Styled.Card $color={color}>
-      <Styled.Recipient>To. {text}</Styled.Recipient>
+    <Styled.Card $color={colorConveter(data.backgroundColor)}>
+      <Styled.Recipient>To. {data.name}</Styled.Recipient>
       <Styled.RecentMessageBox>
         <Styled.RecentMessage src={a} />
         <Styled.RecentMessage src={a} />
@@ -35,7 +43,7 @@ function Card({ text, color }) {
         <Styled.TopReaction>🚨 22</Styled.TopReaction>
         <Styled.TopReaction>🙃 3</Styled.TopReaction>
       </Styled.ReactionBox>
-      <Styled.back src={backgroundImg[color]} />
+      <Styled.back src={backgroundImg[data.backgroundColor]} />
     </Styled.Card>
   );
 }
