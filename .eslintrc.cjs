@@ -37,5 +37,6 @@ module.exports = {
     'react/prop-types': 0, // 프로퍼티(prop) 타입 체크를 수행하지 않도록 설정
     'no-unused-vars': 'off', // 사용되지 않는 변수에 대한 경고를 끄는 규칙(호출되지 않은 변수 사용 가능)
     'react/react-in-jsx-scope': 'off',
+    'max-len': ['error', { code: 120 }],
   },
 };
