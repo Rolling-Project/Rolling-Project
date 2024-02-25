@@ -1,32 +1,32 @@
 import { useEffect, useState } from "react";
-import CardList from "../../components/CardList/CardList"
+import CardList from "../../components/CardList/CardList";
 import ListButtonBox from "../../components/ListButtonBox/ListButtonBox";
 import * as Styled from "./ListPage.styled";
 
-function ListPage(){
-  const [list, setList] = useState([]);
+function ListPage() {
+  const [cardList, setCardList] = useState([]);
   useEffect(() => {
-    const fetchData = async()=>{
-      try{
-        const res = await fetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20");
-        if(!res.ok){
+    const fetchCardList = async () => {
+      try {
+        const response = await fetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20");
+        if (!response.ok) {
           throw new Error("에러발생");
         }
-        const result = await res.json();
-        setList(result.results);
-      }catch(e){
-        console.error(e);
+        const result = await response.json();
+        setCardList(result.results);
+      } catch (e) {
+        alert(e);
       }
-    }
-    fetchData();
-  }, [])
+    };
+    fetchCardList();
+  }, []);
   return (
     <Styled.Wrap>
-      <CardList title="🔥 인기 롤링 페이퍼 TOP 20" list={list}/>
-      <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" list={list}/>
-      <ListButtonBox/>
+      <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={cardList} />
+      <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={cardList} />
+      <ListButtonBox />
     </Styled.Wrap>
-  )
+  );
 }
 
 export default ListPage;

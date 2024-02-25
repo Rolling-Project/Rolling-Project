@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors } from '../../../styles/colors'
+import { colors } from "../../../styles/colors";
 
 export const Card = styled.li`
   flex: 0 0 auto;
@@ -17,7 +17,7 @@ export const Card = styled.li`
 
 // 대상
 export const Recipient = styled.p`
-  color: ${colors['Gray-900']};
+  color: ${colors["Gray-900"]};
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 2.25rem;
@@ -57,14 +57,14 @@ export const Additional = styled.div`
   border: 1.5px solid ${colors.White};
   position: absolute;
   left: 3.3rem;
-  color: ${colors['Gray-500']};
+  color: ${colors["Gray-500"]};
   font-size: 0.85rem;
   line-height: 1.125rem;
 `;
 
 // 메세지 카운트
 export const MessageCount = styled.p`
-  color: ${colors['Gray-700']};
+  color: ${colors["Gray-700"]};
   line-height: 1.625rem;
   font-weight: 300;
 `;
@@ -94,7 +94,7 @@ export const TopReaction = styled.div`
   color: ${colors.White};
 `;
 
-export const back = styled.img`
+export const Back = styled.img`
   position: absolute;
   bottom: 0px;
   right: 0px;

@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
-import { colors } from '../../../styles/colors'
+import styled from "@emotion/styled";
+import { colors } from "../../../styles/colors";
 
-export const Button = styled.button`
+const Button = styled.button`
   display: block;
   outline: none;
   border: none;
@@ -13,10 +13,12 @@ export const Button = styled.button`
   font-size: 1.1rem;
   cursor: pointer;
   background-color: ${({ $color }) => $color};
-  
-  &:hover{
-    background-color: ${({ $hoverColor }) => $hoverColor };
+
+  &:hover {
+    background-color: ${({ $hoverColor }) => $hoverColor};
     transition: 0.7s;
     color: ${colors.White};
-  };
-`
+  }
+`;
+
+export default Button;

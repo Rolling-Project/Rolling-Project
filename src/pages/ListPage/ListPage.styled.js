@@ -1,6 +1,8 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
-export const Wrap = styled.main`
+const Wrap = styled.main`
   width: 74.35rem;
   margin: 0 auto;
-`
+`;
+
+export default Wrap;
