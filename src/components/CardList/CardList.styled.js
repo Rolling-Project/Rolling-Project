@@ -1,16 +1,28 @@
 import styled from "@emotion/styled";
 import { colors } from "../../styles/colors";
 
-export const ListTitle = styled.h2`
-  color: ${colors.Black};
-  font-size: 1.5rem;
-  font-weight: 700;
+export const ListTitleBox = styled.div`
+  display: flex;
+  justify-content: space-between;
   line-height: 2.25rem;
-  margin: 2rem 0 0.8rem;
+  margin: 2rem 0 0.9rem;
 
   &:nth-of-type(2){
     margin-top: 2.5rem;
   }
+`;
+
+export const ListTitle = styled.h2`
+  color: ${colors.Black};
+  font-size: 1.5rem;
+  font-weight: 700;
+`;
+
+export const CardDetail = styled.span`
+  color: ${colors["Gray-400"]}; 
+  font-size: 0.8rem;
+  padding: 0 1rem 0 0;
+  letter-spacing: 0.03rem;
 `;
 
 export const CardWrap = styled.section`

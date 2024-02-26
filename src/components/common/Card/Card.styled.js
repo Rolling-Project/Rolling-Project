@@ -10,7 +10,7 @@ export const Card = styled.li`
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   padding: 1.8rem 1.5rem 1.25rem;
   background-color: ${({ $color }) => colors[$color]};
-  background-image: ${({ $b }) => `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(${$b})`};
+  background-image: ${({ $b }) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(${$b})`};
   position: relative;
   overflow: hidden;
   cursor: pointer;

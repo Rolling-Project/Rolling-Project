@@ -62,7 +62,10 @@ function CardList({ title, cardList }) {
 
   return (
     <>
-      <Styled.ListTitle>{title}</Styled.ListTitle>
+      <Styled.ListTitleBox>
+        <Styled.ListTitle>{title}</Styled.ListTitle>
+        <Styled.CardDetail>카드를 클릭하면 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
+      </Styled.ListTitleBox>
       <Styled.CardWrap>
         <Styled.CardContainer>
           <Styled.CardList style={{ marginLeft: `${scrollX}rem` }}>
