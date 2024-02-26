@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CardList from "../../components/CardList/CardList";
 import ListButtonBox from "../../components/ListButtonBox/ListButtonBox";
+import Loading from "../../components/Loading/Loading";
 import * as Styled from "./ListPage.styled";
 
 function ListPage() {
@@ -25,7 +26,8 @@ function ListPage() {
   }, []);
   return (
     <>
-      <header style={{
+      <Loading />
+      {/* <header style={{
         border: "1px solid #000",
         height: "4rem"
       }}
@@ -36,7 +38,7 @@ function ListPage() {
         <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={cardList} />
         <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={cardList} />
         <ListButtonBox />
-      </Styled.Wrap>
+      </Styled.Wrap> */}
     </>
   );
 }

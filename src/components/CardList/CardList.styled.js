@@ -5,11 +5,7 @@ export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
   line-height: 2.25rem;
-  margin: 2rem 0 0.9rem;
-
-  &:nth-of-type(2){
-    margin-top: 2.5rem;
-  }
+  margin: 2.8rem 0 0.9rem;
 `;
 
 export const ListTitle = styled.h2`

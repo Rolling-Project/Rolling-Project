@@ -16,7 +16,7 @@ function Card({ data }) {
   const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } = data;
   const isColor = backgroundColor === null;
   return (
-    <Styled.Card $color={backgroundColorConveter(backgroundColor)} $b={backgroundImageURL}>
+    <Styled.Card $color={backgroundColorConveter(backgroundColor)} $image={backgroundImageURL}>
       <Styled.Recipient $isColor={isColor}>
         To.
         {name}
