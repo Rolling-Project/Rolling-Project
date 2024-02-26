@@ -4,12 +4,13 @@ import { colors } from "../../../styles/colors";
 export const Card = styled.li`
   flex: 0 0 auto;
   width: 14.5rem;
-  height: 13.5rem;
+  height: 13rem;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   padding: 1.8rem 1.5rem 1.25rem;
   background-color: ${({ $color }) => colors[$color]};
+  background-image: ${({ $b }) => `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(${$b})`};
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -17,7 +18,7 @@ export const Card = styled.li`
 
 // 대상
 export const Recipient = styled.p`
-  color: ${colors["Gray-900"]};
+  color: ${({ $isColor }) => ($isColor ? `${colors["Gray-900"]}` : `${colors.White}`)};
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 2.25rem;
@@ -65,13 +66,14 @@ export const Additional = styled.div`
 
 // 메세지 카운트
 export const MessageCount = styled.p`
-  color: ${colors["Gray-700"]};
+  color: ${({ $isColor }) => ($isColor ? `${colors["Gray-700"]}` : `${colors.White}`)};
   line-height: 1.625rem;
   font-size: 1.1rem;
   font-weight: 300;
 `;
 
 export const DefaultMessage = styled(MessageCount)`
+  color: ${({ $isColor }) => ($isColor ? `${colors["Gray-700"]}` : `${colors.White}`)};
   line-height: 2.5rem;
 `;
 
@@ -85,8 +87,9 @@ export const ReactionBox = styled.div`
   gap: 0.5rem;
   width: 14.3rem;
   padding-top: 1.1rem;
-  margin-top: 2.69rem;
-  border-top: 1.5px solid rgba(0, 0, 0, 0.12);
+  margin-top: 2.4rem;
+  border-top: ${({ $isColor }) => ($isColor ? "1.5px solid rgba(0, 0, 0, 0.12)"
+    : "1.5px solid rgba(255, 255, 255, 0.5)")};
   position: absolute;
   z-index: 2;
 `;
@@ -95,9 +98,9 @@ export const ReactionBox = styled.div`
 export const TopReaction = styled.div`
   padding: 0.6rem 0.75rem 0.3rem;
   border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.45);
+  background: ${({ $isColor }) => ($isColor ? "rgba(0, 0, 0, 0.45)" : "rgba(255, 255, 255, 0.7)")};
   line-height: 1.25rem;
-  color: ${colors.White};
+  color: ${({ $isColor }) => ($isColor ? `${colors.White}` : `${colors.Black}`)};
 `;
 
 export const DefaultReaction = styled(TopReaction)`
@@ -105,7 +108,7 @@ export const DefaultReaction = styled(TopReaction)`
   font-size: 0.9rem;
 `;
 
-export const Back = styled.img`
+export const BackgroundEffect = styled.img`
   position: absolute;
   bottom: 0px;
   right: 0px;

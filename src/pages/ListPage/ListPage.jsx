@@ -24,11 +24,20 @@ function ListPage() {
     return () => controller.abort();
   }, []);
   return (
-    <Styled.Wrap>
-      <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={cardList} />
-      <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={cardList} />
-      <ListButtonBox />
-    </Styled.Wrap>
+    <>
+      <header style={{
+        border: "1px solid #000",
+        height: "4rem"
+      }}
+      >
+        임시 헤더
+      </header>
+      <Styled.Wrap>
+        <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={cardList} />
+        <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={cardList} />
+        <ListButtonBox />
+      </Styled.Wrap>
+    </>
   );
 }
 

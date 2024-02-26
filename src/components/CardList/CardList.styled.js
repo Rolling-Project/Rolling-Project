@@ -6,7 +6,11 @@ export const ListTitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2.25rem;
-  margin: 3.12rem 0 1rem;
+  margin: 2rem 0 0.8rem;
+
+  &:nth-of-type(2){
+    margin-top: 2.5rem;
+  }
 `;
 
 export const CardWrap = styled.section`

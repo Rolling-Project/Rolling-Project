@@ -1,42 +1,26 @@
 import * as Styled from "./Card.styled";
-import a from "../../../assets/user-profile.png";
 import PurpleBackgroundImg from "../../../assets/purple-circle.svg";
 import BeigeBackgroundImg from "../../../assets/beige-rectangle.svg";
 import GreenBackgroundImg from "../../../assets/green-circle.svg";
 import BlueBackgroundImg from "../../../assets/blue-triangle.svg";
+import backgroundColorConveter from "../../../utils/helpers/backgroundColorConverter";
 
-const backgroundImg = {
+const BACKGROUND_IMAGE_EFFECT = {
   purple: PurpleBackgroundImg,
   beige: BeigeBackgroundImg,
   green: GreenBackgroundImg,
   blue: BlueBackgroundImg
 };
 
-const colorConveter = (color) => {
-  switch (color) {
-    case "beige":
-      return "Orange-200";
-
-    case "blue":
-      return "Blue-200";
-
-    case "green":
-      return "Green-200";
-
-    default:
-      return "Purple-200";
-  }
-};
-
 function Card({ data }) {
   const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } = data;
+  const isColor = backgroundColor === null;
   return (
-    <Styled.Card $color={colorConveter(backgroundColor)}>
-      <Styled.Recipient>
+    <Styled.Card $color={backgroundColorConveter(backgroundColor)} $b={backgroundImageURL}>
+      <Styled.Recipient $isColor={isColor}>
         To.
         {name}
       </Styled.Recipient>
-
       <Styled.RecentMessageBox>
         {recentMessages?.map((message) => {
           const { id, profileImageURL } = message;
@@ -44,14 +28,14 @@ function Card({ data }) {
         })}
         {messageCount > 3 && <Styled.Additional>{`+${messageCount - 3}`}</Styled.Additional>}
         {!recentMessages.length && (
-          <Styled.DefaultMessage>
+          <Styled.DefaultMessage $isColor={isColor}>
             <Styled.TextBoldEffect>따뜻한 마음</Styled.TextBoldEffect>
             을 전하는
           </Styled.DefaultMessage>
         )}
       </Styled.RecentMessageBox>
 
-      <Styled.MessageCount>
+      <Styled.MessageCount $isColor={isColor}>
         {
           messageCount
             ? (
@@ -69,14 +53,14 @@ function Card({ data }) {
         }
       </Styled.MessageCount>
 
-      <Styled.ReactionBox>
+      <Styled.ReactionBox $isColor={isColor}>
         {topReactions?.map((reaction) => {
           const { id, emoji, count } = reaction;
-          return <Styled.TopReaction>{`${emoji} ${count}`}</Styled.TopReaction>;
+          return <Styled.TopReaction $isColor={isColor} key={id}>{`${emoji} ${count}`}</Styled.TopReaction>;
         })}
         {!topReactions.length && <Styled.DefaultReaction>🙃 이모티콘을 남겨주세요</Styled.DefaultReaction>}
       </Styled.ReactionBox>
-      <Styled.Back src={backgroundImg[backgroundColor]} />
+      {/* {backgroundColor && <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} />} */}
     </Styled.Card>
   );
 }
