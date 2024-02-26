@@ -38,5 +38,7 @@ module.exports = {
     'no-unused-vars': 'off', // 사용되지 않는 변수에 대한 경고를 끄는 규칙(호출되지 않은 변수 사용 가능)
     'react/react-in-jsx-scope': 'off',
     'max-len': ['error', { code: 120 }],
+    indent: 'off', // 들여쓰기 경고 비활성화
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
   },
 };
