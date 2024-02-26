@@ -29,7 +29,8 @@ export const Recipient = styled.p`
 // 최근 메세지 상자
 export const RecentMessageBox = styled.div`
   position: relative;
-  margin: 0.75rem 0;
+  height: 2.5rem;
+  padding-top: 0.75rem;
   display: flex;
 `;
 // 최근 메세지 3명
@@ -66,7 +67,12 @@ export const Additional = styled.div`
 export const MessageCount = styled.p`
   color: ${colors["Gray-700"]};
   line-height: 1.625rem;
+  font-size: 1.1rem;
   font-weight: 300;
+`;
+
+export const DefaultMessage = styled(MessageCount)`
+  line-height: 2.5rem;
 `;
 
 export const TextBoldEffect = styled.span`
@@ -92,6 +98,11 @@ export const TopReaction = styled.div`
   background: rgba(0, 0, 0, 0.45);
   line-height: 1.25rem;
   color: ${colors.White};
+`;
+
+export const DefaultReaction = styled(TopReaction)`
+  height: 1.4rem;
+  font-size: 0.9rem;
 `;
 
 export const Back = styled.img`

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const ListButtonBox = styled.div`
+export const ListButtonBox = styled.div`
   display: flex;
   gap: 2rem;
   justify-content: center;
@@ -8,5 +8,3 @@ const ListButtonBox = styled.div`
   padding: 1.5rem 0;
   align-items: center;
 `;
-
-export default ListButtonBox;

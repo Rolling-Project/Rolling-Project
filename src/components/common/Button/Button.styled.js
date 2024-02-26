@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../styles/colors";
 
-const Button = styled.button`
+export const Button = styled.button`
   display: block;
   outline: none;
   border: none;
@@ -20,5 +20,3 @@ const Button = styled.button`
     color: ${colors.White};
   }
 `;
-
-export default Button;

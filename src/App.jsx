@@ -1,12 +1,12 @@
-import reset from './styles/reset';
-import { Global } from '@emotion/react';
-import ListPage from './pages/ListPage/ListPage';
+import { Global } from "@emotion/react";
+import reset from "./styles/reset";
+import ListPage from "./pages/ListPage/ListPage";
 
 function App() {
   return (
     <>
       <Global styles={reset} />
-      <ListPage/>
+      <ListPage />
     </>
   );
 }

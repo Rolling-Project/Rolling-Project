@@ -41,6 +41,7 @@
     "brace-style": "off", // 중괄호 다음 줄 바꿈 비활성화
     "quotes": ["error", "double"], // 문자열 큰 따옴표 사용
     "jsx-quotes": [2, "prefer-double"], // JSX에서 큰 따옴표 사용 가능
-    "object-curly-newline": "off" // 중괄호에서 줄 바꿈 안해도 되게 설정
+    "object-curly-newline": "off", // 중괄호에서 줄 바꿈 안해도 되게 설정
+    "import/prefer-default-export": "off" // 단일 export 사용 가능
   }
 }

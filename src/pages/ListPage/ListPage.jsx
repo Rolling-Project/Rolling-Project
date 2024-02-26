@@ -6,19 +6,22 @@ import * as Styled from "./ListPage.styled";
 function ListPage() {
   const [cardList, setCardList] = useState([]);
   useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
     const fetchCardList = async () => {
       try {
-        const response = await fetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20");
+        const response = await fetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20", { signal });
         if (!response.ok) {
           throw new Error("에러발생");
         }
         const result = await response.json();
         setCardList(result.results);
       } catch (e) {
-        alert(e);
+        console.error(e);
       }
     };
     fetchCardList();
+    return () => controller.abort();
   }, []);
   return (
     <Styled.Wrap>

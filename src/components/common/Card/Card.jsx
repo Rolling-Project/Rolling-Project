@@ -29,31 +29,54 @@ const colorConveter = (color) => {
 };
 
 function Card({ data }) {
+  const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } = data;
   return (
-    <Styled.Card $color={colorConveter(data.backgroundColor)}>
+    <Styled.Card $color={colorConveter(backgroundColor)}>
       <Styled.Recipient>
         To.
-        {data.name}
+        {name}
       </Styled.Recipient>
 
       <Styled.RecentMessageBox>
-        <Styled.RecentMessage src={a} />
-        <Styled.RecentMessage src={a} />
-        <Styled.RecentMessage src={a} />
-        <Styled.Additional>+27</Styled.Additional>
+        {recentMessages?.map((message) => {
+          const { id, profileImageURL } = message;
+          return <Styled.RecentMessage key={id} src={profileImageURL} />;
+        })}
+        {messageCount > 3 && <Styled.Additional>{`+${messageCount - 3}`}</Styled.Additional>}
+        {!recentMessages.length && (
+          <Styled.DefaultMessage>
+            <Styled.TextBoldEffect>따뜻한 마음</Styled.TextBoldEffect>
+            을 전하는
+          </Styled.DefaultMessage>
+        )}
       </Styled.RecentMessageBox>
 
       <Styled.MessageCount>
-        <Styled.TextBoldEffect>30</Styled.TextBoldEffect>
-        명이 작성했어요!
+        {
+          messageCount
+            ? (
+              <>
+                <Styled.TextBoldEffect>{`${messageCount}명`}</Styled.TextBoldEffect>
+                이 작성했어요!
+              </>
+            )
+            : (
+              <>
+                <Styled.TextBoldEffect>첫 글</Styled.TextBoldEffect>
+                을 남겨주세요!
+              </>
+            )
+        }
       </Styled.MessageCount>
 
       <Styled.ReactionBox>
-        <Styled.TopReaction>👍 20</Styled.TopReaction>
-        <Styled.TopReaction>🚨 22</Styled.TopReaction>
-        <Styled.TopReaction>🙃 3</Styled.TopReaction>
+        {topReactions?.map((reaction) => {
+          const { id, emoji, count } = reaction;
+          return <Styled.TopReaction>{`${emoji} ${count}`}</Styled.TopReaction>;
+        })}
+        {!topReactions.length && <Styled.DefaultReaction>🙃 이모티콘을 남겨주세요</Styled.DefaultReaction>}
       </Styled.ReactionBox>
-      <Styled.Back src={backgroundImg[data.backgroundColor]} />
+      <Styled.Back src={backgroundImg[backgroundColor]} />
     </Styled.Card>
   );
 }
