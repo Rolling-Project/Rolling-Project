@@ -65,8 +65,8 @@ function CardList({ title, cardList }) {
       <Styled.ListTitleBox>
         <Styled.ListTitle>{title}</Styled.ListTitle>
         <Styled.CardDetailBox>
-          <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
           <Styled.CardDeviceDetail>좌, 우를 스와이프하여 카드 목록을 확인 할 수 있습니다.</Styled.CardDeviceDetail>
+          <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
         </Styled.CardDetailBox>
       </Styled.ListTitleBox>
 
