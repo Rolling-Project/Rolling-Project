@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import BaseCard from './BaseCard';
 import Avatar from './Avatar';
-import { badgeColors } from '../../constants/badgeColors';
+import { badgeColors } from '../../utils/constants/badgeColors';
+import { formatDate } from '../../utils/helpers/dateUtils';
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
@@ -88,7 +89,7 @@ const MessageCard = ({ person }) => {
       </Info>
       <Divider />
       <Message>{content}</Message>
-      <Date>{createdAt}</Date>
+      <Date>{formatDate(createdAt)}</Date>
     </Card>
   );
 };
