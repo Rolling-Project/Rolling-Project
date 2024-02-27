@@ -20,7 +20,7 @@ const Plus = styled(Circle)`
 const PlusCard = () => (
   <Card>
     <Plus>
-      <img src={plusIcon} />
+      <img src={plusIcon} alt="플러스 아이콘" />
     </Plus>
   </Card>
 );

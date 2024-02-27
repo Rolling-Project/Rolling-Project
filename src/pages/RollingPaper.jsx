@@ -13,14 +13,14 @@ const Container = styled.div`
 `;
 
 const RollingPaper = () => {
-  const recipientId = 2687;
+  const recipientId = 2687; /* 하드 코딩 */
 
-  const { data, isLoading, error } = useQuery(['messages', recipientId], () =>
-    useFetch(`${baseUrl}recipients/${recipientId}/messages/`),
-  );
+  const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  const { data, isLoading, error } = useQuery(['messages', recipientId], fetchMessages);
+
+  if (isLoading) return <p>로딩 컴포넌트</p>;
+  if (error) return <p>에러 컴포넌트</p>;
 
   return (
     <Container>

@@ -5,4 +5,4 @@ const badgeColors = {
   지인: { backgroundColor: '--Orange-100', color: '--Orange-500' },
 };
 
-export { badgeColors };
+export default badgeColors;

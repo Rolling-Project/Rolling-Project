@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import BaseCard from './BaseCard';
 import Avatar from './Avatar';
-import { badgeColors } from '../../utils/constants/badgeColors';
-import { formatDate } from '../../utils/helpers/dateUtils';
+import badgeColors from '../../utils/constants/badgeColors';
+import formatDate from '../../utils/helpers/dateUtils';
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
@@ -82,7 +82,8 @@ const MessageCard = ({ message }) => {
         <Avatar imgUrl={profileImageURL} />
         <div>
           <Name>
-            From. <span>{sender}</span>
+            From.
+            <span>{` ${sender}`}</span>
           </Name>
           <Badge relationship={relationship}>{relationship}</Badge>
         </div>
