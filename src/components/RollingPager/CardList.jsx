@@ -1,9 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
 import styled from '@emotion/styled';
 import MessageCard from './MessageCard';
 import PlusCard from './PlusCard';
-
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const List = styled.ul`
   width: 100%;
@@ -11,38 +8,25 @@ const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media (max-width: 360px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
 
-const CardList = () => {
-  const recipientId = 2687;
-
-  const fetchMessages = async () => {
-    const response = await fetch(`${baseUrl}recipients/${recipientId}/messages/`);
-    const result = await response.json();
-    return result;
-  };
-
-  const { data, isLoading, error } = useQuery(['messages', recipientId], () => fetchMessages(recipientId));
-
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  return (
-    <List>
-      <PlusCard />
-      {data.results.map((person) => (
-        <li key={person.id}>
-          <MessageCard person={person} />
-        </li>
-      ))}
-    </List>
-  );
-};
+const CardList = ({ messages }) => (
+  <List>
+    <PlusCard />
+    {messages.map((message) => (
+      <li key={message.id}>
+        <MessageCard message={message} />
+      </li>
+    ))}
+  </List>
+);
 
 export default CardList;

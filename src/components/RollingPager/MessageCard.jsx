@@ -74,8 +74,8 @@ const Date = styled.div`
   letter-spacing: -0.06px;
 `;
 
-const MessageCard = ({ person }) => {
-  const { sender, profileImageURL, relationship, content, createdAt } = person;
+const MessageCard = ({ message }) => {
+  const { sender, profileImageURL, relationship, content, createdAt } = message;
   return (
     <Card>
       <Info>
