@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 
 const BaseCard = styled.div`
-  width: 384px;
   height: 280px;
   border-radius: 16px;
   background: ${colors.White};

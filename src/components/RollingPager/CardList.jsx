@@ -4,10 +4,17 @@ import MessageCard from './MessageCard';
 import PlusCard from './PlusCard';
 
 const List = styled.ul`
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 360px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 const CardList = () => {
@@ -25,16 +32,14 @@ const CardList = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div>
-      <List>
-        <PlusCard />
-        {data.results.map((person) => (
-          <li key={person.id}>
-            <MessageCard person={person} />
-          </li>
-        ))}
-      </List>
-    </div>
+    <List>
+      <PlusCard />
+      {data.results.map((person) => (
+        <li key={person.id}>
+          <MessageCard person={person} />
+        </li>
+      ))}
+    </List>
   );
 };
 
