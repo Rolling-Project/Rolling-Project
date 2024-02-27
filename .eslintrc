@@ -42,6 +42,7 @@
     "quotes": ["error", "double"], // 문자열 큰 따옴표 사용
     "jsx-quotes": [2, "prefer-double"], // JSX에서 큰 따옴표 사용 가능
     "object-curly-newline": "off", // 중괄호에서 줄 바꿈 안해도 되게 설정
-    "import/prefer-default-export": "off" // 단일 export 사용 가능
+    "import/prefer-default-export": "off", // 단일 export 사용 가능
+    "react/jsx-one-expression-per-line": "off" // JSX 코드에서 표현식을 한 줄에 하나씩 작성
   }
 }

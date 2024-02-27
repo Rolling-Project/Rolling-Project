@@ -9,22 +9,31 @@ function CardList({ title, cardList }) {
   const [currentCount, setCurrentCount] = useState(0);
   const [buttonVisible, setButtonVisible] = useState({
     prev: false,
-    next: true
+    next: false
   });
 
   const handlePrevCard = () => {
-    setScrollX((prevScrollX) => prevScrollX + 18.87);
+    setScrollX((prevScrollX) => prevScrollX + 18.46);
     setCurrentCount((prevCount) => prevCount - 1);
   };
 
   const handleNextCard = () => {
-    setScrollX((prevScrollX) => prevScrollX - 18.87);
+    setScrollX((prevScrollX) => prevScrollX - 18.46);
     setCurrentCount((prevCount) => prevCount + 1);
   };
 
-  const check = () => {
-    if (cardList.length < 4) {
-      // 리스트의 길이가 4보다 크다면
+  const currentCheck = () => {
+    if (cardList.length < 5) {
+      // 리스트의 길이가 5보다 작다면
+      setButtonVisible({
+        prev: false,
+        next: false
+      });
+      return;
+    }
+
+    if (currentCount === 0) {
+      // 리스트의 처음을 볼 때
       setButtonVisible({
         prev: false,
         next: true
@@ -41,15 +50,6 @@ function CardList({ title, cardList }) {
       return;
     }
 
-    if (currentCount === 0) {
-      // 리스트의 처음을 볼 때
-      setButtonVisible({
-        prev: false,
-        next: true
-      });
-      return;
-    }
-
     setButtonVisible({
       prev: true,
       next: true
@@ -57,27 +57,29 @@ function CardList({ title, cardList }) {
   };
 
   useEffect(() => {
-    check();
-  }, [currentCount]);
+    currentCheck();
+  }, [cardList, currentCount]);
 
   return (
-    <>
+    <Styled.CardWrap>
       <Styled.ListTitleBox>
         <Styled.ListTitle>{title}</Styled.ListTitle>
-        <Styled.CardDetail>카드를 클릭하면 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
+        <Styled.CardDetailBox>
+          <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
+          <Styled.CardDeviceDetail>좌, 우를 스와이프하여 카드 목록을 확인 할 수 있습니다.</Styled.CardDeviceDetail>
+        </Styled.CardDetailBox>
       </Styled.ListTitleBox>
-      <Styled.CardWrap>
-        <Styled.CardContainer>
-          <Styled.CardList style={{ marginLeft: `${scrollX}rem` }}>
-            {cardList?.map((data) => (
-              <Card key={data.id} data={data} />
-            ))}
-          </Styled.CardList>
-        </Styled.CardContainer>
-        {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} />}
-        {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} />}
-      </Styled.CardWrap>
-    </>
+
+      <Styled.CardContainer>
+        <Styled.CardList style={{ marginLeft: `${scrollX}rem` }}>
+          {cardList?.map((data) => (
+            <Card key={data.id} data={data} />
+          ))}
+        </Styled.CardList>
+      </Styled.CardContainer>
+      {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}
+      {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} alt="다음 버튼" />}
+    </Styled.CardWrap>
   );
 }
 

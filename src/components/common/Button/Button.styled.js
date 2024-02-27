@@ -19,4 +19,7 @@ export const Button = styled.button`
     transition: 0.7s;
     color: ${colors.White};
   }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;

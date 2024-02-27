@@ -4,8 +4,16 @@ import { colors } from "../../styles/colors";
 export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
-  line-height: 2.25rem;
+  /* width: 72.5rem; */
   margin: 2.8rem 0 0.9rem;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: 3.8rem;
+  }
 `;
 
 export const ListTitle = styled.h2`
@@ -14,21 +22,41 @@ export const ListTitle = styled.h2`
   font-weight: 700;
 `;
 
+export const CardDetailBox = styled.div`
+  @media (max-width: 1200px) {
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 export const CardDetail = styled.span`
-  color: ${colors["Gray-400"]}; 
+  padding-top: 0.5rem;
+  display: inline-block;
+  color: ${colors["Gray-400"]};
   font-size: 0.8rem;
-  padding: 0 1rem 0 0;
-  letter-spacing: 0.03rem;
+`;
+
+export const CardDeviceDetail = styled(CardDetail)`
+  display: none;
+  @media (max-width: 1200px) {
+    display: inline;
+  }
 `;
 
 export const CardWrap = styled.section`
-  width: 74.35rem;
-  height: auto;
   position: relative;
 `;
 
 export const CardContainer = styled.div`
   overflow: hidden;
+
+  @media (max-width: 1200px) {
+    scrollbar-width: none;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
 `;
 
 export const CardList = styled.ul`
@@ -47,10 +75,13 @@ export const SliderButton = styled.img`
   border: 1px solid ${colors["Gray-300"]};
   padding: 0.5rem;
   cursor: pointer;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 export const PrevButton = styled(SliderButton)`
   left: 0;
 `;
 export const NextButton = styled(SliderButton)`
-  right: -2.1rem;
+  right: -2.2rem;
 `;

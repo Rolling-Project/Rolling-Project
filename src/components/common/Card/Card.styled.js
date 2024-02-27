@@ -3,17 +3,23 @@ import { colors } from "../../../styles/colors";
 
 export const Card = styled.li`
   flex: 0 0 auto;
-  width: 14.5rem;
-  height: 13rem;
+  width: 17.2rem;
+  height: 16.2rem;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
-  padding: 1.8rem 1.5rem 1.25rem;
+  padding: 1.8rem 1.3rem 1.25rem;
   background-color: ${({ $color }) => colors[$color]};
   background-image: ${({ $image }) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(${$image})`};
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  overflow: hidden;
   cursor: pointer;
+  scroll-snap-align: start;
+  &:hover {
+    opacity: 0.75;
+    transition: 0.7s;
+  }
 `;
 
 // 대상
@@ -22,7 +28,6 @@ export const Recipient = styled.p`
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 2.25rem;
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
@@ -30,7 +35,7 @@ export const Recipient = styled.p`
 // 최근 메세지 상자
 export const RecentMessageBox = styled.div`
   position: relative;
-  height: 2.5rem;
+  height: 3.1rem;
   padding-top: 0.75rem;
   display: flex;
 `;
@@ -87,9 +92,9 @@ export const ReactionBox = styled.div`
   gap: 0.5rem;
   width: 14.3rem;
   padding-top: 1.1rem;
-  margin-top: 2.4rem;
-  border-top: ${({ $isColor }) => ($isColor ? "1.5px solid rgba(0, 0, 0, 0.12)"
-    : "1.5px solid rgba(255, 255, 255, 0.5)")};
+  margin-top: 2.6rem;
+  border-top: ${({ $isColor }) =>
+    $isColor ? "1.5px solid rgba(0, 0, 0, 0.12)" : "1.5px solid rgba(255, 255, 255, 0.5)"};
   position: absolute;
   z-index: 2;
 `;
@@ -104,7 +109,7 @@ export const TopReaction = styled.div`
 `;
 
 export const DefaultReaction = styled(TopReaction)`
-  height: 1.4rem;
+  height: 2.2rem;
   font-size: 0.9rem;
 `;
 

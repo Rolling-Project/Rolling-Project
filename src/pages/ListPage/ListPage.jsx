@@ -1,44 +1,35 @@
-import { useEffect, useState } from "react";
 import CardList from "../../components/CardList/CardList";
 import ListButtonBox from "../../components/ListButtonBox/ListButtonBox";
 import Loading from "../../components/Loading/Loading";
+import Error from "../../components/Error/Error";
+import useFetch from "../../utils/hooks/useFetch";
 import * as Styled from "./ListPage.styled";
 
 function ListPage() {
-  const [cardList, setCardList] = useState([]);
-  useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-    const fetchCardList = async () => {
-      try {
-        const response = await fetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20", { signal });
-        if (!response.ok) {
-          throw new Error("에러발생");
-        }
-        const result = await response.json();
-        setCardList(result.results);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    fetchCardList();
-    return () => controller.abort();
-  }, []);
+  const { data, isLoading, isError } = useFetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20");
+  if (isError) {
+    return <Error />;
+  }
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
-      <Loading />
-      {/* <header style={{
-        border: "1px solid #000",
-        height: "4rem"
-      }}
+      <header
+        style={{
+          border: "1px solid #000",
+          height: "4rem"
+        }}
       >
         임시 헤더
       </header>
       <Styled.Wrap>
-        <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={cardList} />
-        <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={cardList} />
+        <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={data} />
+        <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={data} />
         <ListButtonBox />
-      </Styled.Wrap> */}
+      </Styled.Wrap>
     </>
   );
 }
