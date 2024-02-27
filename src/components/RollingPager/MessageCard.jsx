@@ -41,7 +41,7 @@ const Badge = styled.div`
 
 const Divider = styled.div`
   height: 1px;
-  background: ${colors['Gray-200']};
+  background: ${colors['--Gray-200']};
 `;
 
 const Message = styled.div`
@@ -52,7 +52,7 @@ const Message = styled.div`
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
-  color: ${colors['Gray-600']};
+  color: ${colors['--Gray-600']};
 
   /* Font/18 Regular */
   font-family: Pretendard;
@@ -64,7 +64,7 @@ const Message = styled.div`
 `;
 
 const Date = styled.div`
-  color: ${colors['Gray-400']};
+  color: ${colors['--Gray-400']};
   /* Font/12 Regular */
   font-family: Pretendard;
   font-size: 12px;

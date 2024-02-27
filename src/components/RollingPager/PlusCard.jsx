@@ -14,7 +14,7 @@ const Plus = styled(Circle)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors['Gray-500']};
+  background-color: ${colors['--Gray-500']};
 `;
 
 const PlusCard = () => (
