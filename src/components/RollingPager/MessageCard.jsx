@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import BaseCard from './BaseCard';
 import Avatar from './Avatar';
+import { badgeColors } from '../../constants/badgeColors';
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
@@ -22,11 +23,11 @@ const Name = styled.div`
   }
 `;
 
-const Tag = styled.div`
+const Badge = styled.div`
   display: inline-block;
   padding: 0 8px;
-  background-color: ${colors['Purple-100']};
-  color: ${colors['Purple-600']};
+  background-color: ${(props) => colors[badgeColors[props.relationship]?.backgroundColor]};
+  color: ${(props) => colors[badgeColors[props.relationship]?.color]};
   border-radius: 4px;
   /* Font/14 Regular */
   font-family: Pretendard;
@@ -45,10 +46,12 @@ const Divider = styled.div`
 const Message = styled.div`
   height: 106px;
   margin: 16px 0;
+  display: -webkit-box;
   overflow: hidden;
-  color: ${colors['Gray-600']};
   text-overflow: ellipsis;
-  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  color: ${colors['Gray-600']};
 
   /* Font/18 Regular */
   font-family: Pretendard;
@@ -80,7 +83,7 @@ const MessageCard = ({ person }) => {
           <Name>
             From. <span>{sender}</span>
           </Name>
-          <Tag>{relationship}</Tag>
+          <Badge relationship={relationship}>{relationship}</Badge>
         </div>
       </Info>
       <Divider />
