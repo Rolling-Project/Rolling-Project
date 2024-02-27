@@ -9,7 +9,7 @@ function Header() {
           <img src={HeaderLogoIcon} alt="헤더 로고" />
           <Styled.HeaderLogoText>Rolling</Styled.HeaderLogoText>
         </Styled.HeaderLogoBox>
-        <Styled.HeaderButton>롤링 페이퍼 만들기</Styled.HeaderButton>
+        <Styled.HeaderButton to="/post">롤링 페이퍼 만들기</Styled.HeaderButton>
       </Styled.Header>
     </Styled.HeaderBox>
   );

@@ -7,7 +7,7 @@ import useFetch from "../../utils/hooks/useFetch";
 import * as Styled from "./ListPage.styled";
 
 function ListPage() {
-  const { data, isLoading, isError } = useFetch("https://rolling-api.vercel.app/4-18/recipients/?limit=20");
+  const { data, isLoading, isError } = useFetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20");
   if (isError) {
     return <Error />;
   }

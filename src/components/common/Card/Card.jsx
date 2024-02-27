@@ -48,7 +48,7 @@ function Card({ data }) {
             <Styled.DefaultReaction $isImage={isImage}>🙃 이모티콘을 남겨주세요</Styled.DefaultReaction>
           )}
         </Styled.ReactionBox>
-        {isImage && <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} />}
+        {isImage && <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt="카드 배경 이펙트" />}
       </Styled.Card>
     </Link>
   );
