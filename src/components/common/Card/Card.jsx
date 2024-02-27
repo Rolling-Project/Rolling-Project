@@ -1,25 +1,16 @@
 import { Link } from "react-router-dom";
 import * as Styled from "./Card.styled";
-import PurpleBackgroundImg from "../../../assets/purple-circle.svg";
-import BeigeBackgroundImg from "../../../assets/beige-rectangle.svg";
-import GreenBackgroundImg from "../../../assets/green-circle.svg";
-import BlueBackgroundImg from "../../../assets/blue-triangle.svg";
+import BACKGROUND_IMAGE_EFFECT from "../../../utils/constants/bgImageEffect";
 import backgroundColorConveter from "../../../utils/helpers/backgroundColorConverter";
-
-const BACKGROUND_IMAGE_EFFECT = {
-  purple: PurpleBackgroundImg,
-  beige: BeigeBackgroundImg,
-  green: GreenBackgroundImg,
-  blue: BlueBackgroundImg
-};
 
 function Card({ data }) {
   const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } = data;
-  const isColor = backgroundColor === null;
+  const effetct = backgroundImageURL || backgroundColorConveter(backgroundColor);
+  const isImage = backgroundImageURL === null;
   return (
     <Link to={`/post/${data.id}`}>
-      <Styled.Card $color={backgroundColorConveter(backgroundColor)} $image={backgroundImageURL}>
-        <Styled.Recipient $isColor={isColor}>
+      <Styled.Card $effect={effetct} $isImage={isImage}>
+        <Styled.Recipient $isImage={isImage}>
           To.
           {name}
         </Styled.Recipient>
@@ -30,13 +21,13 @@ function Card({ data }) {
           })}
           {messageCount > 3 && <Styled.Additional>{`+${messageCount - 3}`}</Styled.Additional>}
           {!recentMessages.length && (
-            <Styled.DefaultMessage $isColor={isColor}>
+            <Styled.DefaultMessage $isImage={isImage}>
               <Styled.TextBoldEffect>따뜻한 마음</Styled.TextBoldEffect>을 전하는
             </Styled.DefaultMessage>
           )}
         </Styled.RecentMessageBox>
 
-        <Styled.MessageCount $isColor={isColor}>
+        <Styled.MessageCount $isImage={isImage}>
           {messageCount ? (
             <>
               <Styled.TextBoldEffect>{`${messageCount}명`}</Styled.TextBoldEffect>이 작성했어요!
@@ -48,14 +39,16 @@ function Card({ data }) {
           )}
         </Styled.MessageCount>
 
-        <Styled.ReactionBox $isColor={isColor}>
+        <Styled.ReactionBox $isImage={isImage}>
           {topReactions?.map((reaction) => {
             const { id, emoji, count } = reaction;
-            return <Styled.TopReaction $isColor={isColor} key={id}>{`${emoji} ${count}`}</Styled.TopReaction>;
+            return <Styled.TopReaction $isImage={isImage} key={id}>{`${emoji} ${count}`}</Styled.TopReaction>;
           })}
-          {!topReactions.length && <Styled.DefaultReaction>🙃 이모티콘을 남겨주세요</Styled.DefaultReaction>}
+          {!topReactions.length && (
+            <Styled.DefaultReaction $isImage={isImage}>🙃 이모티콘을 남겨주세요</Styled.DefaultReaction>
+          )}
         </Styled.ReactionBox>
-        {/* {backgroundColor && <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} />} */}
+        {isImage && <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} />}
       </Styled.Card>
     </Link>
   );

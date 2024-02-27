@@ -1,16 +1,16 @@
 const backgroundColorConveter = (color) => {
   switch (color) {
     case "beige":
-      return "Orange-200";
+      return "--Orange-200";
 
     case "blue":
-      return "Blue-200";
+      return "--Blue-200";
 
     case "green":
-      return "Green-200";
+      return "--Green-200";
 
     default:
-      return "Purple-200";
+      return "--Purple-200";
   }
 };
 

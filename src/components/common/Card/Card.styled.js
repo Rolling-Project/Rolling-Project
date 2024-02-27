@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { colors } from "../../../styles/colors";
 
@@ -9,22 +10,31 @@ export const Card = styled.li`
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   padding: 1.8rem 1.3rem 1.25rem;
-  background-color: ${({ $color }) => colors[$color]};
-  background-image: ${({ $image }) => `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(${$image})`};
+
+  ${({ $effect, $isImage }) =>
+    $isImage
+      ? css`
+          background-color: ${colors[$effect]};
+          background-image: none;
+        `
+      : css`
+          background-color: transparent;
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url(${$effect});
+        `};
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   cursor: pointer;
-  scroll-snap-align: start;
+  scroll-snap-align: start; // 카드가 스크롤 시작 부분에 스냅
   &:hover {
-    opacity: 0.75;
+    opacity: 0.65;
     transition: 0.7s;
   }
 `;
 
 // 대상
 export const Recipient = styled.p`
-  color: ${({ $isColor }) => ($isColor ? `${colors["Gray-900"]}` : `${colors.White}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors["--Gray-900"]}` : `${colors["--White"]}`)};
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 2.25rem;
@@ -44,7 +54,7 @@ export const RecentMessage = styled.img`
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 3.125rem;
-  border: 1.5px solid ${colors.White};
+  border: 1.5px solid ${colors["--White"]};
 
   &:nth-of-type(2) {
     position: absolute;
@@ -60,25 +70,25 @@ export const RecentMessage = styled.img`
 export const Additional = styled.div`
   padding: 0.4rem 0.4rem 0.25rem;
   border-radius: 1.875rem;
-  background: ${colors.White};
-  border: 1.5px solid ${colors.White};
+  background: ${colors["--White"]};
+  border: 1.5px solid ${colors["--White"]};
   position: absolute;
   left: 3.3rem;
-  color: ${colors["Gray-500"]};
+  color: ${colors["--Gray-500"]};
   font-size: 0.85rem;
   line-height: 1.125rem;
 `;
 
 // 메세지 카운트
 export const MessageCount = styled.p`
-  color: ${({ $isColor }) => ($isColor ? `${colors["Gray-700"]}` : `${colors.White}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors["--Gray-700"]}` : `${colors["--White"]}`)};
   line-height: 1.625rem;
   font-size: 1.1rem;
   font-weight: 300;
 `;
 
 export const DefaultMessage = styled(MessageCount)`
-  color: ${({ $isColor }) => ($isColor ? `${colors["Gray-700"]}` : `${colors.White}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors["Gray-700"]}` : `${colors["--White"]}`)};
   line-height: 2.5rem;
 `;
 
@@ -93,8 +103,8 @@ export const ReactionBox = styled.div`
   width: 14.3rem;
   padding-top: 1.1rem;
   margin-top: 2.6rem;
-  border-top: ${({ $isColor }) =>
-    $isColor ? "1.5px solid rgba(0, 0, 0, 0.12)" : "1.5px solid rgba(255, 255, 255, 0.5)"};
+  border-top: ${({ $isImage }) =>
+    $isImage ? "1.5px solid rgba(0, 0, 0, 0.12)" : "1.5px solid rgba(255, 255, 255, 0.5)"};
   position: absolute;
   z-index: 2;
 `;
@@ -103,9 +113,9 @@ export const ReactionBox = styled.div`
 export const TopReaction = styled.div`
   padding: 0.6rem 0.75rem 0.3rem;
   border-radius: 2rem;
-  background: ${({ $isColor }) => ($isColor ? "rgba(0, 0, 0, 0.45)" : "rgba(255, 255, 255, 0.7)")};
+  background: ${({ $isImage }) => ($isImage ? "rgba(0, 0, 0, 0.45)" : "rgba(255, 255, 255, 0.7)")};
   line-height: 1.25rem;
-  color: ${({ $isColor }) => ($isColor ? `${colors.White}` : `${colors.Black}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors["--White"]}` : `${colors["--Black"]}`)};
 `;
 
 export const DefaultReaction = styled(TopReaction)`

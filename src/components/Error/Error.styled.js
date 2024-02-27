@@ -26,17 +26,17 @@ export const ErrorTitle = styled.h1`
   font-size: 3rem;
   margin-top: 2rem;
   font-style: italic;
-  color: ${colors["Purple-900"]};
+  color: ${colors["--Purple-900"]};
   font-weight: 900;
   letter-spacing: 0.25rem;
 `;
 
 export const ErrorTextRedEffect = styled.span`
-  color: ${colors.Error};
+  color: ${colors["--Error"]};
 `;
 
 export const ErrorTextPurpleEffect = styled.span`
-  color: ${colors["Purple-900"]};
+  color: ${colors["--Purple-900"]};
 `;
 
 export const ErrorText = styled.h2`

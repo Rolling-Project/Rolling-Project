@@ -13,12 +13,12 @@ function CardList({ title, cardList }) {
   });
 
   const handlePrevCard = () => {
-    setScrollX((prevScrollX) => prevScrollX + 18.46);
+    setScrollX((prevScrollX) => prevScrollX + 18.4);
     setCurrentCount((prevCount) => prevCount - 1);
   };
 
   const handleNextCard = () => {
-    setScrollX((prevScrollX) => prevScrollX - 18.46);
+    setScrollX((prevScrollX) => prevScrollX - 18.4);
     setCurrentCount((prevCount) => prevCount + 1);
   };
 

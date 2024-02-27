@@ -17,7 +17,7 @@ export const Button = styled.button`
   &:hover {
     background-color: ${({ $hoverColor }) => $hoverColor};
     transition: 0.7s;
-    color: ${colors.White};
+    color: ${colors["--White"]};
   }
   @media (max-width: 768px) {
     width: 100%;

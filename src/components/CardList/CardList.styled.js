@@ -15,7 +15,7 @@ export const ListTitleBox = styled.div`
 `;
 
 export const ListTitle = styled.h2`
-  color: ${colors.Black};
+  color: ${colors["--Black"]};
   font-size: 1.5rem;
   font-weight: 700;
 
@@ -39,7 +39,7 @@ export const CardDetailBox = styled.div`
 export const CardDetail = styled.span`
   padding-top: 0.5rem;
   display: inline-block;
-  color: ${colors["Gray-400"]};
+  color: ${colors["--Gray-400"]};
   font-size: 0.8rem;
 
   @media (max-width: 360px) {
@@ -71,18 +71,18 @@ export const CardContainer = styled.div`
 
 export const CardList = styled.ul`
   display: flex;
-  gap: 1.25rem;
+  gap: 1.2rem;
   transition: 0.7s;
 `;
 
 export const SliderButton = styled.img`
   position: absolute;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid ${colors["Gray-300"]};
+  border: 1px solid ${colors["--Gray-300"]};
   padding: 0.5rem;
   cursor: pointer;
   @media (max-width: 1200px) {
