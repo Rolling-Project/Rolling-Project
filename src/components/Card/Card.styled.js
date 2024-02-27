@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { colors } from "../../../styles/colors";
+import { colors } from "../../styles/colors";
 
 export const Card = styled.li`
   flex: 0 0 auto;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as Styled from "./CardList.styled";
 import PrevButton from "../../assets/arrow-left.svg";
 import NextButton from "../../assets/arrow-right.svg";
-import Card from "../common/Card/Card";
+import Card from "../Card/Card";
 
 function CardList({ title, cardList }) {
   const [scrollX, setScrollX] = useState(0);

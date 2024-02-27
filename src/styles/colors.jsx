@@ -38,5 +38,3 @@ export const colors = {
   "--Surface": "#F6F8FF",
   "--gray-light-gray-90": "#4A494F"
 };
-
-export default colors;
