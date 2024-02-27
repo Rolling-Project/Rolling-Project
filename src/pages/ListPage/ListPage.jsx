@@ -6,8 +6,11 @@ import Error from "../../components/Error/Error";
 import useFetch from "../../utils/hooks/useFetch";
 import * as Styled from "./ListPage.styled";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 function ListPage() {
-  const { data, isLoading, isError } = useFetch("https://rolling-api.vercel.app/2-6/recipients/?limit=20");
+  const { data, isLoading, isError } = useFetch(`${BASE_URL}/recipients/?limit=20`);
+
   if (isError) {
     return <Error />;
   }
