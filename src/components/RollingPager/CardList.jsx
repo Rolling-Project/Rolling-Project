@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import MessageCard from './MessageCard';
 import PlusCard from './PlusCard';
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 const List = styled.ul`
   width: 100%;
   max-width: 1200px;
@@ -21,7 +23,7 @@ const CardList = () => {
   const recipientId = 2687;
 
   const fetchMessages = async () => {
-    const response = await fetch(`https://rolling-api.vercel.app/4-18/recipients/${recipientId}/messages/`);
+    const response = await fetch(`${baseUrl}recipients/${recipientId}/messages/`);
     const result = await response.json();
     return result;
   };
