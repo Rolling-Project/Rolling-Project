@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-const reset = css`
+const Reset = css`
   html,
   body,
   div,
@@ -125,6 +125,9 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 
-export default reset;
+export default Reset;
