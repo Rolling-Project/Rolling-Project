@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-const reset = css`
+const Reset = css`
   html,
   body,
   div,
@@ -136,4 +136,4 @@ const reset = css`
   }
 `;
 
-export default reset;
+export default Reset;

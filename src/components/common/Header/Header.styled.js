@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import { colors } from "../../../styles/colors";
+import colors from "../../../styles/colors";
 
 export const HeaderBox = styled.header`
   width: 100vw;
