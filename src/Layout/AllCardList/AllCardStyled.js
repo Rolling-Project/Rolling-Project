@@ -133,7 +133,7 @@ export const ListFilter = styled.ul`
   background-color: ${colors['--White']};
   border-radius: 0.3rem;
   top: 100%;
-  z-index: 999;
+  z-index: 998;
   transition: 0.4s;
   overflow: hidden;
   height: ${({ $lstFilterToggle }) => ($lstFilterToggle ? '5rem' : '0')};

@@ -29,7 +29,7 @@ function ListPage() {
 
   return (
     <>
-      <Header />
+      <Header isStatic={false} />
       {viewAllList ? (
         <AllCardList allData={allData} />
       ) : (
