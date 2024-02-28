@@ -4,6 +4,7 @@ import CardList from '../components/RollingPager/CardList';
 import MessageModal from '../components/RollingPager/Modal';
 import useFetch from '../utils/hooks/useFetch';
 import useModal from '../utils/hooks/useModal';
+import { useParams } from 'react-router-dom';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -17,7 +18,7 @@ const Container = styled.div`
 const RollingPaper = () => {
   const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
 
-  const recipientId = 2687; /* 하드 코딩 */
+  const { id: recipientId } = useParams();
 
   const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
 
