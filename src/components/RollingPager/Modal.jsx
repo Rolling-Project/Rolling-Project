@@ -4,6 +4,7 @@ import Profile from './Profile';
 import Date from './Date';
 import Divider from './Divider';
 import { Primary40Button } from '../common/Button/Button';
+import formatDate from '../../utils/helpers/dateUtils';
 
 const Modal = styled.div`
   position: fixed;
@@ -49,33 +50,38 @@ const Footer = styled.div`
   justify-content: center;
 `;
 
-const MessageModal = () => (
-  <Modal>
+const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+`;
 
-    <Header>
-      <Profile />
-      <Date fontSize={'14px'}>2023.07.08</Date>
-    </Header>
+const MessageModal = ({ message, onClose }) => {
+  const { sender, profileImageURL, relationship, content, createdAt } = message;
+  return (
+    <div>
+      <Backdrop />
+      <Modal>
+        <Header>
+          <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
+          <Date fontSize={'14px'}>{formatDate(createdAt)}</Date>
+        </Header>
 
-    <Divider />
+        <Divider />
 
-    <Content>
-      코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 하세요! 코로나가 또다시 기승을 부리는
-      요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또
-      하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는
-      요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또
-      하세요코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 하세요! 코로나가 또다시 기승을 부리는
-      요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또
-      하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는
-      요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또
-      하세요
-    </Content>
+        <Content>{content}</Content>
 
-    <Footer>
-      <Primary40Button w={'120px'}>확인</Primary40Button>
-    </Footer>
-    
-  </Modal>
-);
+        <Footer>
+          <Primary40Button w={'120px'} onClick={() => onClose()}>
+            확인
+          </Primary40Button>
+        </Footer>
+      </Modal>
+    </div>
+  );
+};
 
 export default MessageModal;

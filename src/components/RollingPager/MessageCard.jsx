@@ -30,6 +30,7 @@ const Message = styled.div`
 
 const MessageCard = ({ message }) => {
   const { sender, profileImageURL, relationship, content, createdAt } = message;
+
   return (
     <Card>
       <Header>

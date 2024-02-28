@@ -18,11 +18,11 @@ const List = styled.ul`
   }
 `;
 
-const CardList = ({ messages }) => (
+const CardList = ({ messages, onClick }) => (
   <List>
     <PlusCard />
     {messages.map((message) => (
-      <li key={message.id}>
+      <li key={message.id} onClick={() => onClick(message)}>
         <MessageCard message={message} />
       </li>
     ))}

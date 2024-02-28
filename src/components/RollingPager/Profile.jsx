@@ -7,7 +7,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
-  /* padding: 28px 0 15px 0; */
 `;
 
 const Name = styled.div`
