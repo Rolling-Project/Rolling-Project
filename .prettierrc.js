@@ -6,5 +6,7 @@ export default {
   semi: true, //문장의 끝에 세미콜론 추가
   printWidth: 120, //한 줄의 최대 길이를 120으로 제한
   tabWidth: 2, // 들여쓰기 간격을 2로 설정
-  arrowParens: 'always', // 화살표 함수 괄호 사용 여부
+  arrowParens: "always", // 화살표 함수 괄호 사용 여부
+  trailingComma: "none", // 후행 쉼표 설정
+  jsxSingleQuote: false
 };
