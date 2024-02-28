@@ -1,11 +1,11 @@
-import styled from "@emotion/styled";
-import colors from "../../styles/colors";
+import styled from '@emotion/styled';
+import colors from '../../styles/colors';
 
 export const ListButtonBox = styled.div`
   display: flex;
   gap: 2rem;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   padding: 1.5rem 0;
   align-items: center;
 
@@ -31,7 +31,7 @@ export const Button = styled.button`
   &:hover {
     background-color: ${({ $hoverColor }) => $hoverColor};
     transition: 0.7s;
-    color: ${colors["--White"]};
+    color: ${colors['--White']};
   }
   @media (max-width: 768px) {
     width: 100%;

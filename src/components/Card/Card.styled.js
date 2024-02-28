@@ -82,14 +82,14 @@ export const Additional = styled.div`
 
 // 메세지 카운트
 export const MessageCount = styled.p`
-  color: ${({ $isImage }) => ($isImage ? `${colors['--Gray-700']}` : `${colors['--White']}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['--Black']}` : `${colors['--White']}`)};
   line-height: 1.5rem;
   font-size: 1.1rem;
   font-weight: 300;
 `;
 
 export const DefaultMessage = styled(MessageCount)`
-  color: ${({ $isImage }) => ($isImage ? `${colors['Gray-700']}` : `${colors['--White']}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['--Black']}` : `${colors['--White']}`)};
   line-height: 2.5rem;
 `;
 
@@ -129,4 +129,5 @@ export const BackgroundEffect = styled.img`
   bottom: 0px;
   right: 0px;
   z-index: 1;
+  border-radius: 1rem;
 `;
