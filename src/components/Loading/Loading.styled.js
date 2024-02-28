@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import colors from "../../styles/colors";
+import styled from '@emotion/styled';
+import colors from '../../styles/colors';
 
 export const LoadingWrap = styled.main`
   width: 100vw;
@@ -28,7 +28,7 @@ export const LoadingTitle = styled.h1`
   font-style: italic;
   font-weight: 900;
   letter-spacing: 0.25rem;
-  color: ${colors["--Purple-900"]};
+  color: ${colors['--Purple-900']};
 `;
 
 export const LoadingTitleEffect = styled.span`
