@@ -40,5 +40,7 @@ module.exports = {
     'max-len': ['error', { code: 120 }],
     indent: 'off', // 들여쓰기 경고 비활성화
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'linebreak-style': 0,
+    'object-curly-newline': 'off',
   },
 };
