@@ -28,7 +28,7 @@ export const Card = styled.li`
   list-style-type: none;
   scroll-snap-align: start; // 카드가 스크롤 시작 부분에 스냅
   &:hover {
-    opacity: 0.65;
+    opacity: 0.7;
     transition: 0.7s;
   }
 `;
@@ -46,7 +46,7 @@ export const Recipient = styled.p`
 // 최근 메세지 상자
 export const RecentMessageBox = styled.div`
   position: relative;
-  height: 3.8rem;
+  height: 4rem;
   padding-top: 1rem;
   display: flex;
 `;
@@ -84,7 +84,7 @@ export const Additional = styled.div`
 export const MessageCount = styled.p`
   color: ${({ $isImage }) => ($isImage ? `${colors['--Black']}` : `${colors['--White']}`)};
   line-height: 1.5rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 300;
 `;
 

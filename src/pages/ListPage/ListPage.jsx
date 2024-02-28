@@ -9,7 +9,7 @@ import useDataFetch from '../../utils/hooks/useDataFetch';
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function ListPage() {
-  const [viewAllList, setViewAllList] = useState(false);
+  const [viewAllList, setViewAllList] = useState(true);
   const { data, isLoading, isError } = useDataFetch(`${BASE_URL}recipients/?limit=20`);
   const latestData = data;
   const popularData = [...data].sort((a, b) => b.reactionCount - a.reactionCount);
