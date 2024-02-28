@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import colors from "../../../styles/colors";
 
 export const HeaderBox = styled.header`
-  width: 100vw;
+  width: 100%;
   max-width: 120rem;
   min-width: 24rem;
   height: 4rem;
