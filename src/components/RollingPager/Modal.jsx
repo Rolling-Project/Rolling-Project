@@ -3,6 +3,7 @@ import colors from '../../styles/colors';
 import Profile from './Profile';
 import Date from './Date';
 import Divider from './Divider';
+import { Primary40Button } from '../common/Button/Button';
 
 const Modal = styled.div`
   position: fixed;
@@ -27,7 +28,7 @@ const Header = styled.div`
 const Content = styled.div`
   width: 520px;
   height: 240px;
-  margin-top: 16px;
+  margin: 16px 0 24px;
   padding-right: 8px;
   color: #5a5a5a;
   font-size: 18px;
@@ -43,17 +44,21 @@ const Content = styled.div`
   }
 `;
 
-const Button = styled.div`
-    
-`
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 const MessageModal = () => (
   <Modal>
+
     <Header>
       <Profile />
       <Date fontSize={'14px'}>2023.07.08</Date>
     </Header>
+
     <Divider />
+
     <Content>
       코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또 하세요! 코로나가 또다시 기승을 부리는
       요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또
@@ -65,6 +70,11 @@ const MessageModal = () => (
       요즘이네요. 건강, 체력 모두 조심 또 하세요!코로나가 또다시 기승을 부리는 요즘이네요. 건강, 체력 모두 조심 또
       하세요
     </Content>
+
+    <Footer>
+      <Primary40Button w={'120px'}>확인</Primary40Button>
+    </Footer>
+    
   </Modal>
 );
 

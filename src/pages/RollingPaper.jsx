@@ -26,7 +26,7 @@ const RollingPaper = () => {
   return (
     <Container>
       <CardList messages={data.results} />
-      <MessageModal />
+      {/* <MessageModal /> */}
     </Container>
   );
 };

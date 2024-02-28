@@ -7,7 +7,11 @@ import Divider from './Divider';
 import formatDate from '../../utils/helpers/dateUtils';
 
 const Card = styled(BaseCard)`
-  padding: 0 24px;
+  padding: 28px 24px;
+`;
+
+const Header = styled.div`
+  margin-bottom: 15px;
 `;
 
 const Message = styled.div`
@@ -28,9 +32,14 @@ const MessageCard = ({ message }) => {
   const { sender, profileImageURL, relationship, content, createdAt } = message;
   return (
     <Card>
-      <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
+      <Header>
+        <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
+      </Header>
+
       <Divider />
+
       <Message>{content}</Message>
+
       <Date fontSize={'12px'}>{formatDate(createdAt)}</Date>
     </Card>
   );
