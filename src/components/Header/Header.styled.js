@@ -8,7 +8,6 @@ export const HeaderBox = styled.header`
   min-width: 24rem;
   height: 4rem;
   border-bottom: 0.0625rem solid #ededed;
-  margin-bottom: 3.75rem;
 `;
 
 export const Header = styled.nav`
