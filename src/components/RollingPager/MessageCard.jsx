@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import BaseCard from './BaseCard';
 import Avatar from './Avatar';
-import badgeColors from '../../utils/constants/badgeColors';
+import BADGE_COLORS from '../../utils/constants/badgeColors';
 import formatDate from '../../utils/helpers/dateUtils';
 
 const Card = styled(BaseCard)`
@@ -27,8 +27,8 @@ const Name = styled.div`
 const Badge = styled.div`
   display: inline-block;
   padding: 0 8px;
-  background-color: ${(props) => colors[badgeColors[props.relationship]?.backgroundColor]};
-  color: ${(props) => colors[badgeColors[props.relationship]?.color]};
+  background-color: ${(props) => colors[BADGE_COLORS[props.relationship]?.backgroundColor]};
+  color: ${(props) => colors[BADGE_COLORS[props.relationship]?.color]};
   border-radius: 4px;
   /* Font/14 Regular */
   font-family: Pretendard;
