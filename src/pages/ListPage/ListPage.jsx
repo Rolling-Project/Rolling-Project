@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+import Header from "../../components/common/Header/Header";
 import CardList from "../../components/CardList/CardList";
 import ListButtonBox from "../../components/ListButtonBox/ListButtonBox";
 import Loading from "../../components/Loading/Loading";
