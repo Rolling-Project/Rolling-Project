@@ -2,7 +2,7 @@
   "env": {
     // 프로젝트 환경 지정(브라우저 및 ECMAScript 2021)
     "browser": true,
-    "es2021": true
+    "es2021": true,
   },
   "extends": "airbnb", // Aribnb의 JavaScript 스타일 가이드 기반
   "overrides": [
@@ -10,22 +10,22 @@
     {
       "env": {
         // 해당 설정이 적용될 환경 정의
-        "node": true
+        "node": true,
       },
       "files": [
         // 설정이 적용될 파일 정의
-        ".eslintrc.{js,cjs}"
+        ".eslintrc.{js,cjs}",
       ],
       "parserOptions": {
         // ES Module 형식의 스크립트 파일 사용(import/export)
-        "sourceType": "module"
-      }
-    }
+        "sourceType": "module",
+      },
+    },
   ],
   "parserOptions": {
     // 코드를 해석하는데 필요한 parse 옵션 정의(가장 최신 ECMAScript 사용, 모듈)
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
   },
   "rules": {
     // ESLint 규칙을 추가하거나 재정의
@@ -39,12 +39,10 @@
     "comma-dangle": ["error", "only-multiline"], // 객체나 배열에서만 후행 쉼표를 허용
     "max-len": ["error", { "code": 120 }], // 한 줄의 최대 길이는 120까지 허용
     "brace-style": "off", // 중괄호 다음 줄 바꿈 비활성화
-    "quotes": ["error", "double"], // 문자열 큰 따옴표 사용
     "jsx-quotes": [2, "prefer-double"], // JSX에서 큰 따옴표 사용 가능
     "object-curly-newline": "off", // 중괄호에서 줄 바꿈 안해도 되게 설정
     "import/prefer-default-export": "off", // 단일 export 사용 가능
     "react/jsx-one-expression-per-line": "off", // JSX 코드에서 표현식을 한 줄에 하나씩 작성
     "no-confusing-arrow": "off", // 화살표 함수와 조건 표현식 혼합 사용 가능
-    "endOfLine": "auto" // 줄 바꿈 문자(End of Line, EOL)를 파일에서 자동으로 감지
-  }
+  },
 }

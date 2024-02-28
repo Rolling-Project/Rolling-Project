@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
-import colors from "../../../styles/colors";
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
+import colors from '../../../styles/colors';
 
 export const HeaderBox = styled.header`
   width: 100vw;
@@ -24,11 +24,11 @@ export const Header = styled.nav`
 `;
 
 export const HeaderButton = styled(Link)`
-  border: 1px solid ${colors["--Gray-300"]};
+  border: 1px solid ${colors['--Gray-300']};
   border-radius: 0.375rem;
   padding: 0.6rem 1rem 0.4rem;
   font-weight: 700;
-  color: ${colors["--Gray-900"]};
+  color: ${colors['--Gray-900']};
   text-align: center;
   line-height: 1.625rem;
   letter-spacing: -0.01rem;
@@ -41,7 +41,7 @@ export const HeaderButton = styled(Link)`
 export const HeaderLogoBox = styled.div`
   display: flex;
   gap: 0.5rem;
-  color: ${colors["--gray-light-gray-90"]};
+  color: ${colors['--gray-light-gray-90']};
   justify-content: space-between;
   align-items: center;
 `;

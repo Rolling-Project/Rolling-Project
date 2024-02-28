@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import * as Styled from "./Card.styled";
-import BACKGROUND_IMAGE_EFFECT from "../../utils/constants/bgImageEffect";
-import backgroundColorConveter from "../../utils/helpers/bgColorConverter";
+import { Link } from 'react-router-dom';
+import * as Styled from './Card.styled';
+import BACKGROUND_IMAGE_EFFECT from '../../utils/constants/bgImageEffect';
+import backgroundColorConveter from '../../utils/helpers/bgColorConverter';
 
 function Card({ data }) {
   const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } = data;

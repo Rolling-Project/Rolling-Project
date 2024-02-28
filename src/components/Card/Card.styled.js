@@ -1,6 +1,6 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import colors from "../../styles/colors";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import colors from '../../styles/colors';
 
 export const Card = styled.li`
   flex: 0 0 auto;
@@ -34,7 +34,7 @@ export const Card = styled.li`
 
 // 대상
 export const Recipient = styled.p`
-  color: ${({ $isImage }) => ($isImage ? `${colors["--Gray-900"]}` : `${colors["--White"]}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['--Gray-900']}` : `${colors['--White']}`)};
   font-size: 1.5rem;
   font-weight: 800;
   line-height: 2.25rem;
@@ -54,7 +54,7 @@ export const RecentMessage = styled.img`
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 3.125rem;
-  border: 1.5px solid ${colors["--White"]};
+  border: 1.5px solid ${colors['--White']};
 
   &:nth-of-type(2) {
     position: absolute;
@@ -70,25 +70,25 @@ export const RecentMessage = styled.img`
 export const Additional = styled.div`
   padding: 0.4rem 0.4rem 0.25rem;
   border-radius: 1.875rem;
-  background: ${colors["--White"]};
-  border: 1.5px solid ${colors["--White"]};
+  background: ${colors['--White']};
+  border: 1.5px solid ${colors['--White']};
   position: absolute;
   left: 3.3rem;
-  color: ${colors["--Gray-500"]};
+  color: ${colors['--Gray-500']};
   font-size: 0.85rem;
   line-height: 1.125rem;
 `;
 
 // 메세지 카운트
 export const MessageCount = styled.p`
-  color: ${({ $isImage }) => ($isImage ? `${colors["--Gray-700"]}` : `${colors["--White"]}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['--Gray-700']}` : `${colors['--White']}`)};
   line-height: 1.625rem;
   font-size: 1.1rem;
   font-weight: 300;
 `;
 
 export const DefaultMessage = styled(MessageCount)`
-  color: ${({ $isImage }) => ($isImage ? `${colors["Gray-700"]}` : `${colors["--White"]}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['Gray-700']}` : `${colors['--White']}`)};
   line-height: 2.5rem;
 `;
 
@@ -104,7 +104,7 @@ export const ReactionBox = styled.div`
   padding-top: 1.1rem;
   margin-top: 2.6rem;
   border-top: ${({ $isImage }) =>
-    $isImage ? "1.5px solid rgba(0, 0, 0, 0.12)" : "1.5px solid rgba(255, 255, 255, 0.5)"};
+    $isImage ? '1.5px solid rgba(0, 0, 0, 0.12)' : '1.5px solid rgba(255, 255, 255, 0.5)'};
   position: absolute;
   z-index: 2;
 `;
@@ -113,9 +113,9 @@ export const ReactionBox = styled.div`
 export const TopReaction = styled.div`
   padding: 0.6rem 0.75rem 0.3rem;
   border-radius: 2rem;
-  background: ${({ $isImage }) => ($isImage ? "rgba(0, 0, 0, 0.45)" : "rgba(255, 255, 255, 0.7)")};
+  background: ${({ $isImage }) => ($isImage ? 'rgba(0, 0, 0, 0.45)' : 'rgba(255, 255, 255, 0.7)')};
   line-height: 1.25rem;
-  color: ${({ $isImage }) => ($isImage ? `${colors["--White"]}` : `${colors["--Black"]}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['--White']}` : `${colors['--Black']}`)};
 `;
 
 export const DefaultReaction = styled(TopReaction)`

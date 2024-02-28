@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useDataFetch = (url) => {
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ const useDataFetch = (url) => {
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error("API 서버 통신 중 에러 발생");
+          throw new Error('API 서버 통신 중 에러 발생');
         }
         const result = await response.json();
         setData(result.results);
