@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 import BaseCard from './BaseCard';
-import Profile from './Profile';
-import Date from './Date';
-import Divider from './Divider';
-import formatDate from '../../utils/helpers/dateUtils';
+import Profile from '../Profile';
+import Date from '../Date';
+import Divider from '../Divider';
+import formatDate from '../../../utils/helpers/dateUtils';
 
 const Card = styled(BaseCard)`
   padding: 28px 24px;

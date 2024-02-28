@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
 const BaseCard = styled.div`
   height: 280px;

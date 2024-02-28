@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import MessageCard from './MessageCard';
-import PlusCard from './PlusCard';
+import MessageCard from './Card/MessageCard';
+import PlusCard from './Card/PlusCard';
 
 const List = styled.ul`
   width: 100%;
