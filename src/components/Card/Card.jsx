@@ -17,7 +17,14 @@ function Card({ data }) {
         <Styled.RecentMessageBox>
           {recentMessages?.map((message) => {
             const { id, profileImageURL } = message;
-            return <Styled.RecentMessage key={id} src={profileImageURL} />;
+            return (
+              <Styled.RecentMessage
+                key={id}
+                src={profileImageURL}
+                alt="글 작성해준 유저의 프로필 이미지"
+                loading="lazy"
+              />
+            );
           })}
           {messageCount > 3 && <Styled.Additional>{`+${messageCount - 3}`}</Styled.Additional>}
           {!recentMessages.length && (
@@ -48,7 +55,9 @@ function Card({ data }) {
             <Styled.DefaultReaction $isImage={isImage}>🙃 이모티콘을 남겨주세요</Styled.DefaultReaction>
           )}
         </Styled.ReactionBox>
-        {isImage && <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt="카드 배경 이펙트" />}
+        {isImage && (
+          <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt="카드 배경 효과" loading="lazy" />
+        )}
       </Styled.Card>
     </Link>
   );

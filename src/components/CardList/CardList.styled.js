@@ -4,7 +4,7 @@ import { colors } from "../../styles/colors";
 export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 4rem 0 0.9rem;
+  margin: 3.5rem 0 0.9rem;
   @media (max-width: 1200px) {
     flex-direction: column;
   }
@@ -90,7 +90,7 @@ export const SliderButton = styled.img`
   }
 `;
 export const PrevButton = styled(SliderButton)`
-  left: 0;
+  left: -0.1rem;
 `;
 export const NextButton = styled(SliderButton)`
   right: -2.2rem;

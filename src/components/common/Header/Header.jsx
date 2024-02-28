@@ -1,7 +1,7 @@
 import * as Styled from "./Header.styled";
 import HeaderLogoIcon from "../../../../public/logo.svg";
 
-function Header() {
+function Header({ isButotnVisible = true }) {
   return (
     <Styled.HeaderBox>
       <Styled.Header>
@@ -9,7 +9,7 @@ function Header() {
           <img src={HeaderLogoIcon} alt="헤더 로고" />
           <Styled.HeaderLogoText>Rolling</Styled.HeaderLogoText>
         </Styled.HeaderLogoBox>
-        <Styled.HeaderButton to="/post">롤링 페이퍼 만들기</Styled.HeaderButton>
+        {isButotnVisible && <Styled.HeaderButton to="/post">롤링 페이퍼 만들기</Styled.HeaderButton>}
       </Styled.Header>
     </Styled.HeaderBox>
   );
