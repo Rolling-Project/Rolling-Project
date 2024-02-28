@@ -3,15 +3,11 @@ import colors from '../../styles/colors';
 import BaseCard from './BaseCard';
 import Profile from './Profile';
 import Date from './Date';
+import Divider from './Divider';
 import formatDate from '../../utils/helpers/dateUtils';
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  background-color: ${colors['--Gray-200']};
 `;
 
 const Message = styled.div`
@@ -35,7 +31,7 @@ const MessageCard = ({ message }) => {
       <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
       <Divider />
       <Message>{content}</Message>
-      <Date>{formatDate(createdAt)}</Date>
+      <Date fontSize={'12px'}>{formatDate(createdAt)}</Date>
     </Card>
   );
 };

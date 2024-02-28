@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 28px 0 15px 0;
+  /* padding: 28px 0 15px 0; */
 `;
 
 const Name = styled.div`
@@ -29,7 +29,7 @@ const Badge = styled.div`
   letter-spacing: -0.07px;
 `;
 
-const Profile = ({ imgUrl, sender, relationship }) => (
+const Profile = ({ imgUrl, sender = '김동훈', relationship = '동료' }) => (
   <Container>
     <Avatar imgUrl={imgUrl} />
     <div>
