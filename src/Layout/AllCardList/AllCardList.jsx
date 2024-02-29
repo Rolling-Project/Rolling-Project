@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import * as Styled from './AllCardStyled';
 import Card from '../../components/Card/Card';
+import HiddenLabel from '../../components/common/HiddenLabel/HiddenLabel';
 import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/search.svg';
 import listFilterConverter from '../../utils/helpers/filterConverter';
@@ -75,6 +76,7 @@ function AllCardList({ allData }) {
     <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
       <Styled.CardSearchInputContainer>
         <Styled.CardSearchInputBox>
+          <HiddenLabel>롤링 페이퍼 검색창</HiddenLabel>
           <Styled.CardSearchInput
             value={searchValue}
             onChange={(e) => handleCardSearch(e)}
