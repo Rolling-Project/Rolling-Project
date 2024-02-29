@@ -39,13 +39,13 @@ function AllCardList({ allData }) {
       (a, b) => new Date(b[conveterParameter[listFilterValue]]) - new Date(a[conveterParameter[listFilterValue]])
     );
     setAllCardList(sortResult);
-    if (listFilterValue === '인기순' && popularList.current) {
+
+    if (listFilterValue === '인기순' && popularList.current === '') {
       popularList.current = sortResult;
     }
   }, [listFilterValue]);
 
-  // 데이터 검색
-  useEffect(() => {
+  const handleSearchChange = (value) => {
     if (searchValue === '') {
       if (listFilterValue === '인기순') {
         setAllCardList(popularList.current);
@@ -54,9 +54,20 @@ function AllCardList({ allData }) {
       setAllCardList(allData);
       return;
     }
-    const regex = new RegExp(searchValue, 'i');
-    const searchResult = allCardList.filter((list) => regex.test(list.name));
+    const regex = new RegExp(value, 'iu');
+    const searchResult = allData.filter((list) => regex.test(list.name));
     setAllCardList(searchResult);
+  };
+
+  // 데이터 검색
+  useEffect(() => {
+    // searchValue 바뀌면 일정시간 후 함수 호출
+    const timer = setTimeout(() => {
+      handleSearchChange(searchValue);
+    }, 500); // 500ms(0.5초) 딜레이
+
+    // 클린업 함수에서 타이머 클리어
+    return () => clearTimeout(timer);
   }, [searchValue]);
 
   return (
