@@ -12,7 +12,7 @@ const Container = styled.div`
   padding: 0 24px;
 `;
 
-const RollingPaper = () => {
+function RollingPaper() {
   const recipientId = 2687; /* 하드 코딩 */
 
   const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
@@ -27,6 +27,6 @@ const RollingPaper = () => {
       <CardList messages={data.results} />
     </Container>
   );
-};
+}
 
 export default RollingPaper;

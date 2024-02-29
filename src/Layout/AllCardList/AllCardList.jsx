@@ -3,11 +3,7 @@ import * as Styled from './AllCardStyled';
 import Card from '../../components/Card/Card';
 import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/search.svg';
-
-const conveterParameter = {
-  최신순: 'createdAt',
-  인기순: 'reactionCount'
-};
+import listFilterConverter from '../../utils/helpers/filterConverter';
 
 function AllCardList({ allData }) {
   const [listFilterValue, setListFilterValue] = useState('최신순');
@@ -35,9 +31,8 @@ function AllCardList({ allData }) {
 
   // 데이터 정렬(최신순, 인기순)
   useEffect(() => {
-    const sortResult = [...allCardList].sort(
-      (a, b) => new Date(b[conveterParameter[listFilterValue]]) - new Date(a[conveterParameter[listFilterValue]])
-    );
+    const listFilter = listFilterConverter(listFilterValue);
+    const sortResult = [...allCardList].sort((a, b) => new Date(b[listFilter]) - new Date(a[listFilter]));
     setAllCardList(sortResult);
 
     if (listFilterValue === '인기순' && popularList.current === '') {
@@ -66,7 +61,7 @@ function AllCardList({ allData }) {
       handleSearchChange(searchValue);
     }, 500); // 500ms(0.5초) 딜레이
 
-    // 클린업 함수에서 타이머 클리어
+    // 클린업 함수 => 타이머 클리어
     return () => clearTimeout(timer);
   }, [searchValue]);
 

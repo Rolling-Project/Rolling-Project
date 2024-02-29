@@ -12,8 +12,10 @@ function ListPage() {
   const [viewAllList, setViewAllList] = useState(false);
 
   const fetchData = async () => {
+    // 데이터가 총 몇 개있는지 확인
     const countResponse = await fetch(`${BASE_URL}recipients/?limit=1`);
     const countResult = await countResponse.json();
+    // 그 데이터 개수에 맞게 데이터 로드
     const allDataResponse = await fetch(`${BASE_URL}recipients/?limit=${countResult.count}`);
     const allDataResult = await allDataResponse.json();
     return allDataResult.results;
@@ -36,9 +38,9 @@ function ListPage() {
     return <Loading />;
   }
 
-  const allData = [...data];
-  const latestData = [...data].slice(0, 20);
-  const popularData = [...data].sort((a, b) => b.reactionCount - a.reactionCount).slice(0, 20);
+  const allData = [...data]; // 전체 데이터
+  const latestData = [...data].slice(0, 20); // 최신순 Top 20
+  const popularData = [...data].sort((a, b) => b.reactionCount - a.reactionCount).slice(0, 20); // 인기순 Top20
 
   return (
     <>
