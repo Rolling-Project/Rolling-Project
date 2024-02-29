@@ -5,7 +5,7 @@ function Header({ isStatic = true, isButotnVisible = true }) {
   return (
     <Styled.HeaderBox $isStatic={isStatic}>
       <Styled.Header>
-        <Styled.HeaderLogoBox>
+        <Styled.HeaderLogoBox to="/">
           <img src={HeaderLogoIcon} alt="헤더 로고" />
           <Styled.HeaderLogoText>Rolling</Styled.HeaderLogoText>
         </Styled.HeaderLogoBox>

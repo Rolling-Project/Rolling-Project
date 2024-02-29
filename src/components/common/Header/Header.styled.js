@@ -43,7 +43,7 @@ export const HeaderButton = styled(Link)`
   }
 `;
 
-export const HeaderLogoBox = styled.div`
+export const HeaderLogoBox = styled(Link)`
   display: flex;
   gap: 0.5rem;
   color: ${colors['--gray-light-gray-90']};
