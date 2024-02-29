@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import * as Styled from './AllCardStyled';
 import Card from '../../components/Card/Card';
 import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
@@ -13,7 +13,9 @@ function AllCardList({ allData }) {
   const [listFilterValue, setListFilterValue] = useState('최신순');
   const [lstFilterToggle, setListFilterToggle] = useState(false);
   const [allCardList, setAllCardList] = useState(allData);
-  console.log(allCardList);
+  const [searchValue, setSearchValue] = useState('');
+  const popularList = useRef('');
+
   const handleListFilterToggle = (e) => {
     if (e.target.tagName === 'BUTTON' || e.target.alt === '리스트 필터 토글 버튼') {
       setListFilterToggle(!lstFilterToggle);
@@ -27,19 +29,46 @@ function AllCardList({ allData }) {
     setListFilterToggle(!lstFilterToggle);
   };
 
+  const handleCardSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  // 데이터 정렬(최신순, 인기순)
   useEffect(() => {
-    setAllCardList(
-      [...allCardList].sort(
-        (a, b) => new Date(b[conveterParameter[listFilterValue]]) - new Date(a[conveterParameter[listFilterValue]])
-      )
+    const sortResult = [...allCardList].sort(
+      (a, b) => new Date(b[conveterParameter[listFilterValue]]) - new Date(a[conveterParameter[listFilterValue]])
     );
+    setAllCardList(sortResult);
+    if (listFilterValue === '인기순' && popularList.current) {
+      popularList.current = sortResult;
+    }
   }, [listFilterValue]);
+
+  // 데이터 검색
+  useEffect(() => {
+    if (searchValue === '') {
+      if (listFilterValue === '인기순') {
+        setAllCardList(popularList.current);
+        return;
+      }
+      setAllCardList(allData);
+      return;
+    }
+    const regex = new RegExp(searchValue, 'i');
+    const searchResult = allCardList.filter((list) => regex.test(list.name));
+    setAllCardList(searchResult);
+  }, [searchValue]);
 
   return (
     <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
       <Styled.CardSearchInputContainer>
         <Styled.CardSearchInputBox>
-          <Styled.CardSearchInput type="search" placeholder="롤링 페이퍼를 전하고 싶은 대상을 입력해 주세요" />
+          <Styled.CardSearchInput
+            value={searchValue}
+            onChange={(e) => handleCardSearch(e)}
+            type="text"
+            placeholder="롤링 페이퍼를 전하고 싶은 대상을 입력해 주세요"
+          />
           <Styled.SearchIcon src={SearchIcon} alt="검색 아이콘" />
         </Styled.CardSearchInputBox>
       </Styled.CardSearchInputContainer>

@@ -146,6 +146,7 @@ export const ListFilter = styled.ul`
   overflow: hidden;
   height: ${({ $lstFilterToggle }) => ($lstFilterToggle ? '5rem' : '0')};
   border: ${({ $lstFilterToggle }) => ($lstFilterToggle ? `1px solid ${colors['--Purple-600']}` : 'none')};
+  cursor: pointer;
 `;
 
 export const ListFilterItem = styled.li`
