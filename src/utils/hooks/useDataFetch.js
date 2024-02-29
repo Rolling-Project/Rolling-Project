@@ -8,12 +8,17 @@ const useDataFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
-        if (!response.ok) {
+        const countResponse = await fetch(url + 1);
+        if (!countResponse.ok) {
           throw new Error('API 서버 통신 중 에러 발생');
         }
-        const result = await response.json();
-        setData(result.results);
+        const countResult = await countResponse.json();
+        const allDataResponse = await fetch(url + countResult.count);
+        if (!allDataResponse.ok) {
+          throw new Error('전체 데이터 로드 중 에러 발생');
+        }
+        const allDataResult = await allDataResponse.json();
+        setData(allDataResult.results);
       } catch (error) {
         setIsError(error);
       } finally {

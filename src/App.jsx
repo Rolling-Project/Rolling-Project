@@ -6,12 +6,14 @@ import reset from './styles/reset';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <Global styles={reset} />
-    <Routers />
-    <ReactQueryDevtools />
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Global styles={reset} />
+      <Routers />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  );
+}
 
 export default App;

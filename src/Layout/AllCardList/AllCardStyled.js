@@ -11,9 +11,15 @@ export const AllCardListWrap = styled.main`
   }
 `;
 
-export const CardSearchInputBox = styled.div`
+export const CardSearchInputContainer = styled.div`
   width: 100%;
   text-align: center;
+`;
+
+export const CardSearchInputBox = styled.div`
+  width: 27rem;
+  margin: 0 auto;
+  position: relative;
 `;
 
 export const CardSearchInput = styled.input`
@@ -42,9 +48,17 @@ export const CardSearchInput = styled.input`
   }
 `;
 
+export const SearchIcon = styled.img`
+  width: 1.5625rem;
+  height: 1.5625rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`;
+
 export const ListHeaderWrap = styled.div`
   margin-top: 1rem;
-  height: 3rem;
+  height: 3.5rem;
   padding: 0 0.7rem;
 
   @media screen and (max-width: 720px) {
@@ -79,10 +93,6 @@ export const ListTitleLineBreak = styled.br`
 export const ListHeaderBox = styled.div`
   display: flex;
   justify-content: space-between;
-  /* position: relative; */
-  @media screen and (max-width: 450px) {
-    /* flex-direction: column; */
-  }
 `;
 
 export const ListFilterBox = styled.div`
@@ -90,18 +100,16 @@ export const ListFilterBox = styled.div`
   height: 2.5rem;
   display: flex;
   justify-content: right;
-
-  @media screen and (max-width: 450px) {
-    /* order: -1; */
-  }
 `;
 
 export const ListFilterButton = styled.button`
   width: 7rem;
   height: 2.5rem;
-  border-radius: 0.4rem;
+  border-radius: 0.3rem;
   outline: none;
   border: 1px solid ${colors['--Purple-600']};
+  border: ${({ $lstFilterToggle }) =>
+    $lstFilterToggle ? `1px solid ${colors['--Purple-600']}` : `1px solid ${colors['--Gray-400']}`};
   background-color: ${colors['--White']};
   font-size: 1.1rem;
   font-weight: 600;
@@ -131,7 +139,7 @@ export const ListFilter = styled.ul`
   letter-spacing: 0.2rem;
   position: absolute;
   background-color: ${colors['--White']};
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   top: 100%;
   z-index: 998;
   transition: 0.4s;
@@ -142,14 +150,14 @@ export const ListFilter = styled.ul`
 
 export const ListFilterItem = styled.li`
   padding: 0.65rem 0.375rem 0.65rem 1rem;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
 
   &:nth-of-type(2) {
     border-top: 1px solid ${colors['--Purple-400']};
   }
 
   &:hover {
-    background-color: ${colors['--Purple-200']};
+    background-color: ${colors['--Purple-100']};
     transition: 0.7s;
   }
 `;
@@ -183,7 +191,6 @@ export const CardListBox = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 17.2rem);
   gap: 3rem 1.25rem;
-  /* border: 1px solid #000; */
 
   @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(3, 17.2rem);
