@@ -6,25 +6,28 @@ import SearchIcon from '../../assets/search.svg';
 import listFilterConverter from '../../utils/helpers/filterConverter';
 
 function AllCardList({ allData }) {
-  const [listFilterValue, setListFilterValue] = useState('최신순');
-  const [lstFilterToggle, setListFilterToggle] = useState(false);
-  const [allCardList, setAllCardList] = useState(allData);
-  const [searchValue, setSearchValue] = useState('');
-  const popularList = useRef('');
+  const [listFilterValue, setListFilterValue] = useState('최신순'); // 정렬 필터
+  const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
+  const [allCardList, setAllCardList] = useState(allData); // 롤링 페이퍼 카드 리스트
+  const [searchValue, setSearchValue] = useState(''); // 인풋 값
+  const popularList = useRef(''); // 인기순 데이터 보관
 
+  // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
-    if (e.target.tagName === 'BUTTON' || e.target.alt === '리스트 필터 토글 버튼') {
+    if (e.target.dataset.status === 'filter') {
       setListFilterToggle(!lstFilterToggle);
       return;
     }
     setListFilterToggle(false);
   };
 
+  // 정렬 필터 설정(최신순, 인기순)
   const handleListFilterValue = (e) => {
     setListFilterValue(e.target.textContent);
     setListFilterToggle(!lstFilterToggle);
   };
 
+  // 인풋 값 관리
   const handleCardSearch = (e) => {
     setSearchValue(e.target.value);
   };
@@ -35,26 +38,29 @@ function AllCardList({ allData }) {
     const sortResult = [...allCardList].sort((a, b) => new Date(b[listFilter]) - new Date(a[listFilter]));
     setAllCardList(sortResult);
 
+    // 인기순 데이터 보관
     if (listFilterValue === '인기순' && popularList.current === '') {
       popularList.current = sortResult;
     }
   }, [listFilterValue]);
 
+  // 롤링 페이퍼 검색
   const handleSearchChange = (value) => {
     if (searchValue === '') {
+      // 인풋 값이 없을 때
       if (listFilterValue === '인기순') {
+        // 인기순 정렬
         setAllCardList(popularList.current);
         return;
       }
-      setAllCardList(allData);
+      setAllCardList(allData); // 최신순 정렬
       return;
     }
-    const regex = new RegExp(value, 'iu');
+    const regex = new RegExp(value, 'i');
     const searchResult = allData.filter((list) => regex.test(list.name));
     setAllCardList(searchResult);
   };
 
-  // 데이터 검색
   useEffect(() => {
     // searchValue 바뀌면 일정시간 후 함수 호출
     const timer = setTimeout(() => {
@@ -86,10 +92,10 @@ function AllCardList({ allData }) {
             <Styled.ListTitleLineBreak /> 전체 보기
           </Styled.ListTitle>
           <Styled.ListFilterBox>
-            <Styled.ListFilterButton type="button" $lstFilterToggle={lstFilterToggle}>
+            <Styled.ListFilterButton data-status="filter" type="button" $lstFilterToggle={lstFilterToggle}>
               {listFilterValue}
             </Styled.ListFilterButton>
-            <Styled.FilterToggleImage src={ArrowToggleDown} alt="리스트 필터 토글 버튼" />
+            <Styled.FilterToggleImage src={ArrowToggleDown} data-status="filter" alt="리스트 필터 토글 버튼" />
             <Styled.ListFilter $lstFilterToggle={lstFilterToggle}>
               <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>최신순</Styled.ListFilterItem>
               <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>인기순</Styled.ListFilterItem>
