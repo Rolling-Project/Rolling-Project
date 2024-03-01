@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
-import BaseCard from './BaseCard';
+import BaseCard from './Card/BaseCard';
 import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import formatDate from '../../utils/helpers/dateUtils';

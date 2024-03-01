@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
 import CardList from '../components/RollingPager/CardList';
-import useFetch from '../utils/hooks/useFetch';
-
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+import MessageModal from '../components/RollingPager/Modal';
+import useModal from '../utils/hooks/useModal';
+import useGetMessages from '../utils/hooks/useGetMessages';
 
 const Container = styled.div`
   width: 100%;
@@ -13,18 +13,19 @@ const Container = styled.div`
 `;
 
 function RollingPaper() {
-  const recipientId = 2687; /* 하드 코딩 */
+  const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
 
-  const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
+  const { id: recipientId } = useParams();
 
-  const { data, isLoading, error } = useQuery(['messages', recipientId], fetchMessages);
+  const { data, isLoading, error } = useGetMessages(recipientId);
 
   if (isLoading) return <p>로딩 컴포넌트</p>;
   if (error) return <p>에러 컴포넌트</p>;
 
   return (
     <Container>
-      <CardList messages={data.results} />
+      <CardList messages={data.results} onClick={openModal} />
+      {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
     </Container>
   );
 }
