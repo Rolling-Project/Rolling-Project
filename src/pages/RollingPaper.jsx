@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 import CardList from '../components/RollingPager/CardList';
 import MessageModal from '../components/RollingPager/Modal';
 import useModal from '../utils/hooks/useModal';
-import { useParams } from 'react-router-dom';
 import useGetMessages from '../utils/hooks/useGetMessages';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const Container = styled.div`
   width: 100%;
@@ -13,18 +14,21 @@ const Container = styled.div`
 `;
 
 const RollingPaper = () => {
+  const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetMessages();
+
   const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
 
-  const { id: recipientId } = useParams();
+  const [ref, inView] = useInView();
 
-  const { data, isLoading, error } = useGetMessages(recipientId);
-
-  if (isLoading) return <p>로딩 컴포넌트</p>;
-  if (error) return <p>에러 컴포넌트</p>;
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage]);
 
   return (
     <Container>
-      <CardList messages={data.results} onClick={openModal} />
+      <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />;
       {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
     </Container>
   );

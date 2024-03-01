@@ -16,17 +16,20 @@ const List = styled.ul`
   @media (max-width: 360px) {
     grid-template-columns: repeat(1, 1fr);
   }
-`;
+`
 
-const CardList = ({ messages, onClick }) => (
-  <List>
-    <PlusCard />
-    {messages.map((message) => (
-      <li key={message.id} onClick={() => onClick(message)}>
-        <MessageCard message={message} />
-      </li>
-    ))}
-  </List>
-);
+const CardList = ({ messages, lastRef, onClick }) => {
+  return (
+    <List>
+      <PlusCard />
+      {messages?.map((message, idx) => (
+        <li key={message.id} onClick={() => onClick(message)}>
+          <MessageCard message={message} />
+          <div ref={idx === messages.length - 3 ? lastRef : null}></div>
+        </li>
+      ))}
+    </List>
+  );
+};
 
 export default CardList;
