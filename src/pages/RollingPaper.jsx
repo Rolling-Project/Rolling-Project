@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
 import { useQuery } from '@tanstack/react-query';
 import CardList from '../components/RollingPager/CardList';
+import MessageModal from '../components/RollingPager/Modal';
 import useFetch from '../utils/hooks/useFetch';
+import useModal from '../utils/hooks/useModal';
+import { useParams } from 'react-router-dom';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -13,7 +16,9 @@ const Container = styled.div`
 `;
 
 const RollingPaper = () => {
-  const recipientId = 2687; /* 하드 코딩 */
+  const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
+
+  const { id: recipientId } = useParams();
 
   const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
 
@@ -24,7 +29,8 @@ const RollingPaper = () => {
 
   return (
     <Container>
-      <CardList messages={data.results} />
+      <CardList messages={data.results} onClick={openModal} />
+      {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
     </Container>
   );
 };
