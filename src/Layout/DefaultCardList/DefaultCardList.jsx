@@ -1,6 +1,6 @@
-import CardList from "../../components/CardList/CardList";
-import ListButtonBox from "../../components/ListButtonBox/ListButtonBox";
-import * as Styled from "./DefaultCardList.styled";
+import CardList from '../../components/CardList/CardList';
+import ListButtonBox from '../../components/ListButtonBox/ListButtonBox';
+import * as Styled from './DefaultCardList.styled';
 
 function DefaultCardList({ handleViewAllList, popularData, latestData }) {
   return (

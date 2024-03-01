@@ -18,15 +18,17 @@ const List = styled.ul`
   }
 `;
 
-const CardList = ({ messages, onClick }) => (
-  <List>
-    <PlusCard />
-    {messages.map((message) => (
-      <li key={message.id} onClick={() => onClick(message)}>
-        <MessageCard message={message} />
-      </li>
-    ))}
-  </List>
-);
+function CardList({ messages, onClick }) {
+  return (
+    <List>
+      <PlusCard />
+      {messages.map((message) => (
+        <li key={message.id} onClick={() => onClick(message)}>
+          <MessageCard message={message} />
+        </li>
+      ))}
+    </List>
+  );
+}
 
 export default CardList;

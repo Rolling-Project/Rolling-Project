@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
+import { useParams } from 'react-router-dom';
 import CardList from '../components/RollingPager/CardList';
 import MessageModal from '../components/RollingPager/Modal';
 import useModal from '../utils/hooks/useModal';
-import { useParams } from 'react-router-dom';
 import useGetMessages from '../utils/hooks/useGetMessages';
 
 const Container = styled.div`
@@ -12,7 +12,7 @@ const Container = styled.div`
   padding: 0 24px;
 `;
 
-const RollingPaper = () => {
+function RollingPaper() {
   const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
 
   const { id: recipientId } = useParams();
@@ -28,6 +28,6 @@ const RollingPaper = () => {
       {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
     </Container>
   );
-};
+}
 
 export default RollingPaper;

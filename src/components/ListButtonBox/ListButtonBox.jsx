@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import * as Styled from "./ListButtonBox.styled";
+import { Link } from 'react-router-dom';
+import * as Styled from './ListButtonBox.styled';
 
 function ListButtonBox({ handleViewAllList }) {
   return (

@@ -5,11 +5,11 @@ import colors from '../../styles/colors';
 export const Card = styled.li`
   flex: 0 0 auto;
   width: 17.2rem;
-  height: 16.2rem;
+  height: 18.8rem;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
-  padding: 1.8rem 1.3rem 1.25rem;
+  padding: 2rem 1.3rem 1.25rem;
 
   ${({ $effect, $isImage }) =>
     $isImage
@@ -25,9 +25,10 @@ export const Card = styled.li`
   background-size: cover;
   position: relative;
   cursor: pointer;
+  list-style-type: none;
   scroll-snap-align: start; // 카드가 스크롤 시작 부분에 스냅
   &:hover {
-    opacity: 0.65;
+    opacity: 0.7;
     transition: 0.7s;
   }
 `;
@@ -35,7 +36,7 @@ export const Card = styled.li`
 // 대상
 export const Recipient = styled.p`
   color: ${({ $isImage }) => ($isImage ? `${colors['--Gray-900']}` : `${colors['--White']}`)};
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 2.25rem;
   white-space: nowrap;
@@ -45,14 +46,14 @@ export const Recipient = styled.p`
 // 최근 메세지 상자
 export const RecentMessageBox = styled.div`
   position: relative;
-  height: 3.1rem;
-  padding-top: 0.75rem;
+  height: 4rem;
+  padding-top: 1rem;
   display: flex;
 `;
 // 최근 메세지 3명
 export const RecentMessage = styled.img`
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 3.125rem;
   border: 1.5px solid ${colors['--White']};
 
@@ -68,27 +69,27 @@ export const RecentMessage = styled.img`
 `;
 // 추가적으로 몇 명이 더 작성했는지
 export const Additional = styled.div`
-  padding: 0.4rem 0.4rem 0.25rem;
+  padding: 0.5rem 0.5rem 0.25rem;
   border-radius: 1.875rem;
   background: ${colors['--White']};
   border: 1.5px solid ${colors['--White']};
   position: absolute;
   left: 3.3rem;
   color: ${colors['--Gray-500']};
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   line-height: 1.125rem;
 `;
 
 // 메세지 카운트
 export const MessageCount = styled.p`
-  color: ${({ $isImage }) => ($isImage ? `${colors['--Gray-700']}` : `${colors['--White']}`)};
-  line-height: 1.625rem;
-  font-size: 1.1rem;
+  color: ${({ $isImage }) => ($isImage ? `${colors['--Black']}` : `${colors['--White']}`)};
+  line-height: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 300;
 `;
 
 export const DefaultMessage = styled(MessageCount)`
-  color: ${({ $isImage }) => ($isImage ? `${colors['Gray-700']}` : `${colors['--White']}`)};
+  color: ${({ $isImage }) => ($isImage ? `${colors['--Black']}` : `${colors['--White']}`)};
   line-height: 2.5rem;
 `;
 
@@ -101,8 +102,8 @@ export const ReactionBox = styled.div`
   display: flex;
   gap: 0.5rem;
   width: 14.3rem;
-  padding-top: 1.1rem;
-  margin-top: 2.6rem;
+  padding-top: 1.5rem;
+  margin-top: 3rem;
   border-top: ${({ $isImage }) =>
     $isImage ? '1.5px solid rgba(0, 0, 0, 0.12)' : '1.5px solid rgba(255, 255, 255, 0.5)'};
   position: absolute;
@@ -111,7 +112,7 @@ export const ReactionBox = styled.div`
 
 // 가장 많은 3개 리액션
 export const TopReaction = styled.div`
-  padding: 0.6rem 0.75rem 0.3rem;
+  padding: 0.8rem 0.8rem 0.5rem;
   border-radius: 2rem;
   background: ${({ $isImage }) => ($isImage ? 'rgba(0, 0, 0, 0.45)' : 'rgba(255, 255, 255, 0.7)')};
   line-height: 1.25rem;
@@ -119,7 +120,7 @@ export const TopReaction = styled.div`
 `;
 
 export const DefaultReaction = styled(TopReaction)`
-  height: 2.2rem;
+  height: 2.65rem;
   font-size: 0.9rem;
 `;
 
@@ -128,4 +129,5 @@ export const BackgroundEffect = styled.img`
   bottom: 0px;
   right: 0px;
   z-index: 1;
+  border-radius: 1rem;
 `;
