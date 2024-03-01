@@ -83,7 +83,7 @@ function AllCardList({ allData }) {
             type="text"
             placeholder="롤링 페이퍼를 전하고 싶은 대상을 입력해 주세요"
           />
-          <Styled.SearchIcon src={SearchIcon} alt="검색 아이콘" />
+          <Styled.SearchIcon src={SearchIcon} alt="롤링 페이퍼 검색 아이콘" />
         </Styled.CardSearchInputBox>
       </Styled.CardSearchInputContainer>
 
@@ -97,7 +97,11 @@ function AllCardList({ allData }) {
             <Styled.ListFilterButton data-status="filter" type="button" $lstFilterToggle={lstFilterToggle}>
               {listFilterValue}
             </Styled.ListFilterButton>
-            <Styled.FilterToggleImage src={ArrowToggleDown} data-status="filter" alt="리스트 필터 토글 버튼" />
+            <Styled.FilterToggleImage
+              src={ArrowToggleDown}
+              data-status="filter"
+              alt="롤링 페이퍼 리스트 필터 토글 아이콘"
+            />
             <Styled.ListFilter $lstFilterToggle={lstFilterToggle}>
               <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>최신순</Styled.ListFilterItem>
               <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>인기순</Styled.ListFilterItem>
