@@ -76,8 +76,9 @@ function AllCardList({ allData }) {
     <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
       <Styled.CardSearchInputContainer>
         <Styled.CardSearchInputBox>
-          <HiddenLabel>롤링 페이퍼 검색창</HiddenLabel>
+          <HiddenLabel htmlFor="card-search-input">롤링 페이퍼 검색창</HiddenLabel>
           <Styled.CardSearchInput
+            id="card-search-input"
             value={searchValue}
             onChange={(e) => handleCardSearch(e)}
             type="text"
