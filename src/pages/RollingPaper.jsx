@@ -1,12 +1,9 @@
 import styled from '@emotion/styled';
-import { useQuery } from '@tanstack/react-query';
 import CardList from '../components/RollingPager/CardList';
 import MessageModal from '../components/RollingPager/Modal';
-import useFetch from '../utils/hooks/useFetch';
 import useModal from '../utils/hooks/useModal';
 import { useParams } from 'react-router-dom';
-
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+import useGetMessages from '../utils/hooks/useGetMessages';
 
 const Container = styled.div`
   width: 100%;
@@ -20,9 +17,7 @@ const RollingPaper = () => {
 
   const { id: recipientId } = useParams();
 
-  const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
-
-  const { data, isLoading, error } = useQuery(['messages', recipientId], fetchMessages);
+  const { data, isLoading, error } = useGetMessages(recipientId);
 
   if (isLoading) return <p>로딩 컴포넌트</p>;
   if (error) return <p>에러 컴포넌트</p>;
