@@ -17,12 +17,14 @@ const Plus = styled(Circle)`
   background-color: ${colors['--Gray-500']};
 `;
 
-const PlusCard = () => (
-  <Card>
-    <Plus>
-      <img src={plusIcon} alt="플러스 아이콘" />
-    </Plus>
-  </Card>
-);
+function PlusCard() {
+  return (
+    <Card>
+      <Plus>
+        <img src={plusIcon} alt="플러스 아이콘" />
+      </Plus>
+    </Card>
+  );
+}
 
 export default PlusCard;

@@ -13,11 +13,9 @@ const Container = styled.div`
   padding: 0 24px;
 `;
 
-const RollingPaper = () => {
-  const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetMessages();
-
+function RollingPaper() {
   const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
-
+  const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetMessages();
   const [ref, inView] = useInView();
 
   useEffect(() => {
@@ -32,6 +30,6 @@ const RollingPaper = () => {
       {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
     </Container>
   );
-};
+}
 
 export default RollingPaper;

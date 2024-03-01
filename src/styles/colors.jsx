@@ -36,7 +36,7 @@ const colors = {
   '--Black': '#000',
   '--Error': '#DC3A3A',
   '--Surface': '#F6F8FF',
-  '--gray-light-gray-90': '#4A494F',
+  '--gray-light-gray-90': '#4A494F'
 };
 
 export default colors;

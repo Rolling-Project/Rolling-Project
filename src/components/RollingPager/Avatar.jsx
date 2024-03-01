@@ -7,10 +7,12 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-const Avatar = ({ imgUrl }) => (
-  <Circle>
-    <Image src={imgUrl} alt="프로필 이미지" />
-  </Circle>
-);
+function Avatar({ imgUrl }) {
+  return (
+    <Circle>
+      <Image src={imgUrl} alt="프로필 이미지" />
+    </Circle>
+  );
+}
 
 export default Avatar;

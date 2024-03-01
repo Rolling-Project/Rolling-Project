@@ -18,7 +18,7 @@ const List = styled.ul`
   }
 `
 
-const CardList = ({ messages, lastRef, onClick }) => {
+function CardList({ messages, lastRef, onClick }) {
   return (
     <List>
       <PlusCard />
@@ -30,6 +30,6 @@ const CardList = ({ messages, lastRef, onClick }) => {
       ))}
     </List>
   );
-};
+}
 
 export default CardList;

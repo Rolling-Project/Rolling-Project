@@ -14,7 +14,7 @@ const useGetMessages = () => {
     const result = await useFetch(`${baseUrl}recipients/${recipientId}/messages/?limit=8&offset=${pageParam}`);
     return {
       result: result.results,
-      nextPage: pageParam + 8,
+      nextPage: pageParam + 9,
       isLast: !result.next
     };
   };
