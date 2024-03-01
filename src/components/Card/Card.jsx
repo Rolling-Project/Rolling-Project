@@ -11,8 +11,8 @@ function Card({ data, isBig = false }) {
   const effetct = backgroundImageURL || backgroundColorConveter(backgroundColor);
   const isImage = backgroundImageURL === null;
   return (
-    <Link to={`/post/${data.id}`}>
-      <Styled.Card $effect={effetct} $isImage={isImage} $isBig={isBig}>
+    <Styled.Card $effect={effetct} $isImage={isImage} $isBig={isBig}>
+      <Link to={`/post/${data.id}`}>
         <Styled.Recipient $isImage={isImage} $isBig={isBig}>
           To.
           {name}
@@ -62,8 +62,8 @@ function Card({ data, isBig = false }) {
         {isImage && (
           <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt="카드 배경 효과" loading="lazy" />
         )}
-      </Styled.Card>
-    </Link>
+      </Link>
+    </Styled.Card>
   );
 }
 

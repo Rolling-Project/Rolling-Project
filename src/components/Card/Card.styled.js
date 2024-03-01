@@ -63,7 +63,7 @@ export const MessageCount = styled.p`
 `;
 
 export const DefaultMessage = styled(MessageCount)`
-  line-height: ${({ $isBig }) => ($isBig ? '1.7rem' : '1.75rem')};
+  line-height: ${({ $isBig }) => ($isBig ? '1.95rem' : '1.75rem')};
   padding-top: 0;
 `;
 

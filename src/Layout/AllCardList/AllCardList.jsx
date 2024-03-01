@@ -1,17 +1,20 @@
 import { useEffect, useState, useRef } from 'react';
 import * as Styled from './AllCardStyled';
+import Loading from '../../components/Loading/Loading';
+import Error from '../../components/Error/Error';
 import Card from '../../components/Card/Card';
 import HiddenLabel from '../../components/common/HiddenLabel/HiddenLabel';
 import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/search.svg';
 import listFilterConverter from '../../utils/helpers/filterConverter';
 
-function AllCardList({ allData }) {
+function AllCardList({ allData, allDataStatus }) {
   const [listFilterValue, setListFilterValue] = useState('최신순'); // 정렬 필터
   const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
   const [allCardList, setAllCardList] = useState(allData); // 롤링 페이퍼 카드 리스트
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
-  const popularList = useRef(''); // 인기순 데이터 보관
+  const popularList = useRef([]); // 인기순 데이터 보관
+  console.log(allData);
 
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
@@ -72,6 +75,14 @@ function AllCardList({ allData }) {
     return () => clearTimeout(timer);
   }, [searchValue]);
 
+  if (allDataStatus.current.isError) {
+    return <Error />;
+  }
+
+  if (allDataStatus.current.isLoading) {
+    return <Loading />;
+  }
+
   return (
     <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
       <Styled.CardSearchInputContainer>
@@ -117,7 +128,7 @@ function AllCardList({ allData }) {
       </Styled.ListHeaderWrap>
 
       <Styled.CardListBox>
-        {allCardList.map((data) => (
+        {allData.map((data) => (
           <Card key={data.id} data={data} isBig />
         ))}
       </Styled.CardListBox>
