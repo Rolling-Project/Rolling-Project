@@ -25,6 +25,7 @@ const colors = {
   '--Green-500': '#2BA600',
   '--Gray-100': '#F6F6F6',
   '--Gray-200': '#EEE',
+  '--Gray-250': '#E3E3E3',
   '--Gray-300': '#CCC',
   '--Gray-400': '#999',
   '--Gray-500': '#555',

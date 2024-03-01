@@ -118,7 +118,7 @@ function AllCardList({ allData }) {
 
       <Styled.CardListBox>
         {allCardList.map((data) => (
-          <Card key={data.id} data={data} />
+          <Card key={data.id} data={data} isBig />
         ))}
       </Styled.CardListBox>
     </Styled.AllCardListWrap>

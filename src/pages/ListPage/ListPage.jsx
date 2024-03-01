@@ -33,7 +33,7 @@ function ListPage() {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(data);
+
   const { dataCount, latestData, popularData } = data;
 
   const handleViewAllList = () => {
@@ -44,7 +44,7 @@ function ListPage() {
     <>
       <Header isStatic={false} />
       {viewAllList ? (
-        <AllCardList allData={latestData} />
+        <AllCardList allData={popularData} />
       ) : (
         <DefaultCardList handleViewAllList={handleViewAllList} latestData={latestData} popularData={popularData} />
       )}

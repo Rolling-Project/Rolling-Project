@@ -4,7 +4,7 @@ import colors from '../../styles/colors';
 export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0 0.9rem;
+  margin: 3rem 0 1.2rem;
   @media (max-width: 1200px) {
     flex-direction: column;
   }
