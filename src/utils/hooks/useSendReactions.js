@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const postReaction = async ({ id, emoji, type }) => {
@@ -17,7 +17,10 @@ const postReaction = async ({ id, emoji, type }) => {
 };
 
 const useSendReactions = () => {
-  return useMutation(postReaction);
+  const queryClient = useQueryClient();
+  return useMutation(postReaction, {
+    onSuccess: () => queryClient.invalidateQueries(['reactions'])
+  });
 };
 
 export default useSendReactions;
