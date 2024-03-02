@@ -51,6 +51,11 @@ export const HeaderLogoBox = styled(Link)`
   align-items: center;
 `;
 
+export const HeaderLogoImage = styled.img`
+  width: 1.75rem;
+  height: 1.75rem;
+`;
+
 export const HeaderLogoText = styled.span`
   padding-top: 0.3rem;
   font-size: 1.4rem;

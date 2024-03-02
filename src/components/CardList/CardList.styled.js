@@ -4,7 +4,7 @@ import colors from '../../styles/colors';
 export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 2rem 0 0.9rem;
+  margin: 3rem 0 1.2rem;
   @media (max-width: 1200px) {
     flex-direction: column;
   }
@@ -39,7 +39,7 @@ export const CardDetailBox = styled.div`
 export const CardDetail = styled.span`
   padding-top: 0.5rem;
   display: inline-block;
-  color: ${colors['--Gray-400']};
+  color: ${colors['--Gray-600']};
   font-size: 0.8rem;
 
   @media (max-width: 360px) {
