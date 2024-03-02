@@ -35,6 +35,10 @@ function AllCardList({ allData, allDataStatus }) {
     setSearchValue(e.target.value);
   };
 
+  useEffect(() => {
+    setAllCardList(allData);
+  }, [allData]);
+
   // 데이터 정렬(최신순, 인기순)
   useEffect(() => {
     const listFilter = listFilterConverter(listFilterValue);
@@ -42,7 +46,7 @@ function AllCardList({ allData, allDataStatus }) {
     setAllCardList(sortResult);
 
     // 인기순 데이터 보관
-    if (listFilterValue === '인기순' && popularList.current === '') {
+    if (listFilterValue === '인기순' && !popularList.current.length) {
       popularList.current = sortResult;
     }
   }, [listFilterValue]);
@@ -127,7 +131,7 @@ function AllCardList({ allData, allDataStatus }) {
       </Styled.ListHeaderWrap>
 
       <Styled.CardListBox>
-        {allData.map((data) => (
+        {allCardList?.map((data) => (
           <Card key={data.id} data={data} isBig />
         ))}
       </Styled.CardListBox>
