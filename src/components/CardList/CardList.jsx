@@ -1,51 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import * as Styled from './CardList.styled';
 import PrevButton from '../../assets/arrow-left.svg';
 import NextButton from '../../assets/arrow-right.svg';
 import Card from '../Card/Card';
 
 function CardList({ title, cardList }) {
-  const [scrollX, setScrollX] = useState(0);
-  const [currentCount, setCurrentCount] = useState(0);
   const [buttonVisible, setButtonVisible] = useState({
     prev: false,
-    next: false
+    next: true
   });
+  const cardContainer = useRef(null);
 
   const handlePrevCard = () => {
-    setScrollX((prevScrollX) => prevScrollX + 18.4);
-    setCurrentCount((prevCount) => prevCount - 1);
+    cardContainer.current.scrollBy({
+      left: -294.4, // 왼쪽으로 스크롤
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const handleNextCard = () => {
-    setScrollX((prevScrollX) => prevScrollX - 18.4);
-    setCurrentCount((prevCount) => prevCount + 1);
+    cardContainer.current.scrollBy({
+      left: 294.4, // 오른쪽으로 스크롤
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
-  const currentCheck = () => {
-    if (cardList.length < 5) {
-      // 리스트의 길이가 5보다 작다면
-      setButtonVisible({
-        prev: false,
-        next: false
-      });
-      return;
-    }
-
-    if (currentCount === 0) {
-      // 리스트의 처음을 볼 때
-      setButtonVisible({
-        prev: false,
-        next: true
-      });
-      return;
-    }
-
-    if (currentCount === cardList.length - 4) {
-      // 리스트의 마지막을 볼 때
+  const handleScroll = () => {
+    if (cardContainer.current.scrollLeft >= 4700) {
       setButtonVisible({
         prev: true,
         next: false
+      });
+      return;
+    }
+
+    if (cardContainer.current.scrollLeft === 0) {
+      setButtonVisible({
+        prev: false,
+        next: true
       });
       return;
     }
@@ -57,8 +51,14 @@ function CardList({ title, cardList }) {
   };
 
   useEffect(() => {
-    currentCheck();
-  }, [cardList, currentCount]);
+    // 컴포넌트가 마운트될 때 이벤트 리스너를 추가합니다.
+    cardContainer.current.addEventListener('scroll', handleScroll);
+
+    // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
+    return () => {
+      cardContainer.current.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // 빈 배열을 전달하여 마운트 및 언마운트 시에만 실행되도록 설정합니다.
 
   return (
     <Styled.CardWrap>
@@ -70,8 +70,8 @@ function CardList({ title, cardList }) {
         </Styled.CardDetailBox>
       </Styled.ListTitleBox>
 
-      <Styled.CardContainer>
-        <Styled.CardList style={{ marginLeft: `${scrollX}rem` }}>
+      <Styled.CardContainer ref={cardContainer}>
+        <Styled.CardList>
           {cardList?.map((data) => (
             <Card key={data.id} data={data} />
           ))}

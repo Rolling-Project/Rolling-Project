@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import Header from '../../components/common/Header/Header';
 import DefaultCardList from '../../Layout/DefaultCardList/DefaultCardList';
@@ -38,6 +38,7 @@ function ListPage() {
       }
       return { latestData: topData.current.latest, popularData: topData.current.popular };
     }
+    // 처음 로드
     const popularResponse = await fetch(`${BASE_URL}recipients/?limit=20&sort=like`);
     const popularResult = await popularResponse.json();
     const latestResponse = await fetch(`${BASE_URL}recipients/?limit=20`);

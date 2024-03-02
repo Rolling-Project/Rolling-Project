@@ -60,9 +60,12 @@ export const CardWrap = styled.section`
 
 export const CardContainer = styled.div`
   overflow: hidden;
-
+  overflow-x: auto; // 가로방향 스크롤
+  scrollbar-width: none; // 스크롤바 표시 x
+  scroll-behavior: smooth; // 스크롤 부드럽게
+  scroll-snap-type: x mandatory; // 스크롤이 스냅 지점에 정렬
   @media (max-width: 1200px) {
-    overflow-x: auto; // 가로방향 스크롤
+    overflow-x: scroll; // 가로방향 스크롤
     scrollbar-width: none; // 스크롤바 표시 x
     scroll-behavior: smooth; // 스크롤 부드럽게
     scroll-snap-type: x mandatory; // 스크롤이 스냅 지점에 정렬
