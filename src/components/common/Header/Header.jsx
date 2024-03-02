@@ -1,5 +1,5 @@
-import * as Styled from "./Header.styled";
-import HeaderLogoIcon from "../../../../public/logo.svg";
+import * as Styled from './Header.styled';
+import HeaderLogoIcon from '../../../../public/logo.svg';
 
 function Header({ isButotnVisible = true }) {
   return (
