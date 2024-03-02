@@ -5,11 +5,14 @@ import useModal from '../utils/hooks/useModal';
 import useGetMessages from '../utils/hooks/useGetMessages';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import Header from '../components/RollingPager/Header';
 
 const Container = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 0 24px;
 `;
 
@@ -26,7 +29,8 @@ function RollingPaper() {
 
   return (
     <Container>
-      <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />;
+      <Header />
+      <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />
       {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
     </Container>
   );
