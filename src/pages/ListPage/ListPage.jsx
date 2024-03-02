@@ -26,13 +26,13 @@ function ListPage() {
   const fetchData = async () => {
     if (allDataStatus.current.count) {
       try {
-        const response = await fetch(`${BASE_URL}recipients/?limit=${allDataStatus.current.count}&offset=20`);
+        const response = await fetch(`${BASE_URL}recipients/?limit=${allDataStatus.current.count}`);
         if (!response.ok) {
           throw new Error('전체 데이터 로드 중 에러 발생!');
         }
         const result = await response.json();
         allDataStatus.current.isLoading = false;
-        setAllData([...allData, ...result.results]);
+        setAllData(result.results);
       } catch (error) {
         allDataStatus.current.isError = true;
       }
@@ -45,7 +45,6 @@ function ListPage() {
     allDataStatus.current.count = latestResult.count; // 전체 데이터의 개수
     topData.current.latest = latestResult.results; // 최신순 20개 보관
     topData.current.popular = popularResult.results; // 인기순 20개 보관
-    setAllData(latestResult.results);
     return { latestData: latestResult.results, popularData: popularResult.results };
   };
 

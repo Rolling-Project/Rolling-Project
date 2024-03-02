@@ -14,7 +14,6 @@ function AllCardList({ allData, allDataStatus }) {
   const [allCardList, setAllCardList] = useState(allData); // 롤링 페이퍼 카드 리스트
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
   const popularList = useRef([]); // 인기순 데이터 보관
-  console.log(allData);
 
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
