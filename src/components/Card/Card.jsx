@@ -12,7 +12,7 @@ function Card({ data, isBig = false }) {
   const isImage = backgroundImageURL === null;
   return (
     <Styled.Card $effect={effetct} $isImage={isImage} $isBig={isBig}>
-      <Link to={`/post/${data.id}`}>
+      <Link to={`/post/${data.id}`} state={effetct}>
         <Styled.Recipient $isImage={isImage} $isBig={isBig}>
           To.
           {name}

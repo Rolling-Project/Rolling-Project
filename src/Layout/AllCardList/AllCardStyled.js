@@ -20,6 +20,16 @@ export const CardSearchInputBox = styled.div`
   width: 27rem;
   margin: 0 auto;
   position: relative;
+
+  @media screen and (max-width: 720px) {
+    width: 22rem;
+    height: 3rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    height: 2.5rem;
+  }
 `;
 
 export const CardSearchInput = styled.input`
@@ -54,6 +64,18 @@ export const SearchIcon = styled.img`
   position: absolute;
   top: 1rem;
   right: 1rem;
+
+  @media screen and (max-width: 720px) {
+    width: 1.3rem;
+    height: 1.3rem;
+    top: 0.9rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 1.2rem;
+    height: 1.2rem;
+    top: 0.7rem;
+  }
 `;
 
 export const ListHeaderWrap = styled.div`
