@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
+import addIcon from '../../../assets/add-24.svg';
 
 const BaseButton = styled.button`
   width: 100%;
@@ -54,4 +55,51 @@ const Primary40Button = styled(Primary)`
   letter-spacing: -0.16px;
 `;
 
-export { Primary56Button, Primary40Button };
+const Outlined = styled(BaseButton)`
+  color: ${colors['--Gray-900']};
+  &:enabled {
+    border: 1px solid ${colors['--Gray-300']};
+    background-color: ${colors['--White']};
+  }
+
+  &:disabled {
+    border: 1px solid ${colors['--Gray-300']};
+    background-color: ${colors['--Gray-300']};
+    color: ${colors['--White']};
+    cursor: not-allowed;
+  }
+
+  &:hover,
+  &:active {
+    border: 1px solid ${colors['--Gray-300']};
+    background-color: ${colors['--Gray-100']};
+  }
+
+  &:focus {
+    border: 1px solid ${colors['--Gray-500']};
+    background: ${colors['--White']};
+  }
+`;
+
+const Outlined36Button = styled(Outlined)`
+  width: ${(props) => props?.w};
+  height: fit-content;
+  border-radius: 6px;
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  display: flex;
+  gap: 4px;
+`;
+
+function Outlined36IconButton({ children, onClick, disabled, width }) {
+  return (
+    <Outlined36Button onClick={onClick} disabled={disabled} w={width}>
+      <img src={addIcon} />
+      {children}
+    </Outlined36Button>
+  );
+}
+
+export { Primary56Button, Primary40Button, Outlined36Button, Outlined36IconButton };
