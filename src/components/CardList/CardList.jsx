@@ -51,21 +51,19 @@ function CardList({ title, cardList }) {
   };
 
   useEffect(() => {
-    // 컴포넌트가 마운트될 때 이벤트 리스너를 추가합니다.
     cardContainer.current.addEventListener('scroll', handleScroll);
 
-    // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
     return () => {
       cardContainer.current.removeEventListener('scroll', handleScroll);
     };
-  }, []); // 빈 배열을 전달하여 마운트 및 언마운트 시에만 실행되도록 설정합니다.
+  }, []);
 
   return (
     <Styled.CardWrap>
       <Styled.ListTitleBox>
         <Styled.ListTitle>{title}</Styled.ListTitle>
         <Styled.CardDetailBox>
-          <Styled.CardDeviceDetail>좌, 우를 스와이프하여 카드 목록을 확인 할 수 있습니다.</Styled.CardDeviceDetail>
+          <Styled.CardDetail>카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.</Styled.CardDetail>
           <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
         </Styled.CardDetailBox>
       </Styled.ListTitleBox>
