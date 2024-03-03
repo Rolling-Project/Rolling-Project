@@ -209,7 +209,7 @@ export const ListTextLineBreak = styled.br`
   }
 `;
 
-export const CardListBox = styled.section`
+export const CardListBox = styled.ul`
   padding: 2rem 0 2.5rem;
   display: grid;
   grid-template-columns: repeat(4, 17.2rem);

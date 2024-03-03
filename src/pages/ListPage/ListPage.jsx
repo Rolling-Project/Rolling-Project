@@ -4,6 +4,7 @@ import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import CardList from '../../components/CardList/CardList';
 import ListButtonBox from '../../components/ListButtonBox/ListButtonBox';
+import * as Styled from './ListPage.styled';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -35,9 +36,11 @@ function ListPage() {
   return (
     <>
       <Header isStatic={false} />
-      <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={popularData} />
-      <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={latestData} />
-      <ListButtonBox dataCount={dataCount} />
+      <Styled.Container>
+        <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={popularData} />
+        <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={latestData} />
+        <ListButtonBox dataCount={dataCount} />
+      </Styled.Container>
     </>
   );
 }

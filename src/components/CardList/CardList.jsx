@@ -52,36 +52,28 @@ function CardList({ title, cardList }) {
 
   useEffect(() => {
     cardContainer.current.addEventListener('scroll', handleScroll);
-
-    // return () => {
-    //   cardContainer.current.removeEventListener('scroll', handleScroll);
-    // };
   }, []);
 
   return (
-    <Styled.CardListContainer>
-      <Styled.CardWrap>
-        <Styled.ListTitleBox>
-          <Styled.ListTitle>{title}</Styled.ListTitle>
-          <Styled.CardDetailBox>
-            <Styled.CardDetail>
-              카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.
-            </Styled.CardDetail>
-            <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
-          </Styled.CardDetailBox>
-        </Styled.ListTitleBox>
+    <Styled.CardWrap>
+      <Styled.ListTitleBox>
+        <Styled.ListTitle>{title}</Styled.ListTitle>
+        <Styled.CardDetailBox>
+          <Styled.CardDetail>카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.</Styled.CardDetail>
+          <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
+        </Styled.CardDetailBox>
+      </Styled.ListTitleBox>
 
-        <Styled.CardContainer ref={cardContainer}>
-          <Styled.CardList>
-            {cardList?.map((data) => (
-              <Card key={data.id} data={data} />
-            ))}
-          </Styled.CardList>
-        </Styled.CardContainer>
-        {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}
-        {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} alt="다음 버튼" />}
-      </Styled.CardWrap>
-    </Styled.CardListContainer>
+      <Styled.CardContainer ref={cardContainer}>
+        <Styled.CardList>
+          {cardList?.map((data) => (
+            <Card key={data.id} data={data} />
+          ))}
+        </Styled.CardList>
+      </Styled.CardContainer>
+      {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}
+      {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} alt="다음 버튼" />}
+    </Styled.CardWrap>
   );
 }
 
