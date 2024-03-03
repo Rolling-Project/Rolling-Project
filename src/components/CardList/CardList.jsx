@@ -53,9 +53,9 @@ function CardList({ title, cardList }) {
   useEffect(() => {
     cardContainer.current.addEventListener('scroll', handleScroll);
 
-    return () => {
-      cardContainer.current.removeEventListener('scroll', handleScroll);
-    };
+    // return () => {
+    //   cardContainer.current.removeEventListener('scroll', handleScroll);
+    // };
   }, []);
 
   return (
