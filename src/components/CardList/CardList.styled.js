@@ -1,6 +1,16 @@
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 
+export const CardListContainer = styled.main`
+  width: 72.5rem;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    width: auto;
+    padding: 0 1.5rem;
+  }
+`;
+
 export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
