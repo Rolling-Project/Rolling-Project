@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import MessageCard from './MessageCard';
-import PlusCard from './PlusCard';
+import MessageCard from './Card/MessageCard';
+import PlusCard from './Card/PlusCard';
 
 const List = styled.ul`
   width: 100%;
@@ -18,15 +18,17 @@ const List = styled.ul`
   }
 `;
 
-const CardList = ({ messages }) => (
-  <List>
-    <PlusCard />
-    {messages.map((message) => (
-      <li key={message.id}>
-        <MessageCard message={message} />
-      </li>
-    ))}
-  </List>
-);
+function CardList({ messages, onClick }) {
+  return (
+    <List>
+      <PlusCard />
+      {messages.map((message) => (
+        <li key={message.id} onClick={() => onClick(message)}>
+          <MessageCard message={message} />
+        </li>
+      ))}
+    </List>
+  );
+}
 
 export default CardList;

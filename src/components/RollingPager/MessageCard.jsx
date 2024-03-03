@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
-import BaseCard from './BaseCard';
+import BaseCard from './Card/BaseCard';
 import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import formatDate from '../../utils/helpers/dateUtils';
@@ -74,7 +74,7 @@ const Date = styled.div`
   letter-spacing: -0.06px;
 `;
 
-const MessageCard = ({ message }) => {
+function MessageCard({ message }) {
   const { sender, profileImageURL, relationship, content, createdAt } = message;
   return (
     <Card>
@@ -93,6 +93,6 @@ const MessageCard = ({ message }) => {
       <Date>{formatDate(createdAt)}</Date>
     </Card>
   );
-};
+}
 
 export default MessageCard;
