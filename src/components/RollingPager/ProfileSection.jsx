@@ -14,7 +14,7 @@ const Container = styled.div`
 const Profiles = styled.div`
   position: relative;
   display: flex;
-  width: ${({ count }) => `${28 + (count - 1) * 16}px`};
+  width: ${({ count }) => (count <= 4 ? `${28 + (count - 1) * 16}px` : '76px')};
   height: 28px;
 `;
 
@@ -87,7 +87,7 @@ function ProfileSection({ messages }) {
       </Profiles>
 
       <Text>
-        <span>{count}</span>명이 작성했어요!
+        <span>{formatNumber(count - 3)}</span>명이 작성했어요!
       </Text>
     </Container>
   );

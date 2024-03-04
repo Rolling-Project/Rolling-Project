@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import EmojiPicker from 'emoji-picker-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import useSendReactions from '../../utils/hooks/useSendReactions';
 import EmojiDropDown from './EmojiDropDown';
@@ -72,17 +72,32 @@ function Header(props) {
 
   const { data: reactions, isLoading, error } = useGetReactions(recipientId);
 
-  const [isClickedAddButton, setIsClickedAddButton] = useState(false);
+  const [isEmojiPicker, setIsEmojiPicker] = useState(false);
 
   const { mutate } = useSendReactions();
+
+  const dropRef = useRef(null);
 
   const onEmojiClick = (emojiData, event) => {
     mutate({ id: recipientId, emoji: emojiData.emoji, type: 'increase' });
   };
 
-  const handleClickedAddButton = () => {
-    setIsClickedAddButton((prev) => !prev);
+  const handleEmojiPicker = () => {
+    setIsEmojiPicker((prev) => !prev);
   };
+
+  const handleOutSideClick = (e) => {
+    if (dropRef.current && !dropRef.current.contains(e.target)) {
+      setIsEmojiPicker(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutSideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutSideClick);
+    };
+  });
 
   return (
     <Container>
@@ -95,13 +110,13 @@ function Header(props) {
           <Divider vertical />
 
           <SideSection>
-            <Emoji>
+            <Emoji >
               <EmojiDropDown reactions={reactions?.results} />
-              <EmojiAdd>
-                <Outlined36IconButton onClick={handleClickedAddButton} width={'90px'}>
+              <EmojiAdd ref={dropRef}>
+                <Outlined36IconButton onClick={handleEmojiPicker} width={'90px'}>
                   추가
                 </Outlined36IconButton>
-                <Picker>{isClickedAddButton && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
+                <Picker>{isEmojiPicker && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
               </EmojiAdd>
             </Emoji>
 

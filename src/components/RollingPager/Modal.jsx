@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import Profile from './Profile';
@@ -61,10 +62,26 @@ const Backdrop = styled.div`
 
 function MessageModal({ message, onClose }){
   const { sender, profileImageURL, relationship, content, createdAt } = message;
+  
+  const modalRef = useRef(null);
+  
+  const handleOutSideClick = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutSideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutSideClick);
+    };
+  });
+
   return (
     <div>
       <Backdrop />
-      <Modal>
+      <Modal ref={modalRef}>
         <Header>
           <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
           <Date fontSize={'14px'}>{formatDate(createdAt)}</Date>

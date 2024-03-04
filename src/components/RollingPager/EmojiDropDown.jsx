@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import arrowDownIcon from '../../assets/arrow_down.svg';
 import colors from '../../styles/colors';
 
@@ -50,7 +50,7 @@ const ExpandBox = styled.div`
 `;
 
 function EmojiDropDown({ reactions }) {
-  if (!reactions) return;
+  const dropRef = useRef(null);
 
   const [isDropDown, setIsDropDown] = useState(false);
 
@@ -58,9 +58,24 @@ function EmojiDropDown({ reactions }) {
     setIsDropDown((prev) => !prev);
   };
 
+  const handleOutSideClick = (e) => {
+    if (dropRef.current && !dropRef.current.contains(e.target)) {
+      setIsDropDown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutSideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutSideClick);
+    };
+  });
+
+  if (!reactions) return;
+
   return (
-    <DropDown onClick={handleDropDown}>
-      <Bar>
+    <DropDown ref={dropRef}>
+      <Bar onClick={handleDropDown}>
         {reactions.slice(0, 3).map(({ id, emoji, count }) => (
           <Item key={id}>
             <span>{emoji}</span>
