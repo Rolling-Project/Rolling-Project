@@ -59,7 +59,7 @@ const Backdrop = styled.div`
   background: rgba(0, 0, 0, 0.6);
 `;
 
-const MessageModal = ({ message, onClose }) => {
+function MessageModal({ message, onClose }){
   const { sender, profileImageURL, relationship, content, createdAt } = message;
   return (
     <div>

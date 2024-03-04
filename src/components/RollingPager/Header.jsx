@@ -11,58 +11,6 @@ import colors from '../../styles/colors';
 import Divider from './Divider';
 import ProfileSection from './ProfileSection';
 
-function Header(props) {
-  const { id: recipientId } = useParams();
-
-  const { data: reactions, isLoading, error } = useGetReactions(recipientId);
-
-  const [isClickedAddButton, setIsClickedAddButton] = useState(false);
-
-  const { mutate } = useSendReactions();
-
-  const onEmojiClick = (emojiData, event) => {
-    mutate({ id: recipientId, emoji: emojiData.emoji, type: 'increase' });
-  };
-
-  const handleClickedAddButton = () => {
-    setIsClickedAddButton((prev) => !prev);
-  };
-
-  return (
-    <Container>
-      <Content>
-        <Name>To. Ashley Kim</Name>
-
-        <Service>
-          <ProfileSection {...props} />
-
-          <Divider vertical />
-
-          <SideSection>
-            <Emoji>
-              <EmojiDropDown reactions={reactions?.results} />
-              <EmojiAdd>
-                <Outlined36IconButton onClick={handleClickedAddButton} width={'90px'}>
-                  추가
-                </Outlined36IconButton>
-                <Picker>{isClickedAddButton && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
-              </EmojiAdd>
-            </Emoji>
-
-            <Divider vertical />
-
-            <Outlined36Button w={'56px'}>
-              <img src={shardIcon} />
-            </Outlined36Button>
-          </SideSection>
-        </Service>
-      </Content>
-    </Container>
-  );
-}
-
-export default Header;
-
 const Service = styled.div`
   display: flex;
   align-items: center;
@@ -118,3 +66,55 @@ const Picker = styled.div`
   top: 42px;
   right: 0;
 `;
+
+function Header(props) {
+  const { id: recipientId } = useParams();
+
+  const { data: reactions, isLoading, error } = useGetReactions(recipientId);
+
+  const [isClickedAddButton, setIsClickedAddButton] = useState(false);
+
+  const { mutate } = useSendReactions();
+
+  const onEmojiClick = (emojiData, event) => {
+    mutate({ id: recipientId, emoji: emojiData.emoji, type: 'increase' });
+  };
+
+  const handleClickedAddButton = () => {
+    setIsClickedAddButton((prev) => !prev);
+  };
+
+  return (
+    <Container>
+      <Content>
+        <Name>To. Ashley Kim</Name>
+
+        <Service>
+          <ProfileSection {...props} />
+
+          <Divider vertical />
+
+          <SideSection>
+            <Emoji>
+              <EmojiDropDown reactions={reactions?.results} />
+              <EmojiAdd>
+                <Outlined36IconButton onClick={handleClickedAddButton} width={'90px'}>
+                  추가
+                </Outlined36IconButton>
+                <Picker>{isClickedAddButton && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
+              </EmojiAdd>
+            </Emoji>
+
+            <Divider vertical />
+
+            <Outlined36Button w={'56px'}>
+              <img src={shardIcon} />
+            </Outlined36Button>
+          </SideSection>
+        </Service>
+      </Content>
+    </Container>
+  );
+}
+
+export default Header;

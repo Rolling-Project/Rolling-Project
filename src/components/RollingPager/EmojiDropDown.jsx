@@ -3,43 +3,6 @@ import { useState } from 'react';
 import arrowDownIcon from '../../assets/arrow_down.svg';
 import colors from '../../styles/colors';
 
-function EmojiDropDown({ reactions }) {
-  if (!reactions) return;
-
-  const [isDropDown, setIsDropDown] = useState(false);
-
-  const handleDropDown = () => {
-    setIsDropDown((prev) => !prev);
-  };
-
-  return (
-    <DropDown onClick={handleDropDown}>
-      <Bar>
-        {reactions.slice(0, 3).map(({ id, emoji, count }) => (
-          <Item key={id}>
-            <span>{emoji}</span>
-            <span>{count}</span>
-          </Item>
-        ))}
-        {reactions.length > 3 && <img src={arrowDownIcon} />}
-      </Bar>
-
-      {isDropDown && (
-        <ExpandBox>
-          {reactions.slice(3).map(({ id, emoji, count }) => (
-            <Item key={id}>
-              <span>{emoji}</span>
-              <span>{count}</span>
-            </Item>
-          ))}
-        </ExpandBox>
-      )}
-    </DropDown>
-  );
-}
-
-export default EmojiDropDown;
-
 const DropDown = styled.div`
   position: relative;
   margin: 0 8px 0 28px;
@@ -85,3 +48,40 @@ const ExpandBox = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 `;
+
+function EmojiDropDown({ reactions }) {
+  if (!reactions) return;
+
+  const [isDropDown, setIsDropDown] = useState(false);
+
+  const handleDropDown = () => {
+    setIsDropDown((prev) => !prev);
+  };
+
+  return (
+    <DropDown onClick={handleDropDown}>
+      <Bar>
+        {reactions.slice(0, 3).map(({ id, emoji, count }) => (
+          <Item key={id}>
+            <span>{emoji}</span>
+            <span>{count}</span>
+          </Item>
+        ))}
+        {reactions.length > 3 && <img src={arrowDownIcon} />}
+      </Bar>
+
+      {isDropDown && (
+        <ExpandBox>
+          {reactions.slice(3).map(({ id, emoji, count }) => (
+            <Item key={id}>
+              <span>{emoji}</span>
+              <span>{count}</span>
+            </Item>
+          ))}
+        </ExpandBox>
+      )}
+    </DropDown>
+  );
+}
+
+export default EmojiDropDown;

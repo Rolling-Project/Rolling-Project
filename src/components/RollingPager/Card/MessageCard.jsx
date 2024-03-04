@@ -28,7 +28,7 @@ const Message = styled.div`
   letter-spacing: -0.18px;
 `;
 
-const MessageCard = ({ message }) => {
+function MessageCard({ message }) {
   const { sender, profileImageURL, relationship, content, createdAt } = message;
 
   return (
@@ -44,6 +44,6 @@ const MessageCard = ({ message }) => {
       <Date fontSize={'12px'}>{formatDate(createdAt)}</Date>
     </Card>
   );
-};
+}
 
 export default MessageCard;

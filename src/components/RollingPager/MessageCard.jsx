@@ -4,6 +4,7 @@ import BaseCard from './Card/BaseCard';
 import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import formatDate from '../../utils/helpers/dateUtils';
+import Divider from '../RollingPager/Divider'
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
@@ -33,11 +34,6 @@ const Badge = styled.div`
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.07px;
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  background: ${colors['--Gray-200']};
 `;
 
 const Message = styled.div`

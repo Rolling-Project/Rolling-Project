@@ -4,39 +4,6 @@ import Circle from './Circle';
 import formatNumber from '../../utils/helpers/numberUtils';
 import colors from '../../styles/colors';
 
-function ProfileSection({ messages }) {
-  if (!messages) return;
-  const [senders] = messages;
-  const [count, profiles] = [senders.count, senders.result];
-
-  return (
-    <Container>
-      <Profiles count={count}>
-        {profiles
-          .filter((ele, idx) => idx < 3)
-          .map((sender) => (
-            <Item key={sender.id}>
-              <Avatar imgUrl={sender.profileImageURL} width={'28px'} height={'28px'} hasBorder />
-            </Item>
-          ))}
-        {count > 3 && (
-          <Item>
-            <Others>
-              <Count>{`+${formatNumber(count - 3)}`}</Count>
-            </Others>
-          </Item>
-        )}
-      </Profiles>
-
-      <Text>
-        <span>{count}</span>명이 작성했어요!
-      </Text>
-    </Container>
-  );
-}
-
-export default ProfileSection;
-
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -94,3 +61,36 @@ const Text = styled.p`
     font-weight: 700;
   }
 `;
+
+function ProfileSection({ messages }) {
+  if (!messages) return;
+  const [senders] = messages;
+  const [count, profiles] = [senders.count, senders.result];
+
+  return (
+    <Container>
+      <Profiles count={count}>
+        {profiles
+          .filter((ele, idx) => idx < 3)
+          .map((sender) => (
+            <Item key={sender.id}>
+              <Avatar imgUrl={sender.profileImageURL} width={'28px'} height={'28px'} hasBorder />
+            </Item>
+          ))}
+        {count > 3 && (
+          <Item>
+            <Others>
+              <Count>{`+${formatNumber(count - 3)}`}</Count>
+            </Others>
+          </Item>
+        )}
+      </Profiles>
+
+      <Text>
+        <span>{count}</span>명이 작성했어요!
+      </Text>
+    </Container>
+  );
+}
+
+export default ProfileSection;
