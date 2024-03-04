@@ -4,6 +4,7 @@ import Card from '../Card/Card';
 import HiddenLabel from '../common/HiddenLabel/HiddenLabel';
 import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/search.svg';
+import EmptyCard from '../EmptyCard/EmptyCard';
 
 const latest = '최신순';
 const filter = 'filter';
@@ -124,11 +125,14 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
         </Styled.ListText>
       </Styled.ListHeaderWrap>
 
-      <Styled.CardListBox>
-        {cardList?.map((data) => (
-          <Card key={data.id} data={data} isBig />
-        ))}
-      </Styled.CardListBox>
+      {cardList.length !== 0 && (
+        <Styled.CardListBox>
+          {cardList?.map((data) => (
+            <Card key={data.id} data={data} isBig />
+          ))}
+        </Styled.CardListBox>
+      )}
+      <EmptyCard all />
     </Styled.AllCardListWrap>
   );
 }

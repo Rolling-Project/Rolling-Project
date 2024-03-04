@@ -3,11 +3,12 @@ import * as Styled from './CardList.styled';
 import PrevButton from '../../assets/arrow-left.svg';
 import NextButton from '../../assets/arrow-right.svg';
 import Card from '../Card/Card';
+import EmptyCard from '../EmptyCard/EmptyCard';
 
 function CardList({ title, cardList }) {
   const [buttonVisible, setButtonVisible] = useState({
     prev: false,
-    next: true
+    next: false
   });
   const cardContainer = useRef(null);
 
@@ -51,6 +52,12 @@ function CardList({ title, cardList }) {
   };
 
   useEffect(() => {
+    if (cardList.length > 4) {
+      setButtonVisible({
+        prev: false,
+        next: true
+      });
+    }
     cardContainer.current.addEventListener('scroll', handleScroll);
   }, []);
 
@@ -58,10 +65,14 @@ function CardList({ title, cardList }) {
     <Styled.CardWrap>
       <Styled.ListTitleBox>
         <Styled.ListTitle>{title}</Styled.ListTitle>
-        <Styled.CardDetailBox>
-          <Styled.CardDetail>카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.</Styled.CardDetail>
-          <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
-        </Styled.CardDetailBox>
+        {cardList.length !== 0 && (
+          <Styled.CardDetailBox>
+            <Styled.CardDetail>
+              카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.
+            </Styled.CardDetail>
+            <Styled.CardDetail>카드를 클릭하여 자세히 보거나 글을 남길 수 있습니다.</Styled.CardDetail>
+          </Styled.CardDetailBox>
+        )}
       </Styled.ListTitleBox>
 
       <Styled.CardContainer ref={cardContainer}>
@@ -69,6 +80,7 @@ function CardList({ title, cardList }) {
           {cardList?.map((data) => (
             <Card key={data.id} data={data} />
           ))}
+          <EmptyCard />
         </Styled.CardList>
       </Styled.CardContainer>
       {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}

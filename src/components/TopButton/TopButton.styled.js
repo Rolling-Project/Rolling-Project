@@ -6,7 +6,7 @@ export const TopButton = styled.img`
   position: fixed;
   right: 3rem;
   bottom: 3rem;
-  border-radius: 1.5rem;
+  border-radius: 50%;
   z-index: 999;
 
   &:hover {
