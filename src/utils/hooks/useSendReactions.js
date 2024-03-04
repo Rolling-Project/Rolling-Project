@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const postReaction = async ({ id, emoji, type }) => {
@@ -8,8 +9,8 @@ const postReaction = async ({ id, emoji, type }) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      emoji: emoji,
-      type: type
+      emoji,
+      type
     })
   });
   const result = await response.json();
