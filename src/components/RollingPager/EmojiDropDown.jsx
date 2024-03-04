@@ -15,20 +15,18 @@ function EmojiDropDown({ reactions }) {
   return (
     <DropDown onClick={handleDropDown}>
       <Bar>
-        {reactions
-          .filter((ele, idx) => idx < 3)
-          .map(({ id, emoji, count }) => (
-            <Item key={id}>
-              <span>{emoji}</span>
-              <span>{count}</span>
-            </Item>
-          ))}
-        <img src={arrowDownIcon} />
+        {reactions.slice(0, 3).map(({ id, emoji, count }) => (
+          <Item key={id}>
+            <span>{emoji}</span>
+            <span>{count}</span>
+          </Item>
+        ))}
+        {reactions.length > 3 && <img src={arrowDownIcon} />}
       </Bar>
 
       {isDropDown && (
         <ExpandBox>
-          {reactions.map(({ id, emoji, count }) => (
+          {reactions.slice(3).map(({ id, emoji, count }) => (
             <Item key={id}>
               <span>{emoji}</span>
               <span>{count}</span>

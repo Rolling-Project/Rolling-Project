@@ -8,7 +8,7 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
  */
 const useGetReactions = (recipientId) => {
   const queryKey = ['reactions', recipientId];
-  const queryFn = () => useFetch(`${baseUrl}recipients/${recipientId}/reactions/`);
+  const queryFn = () => useFetch(`${baseUrl}recipients/${recipientId}/reactions/?limit=11`);
   return useApiQuery(queryKey, queryFn);
 };
 
