@@ -48,7 +48,6 @@ export const CardWrap = styled.section`
 `;
 
 export const CardContainer = styled.div`
-  overflow: hidden;
   overflow-x: auto; // 가로방향 스크롤
   scrollbar-width: none; // 스크롤바 표시 x
   scroll-behavior: smooth; // 스크롤 부드럽게

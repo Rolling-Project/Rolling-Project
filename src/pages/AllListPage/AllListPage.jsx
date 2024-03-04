@@ -5,6 +5,7 @@ import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import AllCardList from '../../components/AllCardList/AllCardList';
 import Header from '../../components/common/Header/Header';
+import TopButton from '../../components/TopButton/TopButton';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -16,6 +17,13 @@ function AllListPage() {
     latestList: [],
     popularList: []
   });
+
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const fetchPopularData = async () => {
     if (location.state) {
@@ -64,7 +72,7 @@ function AllListPage() {
     isLoading: isInitialLoading,
     isError: isInitialError
   } = useQuery({
-    queryKey: ['allData'],
+    queryKey: ['latestData'],
     queryFn: fetchLatestData
   });
 
@@ -85,7 +93,6 @@ function AllListPage() {
   if (isInitialLoading || isFetching) {
     return <Loading />;
   }
-
   return (
     <>
       <Header isStatic={false} />
@@ -97,6 +104,7 @@ function AllListPage() {
         listFilterValue={listFilterValue}
         setListFilter={setListFilter}
       />
+      <TopButton onClick={scrollToTop} />
     </>
   );
 }

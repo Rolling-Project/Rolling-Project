@@ -45,6 +45,10 @@ export const CardSearchInput = styled.input`
     border: 1.5px solid ${colors['--Purple-600']};
   }
 
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+
   @media screen and (max-width: 720px) {
     width: 22rem;
     height: 3rem;

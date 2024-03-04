@@ -89,7 +89,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
             id="card-search-input"
             value={searchValue}
             onChange={(e) => handleCardSearch(e)}
-            type="text"
+            type="search"
             placeholder="롤링 페이퍼를 전하고 싶은 대상을 입력해 주세요"
           />
           <Styled.SearchIcon src={SearchIcon} alt="롤링 페이퍼 검색 아이콘" />
