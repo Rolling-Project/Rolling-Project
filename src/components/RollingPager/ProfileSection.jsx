@@ -11,7 +11,7 @@ function ProfileSection({ messages }) {
 
   return (
     <Container>
-      <Profiles>
+      <Profiles count={count}>
         {profiles
           .filter((ele, idx) => idx < 3)
           .map((sender) => (
@@ -47,7 +47,7 @@ const Container = styled.div`
 const Profiles = styled.div`
   position: relative;
   display: flex;
-  width: 76px;
+  width: ${({ count }) => `${28 + (count - 1) * 16}px`};
   height: 28px;
 `;
 
