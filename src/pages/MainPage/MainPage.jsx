@@ -4,10 +4,10 @@ import Intro from '../../components/Intro/Intro';
 import IntroEmoji from '../../components/Intro/IntroEmoji';
 import MainButtonBox from '../../components/MainButtonBox/MainButtonBox';
 
-const MainPage = () => {
+function MainPage() {
   return (
     <>
-      <Header isButotnVisible={true} />
+      <Header isButotnVisible />
       <Wrapper>
         <Container>
           <Intro />
@@ -19,7 +19,7 @@ const MainPage = () => {
       <MainButtonBox />
     </>
   );
-};
+}
 
 export default MainPage;
 
