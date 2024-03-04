@@ -65,6 +65,7 @@ const Item = styled.div`
 
 const Bar = styled.div`
   display: flex;
+  align-items: center;
   gap: 8px;
   cursor: pointer;
 `;

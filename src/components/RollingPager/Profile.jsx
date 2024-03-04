@@ -30,7 +30,7 @@ const Badge = styled.div`
 
 const Profile = ({ imgUrl, sender = '김동훈', relationship = '동료' }) => (
   <Container>
-    <Avatar imgUrl={imgUrl} />
+    <Avatar imgUrl={imgUrl} width={'56px'} height={'56px'} />
     <div>
       <Name>
         From.

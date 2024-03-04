@@ -12,6 +12,8 @@ const Card = styled(BaseCard)`
 
 const Plus = styled(Circle)`
   display: flex;
+  width: 56px;
+  height: 56px;
   align-items: center;
   justify-content: center;
   background-color: ${colors['--Gray-500']};

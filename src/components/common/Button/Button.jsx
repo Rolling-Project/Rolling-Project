@@ -29,8 +29,6 @@ const Primary = styled(BaseButton)`
   }
 
   &:focus {
-    border: 2px solid ${colors['--Purple-900']};
-    transform: translate(0, -1px);
     background: ${colors['--Purple-800']};
   }
 `;

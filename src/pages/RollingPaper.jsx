@@ -6,7 +6,7 @@ import useGetMessages from '../utils/hooks/useGetMessages';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import Header from '../components/RollingPager/Header';
-import colors from '../styles/colors'
+import colors from '../styles/colors';
 
 const Container = styled.div`
   background-color: ${colors['--Orange-200']};
@@ -34,7 +34,7 @@ function RollingPaper() {
 
   return (
     <Container>
-      <Header />
+      <Header messages={data?.pages} />
       <Content>
         <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />
         {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}

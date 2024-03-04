@@ -13,6 +13,7 @@ const useGetMessages = () => {
   const getMessages = async (pageParam) => {
     const result = await useFetch(`${baseUrl}recipients/${recipientId}/messages/?limit=8&offset=${pageParam}`);
     return {
+      count: result.count,
       result: result.results,
       nextPage: pageParam + 9,
       isLast: !result.next

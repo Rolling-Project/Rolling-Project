@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import EmojiPicker from 'emoji-picker-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useSendReactions from '../../utils/hooks/useSendReactions';
 import EmojiDropDown from './EmojiDropDown';
@@ -9,8 +9,9 @@ import { Outlined36Button, Outlined36IconButton } from '../../components/common/
 import shardIcon from '../../assets/share-24.svg';
 import colors from '../../styles/colors';
 import Divider from './Divider';
+import ProfileSection from './ProfileSection';
 
-function Header() {
+function Header(props) {
   const { id: recipientId } = useParams();
 
   const { data: reactions, isLoading, error } = useGetReactions(recipientId);
@@ -32,24 +33,29 @@ function Header() {
       <Content>
         <Name>To. Ashley Kim</Name>
 
-        <Wrapper>
-          <Emoji>
-            <EmojiDropDown reactions={reactions?.results} />
-
-            <EmojiAdd>
-              <Outlined36IconButton onClick={handleClickedAddButton} width={'90px'}>
-                추가
-              </Outlined36IconButton>
-              <Picker>{isClickedAddButton && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
-            </EmojiAdd>
-          </Emoji>
+        <Service>
+          <ProfileSection {...props} />
 
           <Divider vertical />
 
-          <Outlined36Button w={'56px'}>
-            <img src={shardIcon} />
-          </Outlined36Button>
-        </Wrapper>
+          <SideSection>
+            <Emoji>
+              <EmojiDropDown reactions={reactions?.results} />
+              <EmojiAdd>
+                <Outlined36IconButton onClick={handleClickedAddButton} width={'90px'}>
+                  추가
+                </Outlined36IconButton>
+                <Picker>{isClickedAddButton && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
+              </EmojiAdd>
+            </Emoji>
+
+            <Divider vertical />
+
+            <Outlined36Button w={'56px'}>
+              <img src={shardIcon} />
+            </Outlined36Button>
+          </SideSection>
+        </Service>
       </Content>
     </Container>
   );
@@ -57,7 +63,12 @@ function Header() {
 
 export default Header;
 
-const Wrapper = styled.div`
+const Service = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const SideSection = styled.div`
   display: flex;
   align-items: center;
   gap: 13px;
