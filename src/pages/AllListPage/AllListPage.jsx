@@ -6,8 +6,10 @@ import Error from '../../components/Error/Error';
 import AllCardList from '../../components/AllCardList/AllCardList';
 import Header from '../../components/common/Header/Header';
 import TopButton from '../../components/TopButton/TopButton';
+import fetchFirstCard from '../../services/fetchFirstCard';
+import fetchCard from '../../services/fetchCard';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const POPULAR_OPTION = '&sort=like';
 
 function AllListPage() {
   const location = useLocation();
@@ -27,36 +29,28 @@ function AllListPage() {
 
   const fetchPopularData = async () => {
     if (location.state) {
-      const response = await fetch(`${BASE_URL}recipients/?limit=${location.state}&sort=like`);
-      const result = await response.json();
-      cacheData.current.popularList = result.results;
-      setCurrentList(result.results);
-      return result.results;
+      const result = await fetchCard(location.state, POPULAR_OPTION);
+      cacheData.current.popularList = result;
+      setCurrentList(result);
+      return result;
     }
-    const response = await fetch(`${BASE_URL}recipients/?limit=1&sort=like`);
-    const result = await response.json();
-    const dataResponse = await fetch(`${BASE_URL}recipients/?limit=${result.count}&sort=like`);
-    const dataResult = await dataResponse.json();
-    cacheData.current.popularList = dataResult.results;
-    setCurrentList(dataResult.results);
-    return dataResult.results;
+    const result = await fetchFirstCard(POPULAR_OPTION);
+    cacheData.current.popularList = result;
+    setCurrentList(result);
+    return result;
   };
 
   const fetchLatestData = async () => {
     if (location.state) {
-      const response = await fetch(`${BASE_URL}recipients/?limit=${location.state}`);
-      const result = await response.json();
-      cacheData.current.latestList = result.results;
-      setCurrentList(result.results);
-      return result.results;
+      const result = await fetchCard(location.state);
+      cacheData.current.latestList = result;
+      setCurrentList(result);
+      return result;
     }
-    const response = await fetch(`${BASE_URL}recipients/?limit=1`);
-    const result = await response.json();
-    const dataResponse = await fetch(`${BASE_URL}recipients/?limit=${result.count}`);
-    const dataResult = await dataResponse.json();
-    cacheData.current.latestList = dataResult.results;
-    setCurrentList(dataResult.results);
-    return dataResult.results;
+    const result = await fetchFirstCard();
+    cacheData.current.latestList = result;
+    setCurrentList(result);
+    return result;
   };
 
   const setData = (data) => {

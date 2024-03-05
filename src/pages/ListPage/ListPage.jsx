@@ -4,18 +4,15 @@ import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import CardList from '../../components/CardList/CardList';
 import ListButtonBox from '../../components/ListButtonBox/ListButtonBox';
+import fetchTwentyCard from '../../services/fetchTwetyCard';
 import * as Styled from './ListPage.styled';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const POPULAR_OPTION = '&sort=like';
 
 function ListPage() {
   const fetchData = async () => {
-    const popularResponse = await fetch(`${BASE_URL}recipients/?limit=20&sort=like`);
-    const popularResult = await popularResponse.json();
-    const latestResponse = await fetch(`${BASE_URL}recipients/?limit=20`);
-    const latestResult = await latestResponse.json();
-
-    return { dataCount: latestResult.count, latestData: latestResult.results, popularData: popularResult.results };
+    const [dataCount, latestData, popularData] = await fetchTwentyCard(POPULAR_OPTION);
+    return { dataCount, latestData, popularData };
   };
 
   const { data, isLoading, isError } = useQuery({

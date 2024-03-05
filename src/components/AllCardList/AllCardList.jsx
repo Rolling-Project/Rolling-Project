@@ -125,14 +125,15 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
         </Styled.ListText>
       </Styled.ListHeaderWrap>
 
-      {cardList.length !== 0 && (
+      {cardList.length !== 0 ? (
         <Styled.CardListBox>
           {cardList?.map((data) => (
             <Card key={data.id} data={data} isBig />
           ))}
         </Styled.CardListBox>
+      ) : (
+        <EmptyCard all />
       )}
-      <EmptyCard all />
     </Styled.AllCardListWrap>
   );
 }

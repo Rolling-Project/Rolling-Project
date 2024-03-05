@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 export const TopButton = styled.img`
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3rem;
+  height: 3rem;
   position: fixed;
   right: 3rem;
   bottom: 3rem;
@@ -15,11 +15,6 @@ export const TopButton = styled.img`
 
   @media screen and (max-width: 1400px) {
     right: 1rem;
-  }
-
-  @media screen and (max-width: 1200px) {
-    width: 3rem;
-    height: 3rem;
   }
 
   @keyframes up-down {
