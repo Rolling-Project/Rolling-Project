@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { useState, useEffect, useRef } from 'react';
 import arrowDownIcon from '../../assets/arrow_down.svg';
 import colors from '../../styles/colors';
+import BaseDropDown from './DropDown';
 
 const DropDown = styled.div`
   position: relative;
@@ -31,7 +32,7 @@ const Bar = styled.div`
   cursor: pointer;
 `;
 
-const ExpandBox = styled.div`
+const ExpandBox = styled(BaseDropDown)`
   position: absolute;
   top: 42px;
   right: 0;
@@ -39,10 +40,6 @@ const ExpandBox = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 10px 8px;
   padding: 24px;
-  border-radius: 8px;
-  border: 1px solid #b6b6b6;
-  background-color: ${colors['--White']};
-  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
 
   @media (max-width: 360px) {
     grid-template-columns: repeat(3, 1fr);

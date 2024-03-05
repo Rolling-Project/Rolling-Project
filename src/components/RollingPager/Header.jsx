@@ -10,6 +10,9 @@ import shardIcon from '../../assets/share-24.svg';
 import colors from '../../styles/colors';
 import Divider from './Divider';
 import ProfileSection from './ProfileSection';
+import BaseCard from './Card/BaseCard';
+import BaseDropDown from './DropDown';
+import SharedSection from './SharedSection';
 
 const Service = styled.div`
   display: flex;
@@ -67,6 +70,26 @@ const Picker = styled.div`
   right: 0;
 `;
 
+const Shared = styled(BaseDropDown)`
+  position: relative;
+`;
+
+const SharedDropDown = styled(BaseDropDown)`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 42px;
+  right: 0;
+  padding: 10px 1px;
+  span {
+    width: 138px;
+    padding: 12px 16px;
+    &:hover {
+      background-color: ${colors['--Gray-100']};
+    }
+  }
+`;
+
 function Header(props) {
   const { id: recipientId } = useParams();
 
@@ -99,6 +122,20 @@ function Header(props) {
     };
   });
 
+  const currentUrl = window.location.href;
+
+  const copyToClipboard = () => {
+    const textToCopy = currentUrl;
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        console.log("복사하기 성공");
+      })
+      .catch((error) => {
+        console.error("error:", error);
+      });
+  };
+
   return (
     <Container>
       <Content>
@@ -110,7 +147,7 @@ function Header(props) {
           <Divider vertical />
 
           <SideSection>
-            <Emoji >
+            <Emoji>
               <EmojiDropDown reactions={reactions?.results} />
               <EmojiAdd ref={dropRef}>
                 <Outlined36IconButton onClick={handleEmojiPicker} width={'90px'}>
@@ -121,10 +158,16 @@ function Header(props) {
             </Emoji>
 
             <Divider vertical />
-
-            <Outlined36Button w={'56px'}>
-              <img src={shardIcon} />
-            </Outlined36Button>
+            <SharedSection />
+            {/* <Shared>
+              <Outlined36Button w={'56px'}>
+                <img src={shardIcon} />
+              </Outlined36Button>
+              <SharedDropDown>
+                <span>카카오톡 공유</span>
+                <span onClick={copyToClipboard}>URL 공유</span>
+              </SharedDropDown>
+            </Shared> */}
           </SideSection>
         </Service>
       </Content>

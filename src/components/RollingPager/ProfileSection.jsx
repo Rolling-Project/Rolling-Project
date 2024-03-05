@@ -57,7 +57,7 @@ const Count = styled.p`
 const Text = styled.p`
   font-size: 18px;
   transform: translate(0, 2px);
-  span {
+  strong {
     font-weight: 700;
   }
 `;
@@ -87,7 +87,7 @@ function ProfileSection({ messages }) {
       </Profiles>
 
       <Text>
-        <span>{formatNumber(count - 3)}</span>명이 작성했어요!
+        <strong>{formatNumber(count - 3)}</strong>명이 작성했어요!
       </Text>
     </Container>
   );
