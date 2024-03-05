@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
+import { useState, useEffect, useRef } from 'react';
 import BaseDropDown from './DropDown';
 import { Outlined36Button } from '../../components/common/Button/Button';
 import shardIcon from '../../assets/share-24.svg';
-import { useEffect } from 'react';
 
 const Shared = styled.div`
   position: relative;
@@ -16,6 +16,7 @@ const SharedDropDown = styled(BaseDropDown)`
   top: 42px;
   right: 0;
   padding: 10px 1px;
+  cursor: pointer;
   span {
     width: 138px;
     padding: 12px 16px;
@@ -27,19 +28,15 @@ const SharedDropDown = styled(BaseDropDown)`
 
 const { Kakao } = window;
 
-function SharedSection() {
+function SharedSection({ onClick }) {
+  const dropRef = useRef(null);
+
   const currentUrl = window.location.href;
 
-  const copyToClipboard = () => {
-    const textToCopy = currentUrl;
-    navigator.clipboard
-      .writeText(textToCopy)
-      .then(() => {
-        console.log('복사하기 성공');
-      })
-      .catch((error) => {
-        console.error('error:', error);
-      });
+  const [showDropDown, setShowDropDown] = useState(false);
+
+  const handleDropDown = () => {
+    setShowDropDown((prev) => !prev);
   };
 
   const sharedKakao = () => {
@@ -57,20 +54,35 @@ function SharedSection() {
     });
   };
 
+  const handleOutSideClick = (e) => {
+    if (dropRef.current && !dropRef.current.contains(e.target)) {
+      setShowDropDown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutSideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutSideClick);
+    };
+  });
+
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(import.meta.env.VITE_API_KAKAO_KEY);
   }, []);
 
   return (
-    <Shared>
-      <Outlined36Button w={'56px'}>
+    <Shared ref={dropRef}>
+      <Outlined36Button w={'56px'} onClick={handleDropDown}>
         <img src={shardIcon} />
       </Outlined36Button>
-      <SharedDropDown>
-        <span onClick={sharedKakao}>카카오톡 공유</span>
-        <span onClick={copyToClipboard}>URL 공유</span>
-      </SharedDropDown>
+      {showDropDown && (
+        <SharedDropDown>
+          <span onClick={sharedKakao}>카카오톡 공유</span>
+          <span onClick={onClick}>URL 공유</span>
+        </SharedDropDown>
+      )}
     </Shared>
   );
 }

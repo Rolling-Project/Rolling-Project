@@ -5,14 +5,13 @@ import { useParams } from 'react-router-dom';
 import useSendReactions from '../../utils/hooks/useSendReactions';
 import EmojiDropDown from './EmojiDropDown';
 import useGetReactions from '../../utils/hooks/useGetReactions';
-import { Outlined36Button, Outlined36IconButton } from '../../components/common/Button/Button';
-import shardIcon from '../../assets/share-24.svg';
+import { Outlined36IconButton } from '../../components/common/Button/Button';
 import colors from '../../styles/colors';
 import Divider from './Divider';
 import ProfileSection from './ProfileSection';
-import BaseCard from './Card/BaseCard';
-import BaseDropDown from './DropDown';
 import SharedSection from './SharedSection';
+import ToastBar from './ToastBar';
+import copyClipboardText from '../../utils/helpers/copyClipboardText';
 
 const Service = styled.div`
   display: flex;
@@ -70,48 +69,46 @@ const Picker = styled.div`
   right: 0;
 `;
 
-const Shared = styled(BaseDropDown)`
-  position: relative;
-`;
-
-const SharedDropDown = styled(BaseDropDown)`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 42px;
-  right: 0;
-  padding: 10px 1px;
-  span {
-    width: 138px;
-    padding: 12px 16px;
-    &:hover {
-      background-color: ${colors['--Gray-100']};
-    }
-  }
-`;
-
 function Header(props) {
   const { id: recipientId } = useParams();
 
   const { data: reactions, isLoading, error } = useGetReactions(recipientId);
 
-  const [isEmojiPicker, setIsEmojiPicker] = useState(false);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+  const [showToast, setShowToast] = useState(false);
+
+  const [toastMessage, setToastMessage] = useState(null);
 
   const { mutate } = useSendReactions();
 
   const dropRef = useRef(null);
+
+  const handleCopy = async () => {
+    const isCopied = await copyClipboardText();
+
+    if (isCopied) {
+      setShowToast(true);
+      setToastMessage('URL이 복사 되었습니다.');
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+    } else {
+      setToastMessage('URL 복사를 실패했습니다.');
+    }
+  };
 
   const onEmojiClick = (emojiData, event) => {
     mutate({ id: recipientId, emoji: emojiData.emoji, type: 'increase' });
   };
 
   const handleEmojiPicker = () => {
-    setIsEmojiPicker((prev) => !prev);
+    setShowEmojiPicker((prev) => !prev);
   };
 
   const handleOutSideClick = (e) => {
     if (dropRef.current && !dropRef.current.contains(e.target)) {
-      setIsEmojiPicker(false);
+      setShowEmojiPicker(false);
     }
   };
 
@@ -121,20 +118,6 @@ function Header(props) {
       document.removeEventListener('mousedown', handleOutSideClick);
     };
   });
-
-  const currentUrl = window.location.href;
-
-  const copyToClipboard = () => {
-    const textToCopy = currentUrl;
-    navigator.clipboard
-      .writeText(textToCopy)
-      .then(() => {
-        console.log("복사하기 성공");
-      })
-      .catch((error) => {
-        console.error("error:", error);
-      });
-  };
 
   return (
     <Container>
@@ -153,24 +136,18 @@ function Header(props) {
                 <Outlined36IconButton onClick={handleEmojiPicker} width={'90px'}>
                   추가
                 </Outlined36IconButton>
-                <Picker>{isEmojiPicker && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
+                <Picker>{showEmojiPicker && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
               </EmojiAdd>
             </Emoji>
 
             <Divider vertical />
-            <SharedSection />
-            {/* <Shared>
-              <Outlined36Button w={'56px'}>
-                <img src={shardIcon} />
-              </Outlined36Button>
-              <SharedDropDown>
-                <span>카카오톡 공유</span>
-                <span onClick={copyToClipboard}>URL 공유</span>
-              </SharedDropDown>
-            </Shared> */}
+
+            <SharedSection onClick={handleCopy} />
           </SideSection>
         </Service>
       </Content>
+
+      {showToast && <ToastBar>{toastMessage}</ToastBar>}
     </Container>
   );
 }
