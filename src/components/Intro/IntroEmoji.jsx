@@ -25,14 +25,14 @@ function IntroEmoji() {
         <Styled.EmojiTypeBox>
           <Styled.EmojiBox>
             <Styled.EmojiContent>
-              <Styled.EmojiContentType>👍24</Styled.EmojiContentType>
-              <Styled.EmojiContentType>😍12</Styled.EmojiContentType>
-              <Styled.EmojiContentType>🎉24</Styled.EmojiContentType>
+              <Styled.EmojiContentType>👍 24</Styled.EmojiContentType>
+              <Styled.EmojiContentType>😍 12</Styled.EmojiContentType>
+              <Styled.EmojiContentType>🎉 24</Styled.EmojiContentType>
             </Styled.EmojiContent>
             <Styled.EmojiContent>
-              <Styled.EmojiContentType>🥺10</Styled.EmojiContentType>
-              <Styled.EmojiContentType>🥳8</Styled.EmojiContentType>
-              <Styled.EmojiContentType>👏10</Styled.EmojiContentType>
+              <Styled.EmojiContentType>🥺 10</Styled.EmojiContentType>
+              <Styled.EmojiContentType>🥳 8</Styled.EmojiContentType>
+              <Styled.EmojiContentType>👏 10</Styled.EmojiContentType>
             </Styled.EmojiContent>
           </Styled.EmojiBox>
         </Styled.EmojiTypeBox>

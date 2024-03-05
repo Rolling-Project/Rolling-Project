@@ -1,65 +1,67 @@
 import styled from '@emotion/styled';
 
 export const AddEmojiBox = styled.div`
-  width: 357px;
+  width: 400px;
   height: 62px;
-  left: 137px;
   background-color: white;
-  margin: 60px 619px 202px 137px;
+  margin: 50px 0px 0px 140px;
 `;
 
 export const AddEmoji = styled.div`
-  width: 204.55px;
-  height: 32.73px;
-  margin: 25px 196.18px 14.64px 20px;
+  width: auto;
+  height: 17px;
+  margin: 25px 0 14.64px 20px;
   gap: 1.82px;
-  backgorund-color: blue;
+  display: flex;
+  position: relative;
+  align-items: center;
 `;
 
 export const Emoji = styled.div`
-  width: 56.82px;
+  width: auto;
   height: 32.91px;
   border-radius: 29.09px;
+  padding: 8px 12px 0px;
   color: white;
-  float: left;
   text-align: center;
-  line-height: 32.91px;
   background-color: #0000008a;
   margin-right: 10px;
-  margin-top: 14.64px;
+  margin-top: 35px;
 `;
 
 export const DownButton = styled.div`
   width: 32.73px;
   height: 32.73px;
   padding-top: 22px;
-  padding-left: 200px;
 `;
 
 // 왜 안올라가지....('추가' 이미지 들어가는 부분.)
 export const AddButton = styled.div`
-  width: 100px;
   height: 32.73px;
   border: 0.91px solid #dadcdf;
   border-radius: 90.91px;
-  padding-left: 250px;
-  padding-bottom: 10px;
+  padding: 0 15px;
   font-size: 14.55px;
   font-weight: 500;
   gap: 5px;
   margin-bottom: -35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ClickIcon = styled.div`
-  width: 20px;
+  width: 33px;
   height: 33px;
-  margin-left: 300px;
+  position: absolute;
+  right: 18px;
+  top: 20px;
 `;
 
 export const EmojiTypeBox = styled.div`
   width: 291.14px;
   height: 143.88px;
-  margin: 25px 196.18px 14.64px 20px;
+  margin: 35px 196.18px 14.64px 20px;
   background-color: white;
   border-radius: 9.14px;
   border: 1px solid #0000004d;
@@ -97,7 +99,7 @@ export const EmojiContentType = styled.div`
 export const EmojiContentBox = styled.div`
   width: 300px;
   height: 156px;
-  margin: -260px 0px 0px 740px;
+  margin: -55px 0px 0px 740px;
   gap: 16px;
 `;
 
@@ -105,12 +107,12 @@ export const EmojiNum = styled.div`
   width: 82px;
   height: 32px;
   border-radius: 50px;
-  padding 6px 12px;
+  padding: 6px 12px;
   gap: 10px;
-  background-color: #9935FF;
+  background-color: #9935ff;
   color: white;
   text-align: center;
-  line-height: 33px;
+  line-height: 20px;
   font-size: 14px;
   font-weight: 700;
 `;
