@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
 import BaseCard from './BaseCard';
 import Circle from '../Circle';
-import plusIcon from '../../../assets/images/ic_plus.svg'
+import plusIcon from '../../../assets/ic_plus.svg';
 
 const Card = styled(BaseCard)`
   display: flex;
@@ -12,6 +12,8 @@ const Card = styled(BaseCard)`
 
 const Plus = styled(Circle)`
   display: flex;
+  width: 56px;
+  height: 56px;
   align-items: center;
   justify-content: center;
   background-color: ${colors['--Gray-500']};

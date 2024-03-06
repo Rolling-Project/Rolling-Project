@@ -4,6 +4,7 @@ import BaseCard from './Card/BaseCard';
 import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import formatDate from '../../utils/helpers/dateUtils';
+import Divider from '../RollingPager/Divider'
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
@@ -30,18 +31,9 @@ const Badge = styled.div`
   background-color: ${(props) => colors[BADGE_COLORS[props.relationship]?.backgroundColor]};
   color: ${(props) => colors[BADGE_COLORS[props.relationship]?.color]};
   border-radius: 4px;
-  /* Font/14 Regular */
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
   letter-spacing: -0.07px;
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  background: ${colors['--Gray-200']};
 `;
 
 const Message = styled.div`
@@ -53,24 +45,15 @@ const Message = styled.div`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   color: ${colors['--Gray-600']};
-
-  /* Font/18 Regular */
-  font-family: Pretendard;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 28px; /* 155.556% */
+  line-height: 28px;
   letter-spacing: -0.18px;
 `;
 
 const Date = styled.div`
   color: ${colors['--Gray-400']};
-  /* Font/12 Regular */
-  font-family: Pretendard;
   font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px; /* 150% */
+  line-height: 18px;
   letter-spacing: -0.06px;
 `;
 
