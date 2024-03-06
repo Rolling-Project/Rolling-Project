@@ -14,7 +14,7 @@ function Option({ background, onSelect }) {
     'https://picsum.photos/id/10/3840/2160',
     'https://picsum.photos/id/11/3840/2160',
     'https://picsum.photos/id/13/3840/2160',
-    'https://picsum.photos/id/163840/2160'
+    'https://picsum.photos/id/16/3840/2160'
   ];
 
   const initState = {
@@ -41,7 +41,7 @@ function Option({ background, onSelect }) {
     0: true
   });
 
-  const handleCheckCard = (color) => {
+  const handleCheckColor = (color) => {
     setCheck(() => ({
       ...initState,
       [color]: true
@@ -67,7 +67,7 @@ function Option({ background, onSelect }) {
               key={card.key}
               usage='option'
               color={card.color}
-              onClick={() => handleCheckCard(card.color)}
+              onClick={() => handleCheckColor(card.color)}
               isChecked={check[card.color]}
             />
           ))}
