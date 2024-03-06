@@ -80,7 +80,7 @@ function CardList({ title, cardList }) {
           {cardList?.map((data) => (
             <Card key={data.id} data={data} />
           ))}
-          <EmptyCard />
+          {cardList.length === 0 && <EmptyCard />}
         </Styled.CardList>
       </Styled.CardContainer>
       {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}
