@@ -1,12 +1,13 @@
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import RollingPaper from '../pages/RollingPaper';
+/* eslint-disable jsx-quotes */
+import { Routes, Route } from 'react-router-dom';
+import CreateTo from '../components/Create/CreateTo';
 
-const Routers = () => (
-  <Router>
+function Routers() {
+  return (
     <Routes>
-      <Route path="/post/:id" element={<RollingPaper />} />
-      {/* <Route path="*" element={<ErrorPage />} /> */}
+      {/* <Route path='/post' element={<CreateTo />} /> */}
+      <Route path='/' element={<CreateTo />} />
     </Routes>
-  </Router>
-);
+  );
+}
 export default Routers;

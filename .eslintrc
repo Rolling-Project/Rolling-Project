@@ -39,9 +39,12 @@
     "comma-dangle": ["error", "only-multiline"], // 객체나 배열에서만 후행 쉼표를 허용
     "max-len": ["error", { "code": 120 }], // 한 줄의 최대 길이는 120까지 허용
     "brace-style": "off", // 중괄호 다음 줄 바꿈 비활성화
-    "quotes": ["error", "single"], // 문자열 큰 따옴표 사용
     "jsx-quotes": [2, "prefer-double"], // JSX에서 큰 따옴표 사용 가능
     "object-curly-newline": "off", // 중괄호에서 줄 바꿈 안해도 되게 설정
-    "import/prefer-default-export": "off" // 단일 export 사용 가능
+    "import/prefer-default-export": "off", // 단일 export 사용 가능
+    "react/jsx-one-expression-per-line": "off", // JSX 코드에서 표현식을 한 줄에 하나씩 작성
+    "no-confusing-arrow": "off", // 화살표 함수와 조건 표현식 혼합 사용 가능
+    "implicit-arrow-linebreak": "warn"
+
   }
 }
