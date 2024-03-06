@@ -8,11 +8,15 @@ import backgroundColorConveter from '../../utils/helpers/bgColorConverter';
 
 function Card({ data, isBig = false }) {
   const { name, backgroundColor, backgroundImageURL, messageCount, recentMessages, topReactions } = data;
-  const effetct = backgroundImageURL || backgroundColorConveter(backgroundColor);
+  const effect = backgroundImageURL || backgroundColorConveter(backgroundColor);
   const isImage = backgroundImageURL === null;
+  const dataProps = {
+    name,
+    effect
+  };
   return (
-    <Styled.Card $effect={effetct} $isImage={isImage} $isBig={isBig}>
-      <Link to={`/post/${data.id}`} state={effetct}>
+    <Styled.Card $effect={effect} $isImage={isImage} $isBig={isBig}>
+      <Link to={`/post/${data.id}`} state={dataProps}>
         <Styled.Recipient $isImage={isImage} $isBig={isBig}>
           To.
           {name}
