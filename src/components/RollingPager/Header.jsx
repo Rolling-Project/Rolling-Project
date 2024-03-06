@@ -5,19 +5,20 @@ import { useParams } from 'react-router-dom';
 import useSendReactions from '../../utils/hooks/useSendReactions';
 import EmojiDropDown from './EmojiDropDown';
 import useGetReactions from '../../utils/hooks/useGetReactions';
-import { Outlined36IconButton } from '../../components/common/Button/Button';
+import Outlined36IconButton from '../../components/common/Button/IconButton';
 import colors from '../../styles/colors';
 import Divider from './Divider';
 import ProfileSection from './ProfileSection';
 import SharedSection from './SharedSection';
 import ToastBar from './ToastBar';
 import copyClipboardText from '../../utils/helpers/copyClipboardText';
+import addIcon from '../../assets/add-24.svg'
 
 const Service = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  
+
   @media (max-width: 475px) {
     width: 100%;
   }
@@ -150,7 +151,7 @@ function Header(props) {
             <Emoji>
               <EmojiDropDown reactions={reactions?.results} />
               <EmojiAdd ref={dropRef}>
-                <Outlined36IconButton onClick={handleEmojiPicker} width={'90px'}>
+                <Outlined36IconButton onClick={handleEmojiPicker} icon={addIcon}>
                   추가
                 </Outlined36IconButton>
                 <Picker>

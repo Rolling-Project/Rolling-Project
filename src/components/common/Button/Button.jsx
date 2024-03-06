@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
-import addIcon from '../../../assets/add-24.svg';
 
 const BaseButton = styled.button`
   width: 100%;
@@ -98,10 +97,10 @@ const Outlined36Button = styled(Outlined)`
 `;
 
 const Icon = styled.img`
-    @media (max-width: 475px) {
+  @media (max-width: 475px) {
     width: 20px;
   }
-`
+`;
 
 function Outlined36IconButton({ children, onClick, disabled, width }) {
   return (
