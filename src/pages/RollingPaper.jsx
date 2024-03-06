@@ -7,6 +7,8 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import Header from '../components/RollingPager/Header';
 import colors from '../styles/colors';
+import { useLocation, useParams } from 'react-router-dom';
+import useDeleteRollingPaper from '../utils/hooks/useDeleteRollingPaper';
 
 const Container = styled.div`
   background-color: ${colors['--Orange-200']};
@@ -26,6 +28,18 @@ function RollingPaper() {
   const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetMessages();
   const [ref, inView] = useInView();
 
+  const location = useLocation().pathname;
+  const regex = /post\/\d+\/edit/;
+  const isEdit = regex.test(location);
+
+  const { mutate } = useDeleteRollingPaper();
+
+  const { id: recipientId } = useParams();
+
+  const handleDelete = (data) => {
+    mutate(data);
+  };
+
   useEffect(() => {
     if (inView && hasNextPage) {
       fetchNextPage();
@@ -36,6 +50,7 @@ function RollingPaper() {
     <Container>
       <Header messages={data?.pages} />
       <Content>
+        {isEdit && <button onClick={() => handleDelete({ id: recipientId })}>삭제하기</button>}
         <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />
         {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
       </Content>

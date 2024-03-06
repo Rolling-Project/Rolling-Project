@@ -23,7 +23,7 @@ function CardList({ messages, lastRef, onClick }) {
   const location = useLocation().pathname;
   const regex = /post\/\d+\/edit/;
   const isEdit = regex.test(location);
-  //console.log(isEdit)
+
   return (
     <List>
       {!isEdit && <PlusCard />}

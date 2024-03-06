@@ -6,6 +6,9 @@ const deleteMessage = async ({ id }) => {
   const response = await fetch(`${BASE_URL}messages/${id}/`, {
     method: 'DELETE'
   });
+  if (!response.ok) {
+    throw new Error("메세지 삭제 실패");
+  }
   return response;
 };
 
