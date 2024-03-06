@@ -3,10 +3,11 @@ import ToggleButton from '../../common/Button/ToggleButton';
 import colors from '../../styles/colors';
 
 export const Div = styled.div`
-  display: 'flex';
-  flexdirection: 'column';
-  alignitems: 'center';
-  ustifycontent: 'center';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 `;
 
 export const To = styled.div`
@@ -19,6 +20,7 @@ export const To = styled.div`
 
 export const Background = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   max-width: 72rem;
