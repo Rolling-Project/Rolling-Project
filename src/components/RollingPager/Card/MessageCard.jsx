@@ -26,19 +26,18 @@ const Message = styled.div`
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.18px;
-  
+
   @media (max-width: 517px) {
     font-size: 15px;
   }
 `;
 
-function MessageCard({ message }) {
-  const { sender, profileImageURL, relationship, content, createdAt } = message;
-
+function MessageCard({ message, isEdit }) {
+  const { id, sender, profileImageURL, relationship, content, createdAt } = message;
   return (
     <Card>
       <Header>
-        <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
+        <Profile id={id} imgUrl={profileImageURL} sender={sender} relationship={relationship} isEdit={isEdit}/>
       </Header>
 
       <Divider />

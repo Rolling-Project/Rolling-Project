@@ -102,7 +102,7 @@ function ProfileSection({ messages }) {
         </Profiles>
 
         <Text>
-          <strong>{formatNumber(count - 3)}</strong>명이 작성했어요!
+          <strong>{formatNumber(count)}</strong>명이 작성했어요!
         </Text>
       </Content>
       <Divider vertical />

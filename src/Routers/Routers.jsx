@@ -7,6 +7,7 @@ const Routers = () => (
     <Routes>
       <Route path="/list" element={<ListPage />} />
       <Route path="/post/:id" element={<RollingPaper />} />
+      <Route path="/post/:id/edit" element={<RollingPaper />} />
     </Routes>
   </Router>
 );
