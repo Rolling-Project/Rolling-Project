@@ -11,7 +11,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Global styles={reset} />
       <Routers />
-      {/* <ReactQueryDevtools /> */}
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
