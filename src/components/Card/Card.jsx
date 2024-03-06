@@ -11,8 +11,8 @@ function Card({ data, isBig = false }) {
   const effect = backgroundImageURL || backgroundColorConveter(backgroundColor);
   const isImage = backgroundImageURL === null;
   const dataProps = {
-    name,
-    effect
+    name, // 유저 이름
+    effect // 배경색 or 배경 이미지
   };
   return (
     <Styled.Card $effect={effect} $isImage={isImage} $isBig={isBig}>
