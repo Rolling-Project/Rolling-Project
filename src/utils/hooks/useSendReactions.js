@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const BASEURL = import.meta.env.VITE_API_BASE_URL;
 
 const postReaction = async ({ id, emoji, type }) => {
-  const response = await fetch(`${baseUrl}recipients/${id}/reactions/`, {
+  const response = await fetch(`${BASEURL}recipients/${id}/reactions/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
