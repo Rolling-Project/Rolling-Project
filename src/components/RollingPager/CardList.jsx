@@ -9,22 +9,23 @@ const List = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 820px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 475px) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;
 
-function CardList({ messages, onClick }) {
+function CardList({ messages, lastRef, onClick }) {
   return (
     <List>
       <PlusCard />
-      {messages.map((message) => (
+      {messages?.map((message, idx) => (
         <li key={message.id} onClick={() => onClick(message)}>
           <MessageCard message={message} />
+          <div ref={idx === messages.length - 3 ? lastRef : null}></div>
         </li>
       ))}
     </List>
