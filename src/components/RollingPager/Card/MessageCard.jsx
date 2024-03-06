@@ -26,9 +26,13 @@ const Message = styled.div`
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.18px;
+  
+  @media (max-width: 517px) {
+    font-size: 15px;
+  }
 `;
 
-const MessageCard = ({ message }) => {
+function MessageCard({ message }) {
   const { sender, profileImageURL, relationship, content, createdAt } = message;
 
   return (
@@ -44,6 +48,6 @@ const MessageCard = ({ message }) => {
       <Date fontSize={'12px'}>{formatDate(createdAt)}</Date>
     </Card>
   );
-};
+}
 
 export default MessageCard;

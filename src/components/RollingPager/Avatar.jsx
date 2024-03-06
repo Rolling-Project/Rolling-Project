@@ -7,9 +7,9 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
-function Avatar({ imgUrl }) {
+function Avatar({ imgUrl, width, height, hasBorder }) {
   return (
-    <Circle>
+    <Circle width={width} height={height} hasBorder={hasBorder}>
       <Image src={imgUrl} alt="프로필 이미지" />
     </Circle>
   );

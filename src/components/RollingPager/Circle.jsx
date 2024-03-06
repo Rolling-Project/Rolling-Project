@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
+import colors from '../../styles/colors';
 
 const Circle = styled.div`
-  width: 56px;
-  height: 56px;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  background-color: ${colors['--White']};
   border-radius: 50%;
+  border: ${({ hasBorder }) => (hasBorder ? `1.4px solid ${colors['--White']}` : 'none')};
   overflow: hidden;
 `;
 
