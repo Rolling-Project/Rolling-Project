@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Root = styled.div`
   display: flex;
-  glign-items: center;
+  align-items: center;
   justify-content: center;
 `;
 

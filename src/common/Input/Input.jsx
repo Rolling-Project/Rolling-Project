@@ -16,7 +16,7 @@ const Styled = {
     border: ${({ $isEmpty }) => ($isEmpty ? `1px solid ${colors['--Error']}` : `1px solid ${colors['--Gray-300']}`)};
     background: ${colors['--White']};
 
-    color: ${colors['--Green-500']};
+    color: ${colors['--Gray-900']};
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;

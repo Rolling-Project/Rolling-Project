@@ -24,8 +24,8 @@ function Card({ data, isBig = false }) {
               <RecentMessage
                 key={id}
                 src={profileImageURL}
-                alt="글 작성해준 유저의 프로필 이미지"
-                loading="lazy"
+                alt='글 작성해준 유저의 프로필 이미지'
+                loading='lazy'
                 isBig={isBig}
               />
             );
@@ -60,7 +60,7 @@ function Card({ data, isBig = false }) {
           )}
         </Styled.ReactionBox>
         {isImage && (
-          <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt="카드 배경 효과" loading="lazy" />
+          <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt='카드 배경 효과' loading='lazy' />
         )}
       </Link>
     </Styled.Card>
