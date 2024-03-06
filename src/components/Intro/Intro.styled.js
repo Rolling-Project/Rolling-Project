@@ -1,57 +1,64 @@
 import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 3.75rem;
-  margin-left: 3.75rem;
+  display: flex;
+  padding: 60px 0px 60px 60px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 152px;
 `;
 
 export const ContentBox = styled.div`
-  width: 20rem;
-  height: 6.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
-  @media (max-width: 768px) {
-    width: auto;
-    display: flex;
-    flex-direction: column;
   }
 `;
 
 export const Num = styled.div`
-  width: 5rem;
-  height: 2rem;
-  border-radius: 3.125rem;
-  background-color: #9935ff;
-  color: #fff;
-  padding: 0.375rem 0.75rem;
-  gap: 0.625rem;
-  font-size: 0.875rem;
+  display: flex;
+  padding: 6px 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  background: var(--Purple-600, #9935ff);
+  color: var(--white, #fff);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 700;
-  line-height: 1.25rem;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.07px;
 `;
 
 export const Content = styled.h1`
-  font-size: 1.5rem;
+  color: var(--gray-900, #181818);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
   font-weight: 700;
-  line-height: 2.25rem;
-  color: #181818;
-  margin-top: 0.75rem;
-  margin-bottom: 0.625rem;
-  width: 20.625rem;
+  line-height: 36px; /* 150% */
+  letter-spacing: -0.24px;
 `;
 
 export const Description = styled.p`
-  font-size: 1.125rem;
+  color: var(--gray-500, #555);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 1.75rem;
-  color: #555555;
+  line-height: 28px;
+  letter-spacing: -0.18px;
 `;
 
 export const Example = styled.div`
-  width: 45rem;
-  height: 12.75rem;
-  left: 25rem;
-  bottom: 7rem;
-  position: relative;
+  display: flex;
+  width: 720px;
+  height: 204px;
+  padding: 21px 40px 21.024px 40px;
+  justify-content: center;
+  align-items: center;
 `;
