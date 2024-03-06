@@ -35,7 +35,6 @@ export const DownButton = styled.div`
   padding-top: 1.375rem;
 `;
 
-// 왜 안올라가지....('추가' 이미지 들어가는 부분.)
 export const AddButton = styled.div`
   height: 2.0456rem;
   border: 0.0569rem solid #dadcdf;

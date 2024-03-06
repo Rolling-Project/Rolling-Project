@@ -4,8 +4,8 @@ import example from '../../assets/images/example.svg';
 function Intro() {
   return (
     <Styled.Wrap>
-      <Styled.Num>Point.01</Styled.Num>
       <Styled.ContentBox>
+        <Styled.Num>Point.01</Styled.Num>
         <Styled.Content>
           누구나 손쉽게,온라인
           <br /> 롤링 페이퍼를 만들 수 있어요

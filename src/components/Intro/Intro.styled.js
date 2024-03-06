@@ -1,10 +1,21 @@
 import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
-  width: 16.75rem;
-  height: 9.75rem;
+  width: 100%;
+  height: 100%;
   margin-top: 3.75rem;
   margin-left: 3.75rem;
+`;
+
+export const ContentBox = styled.div`
+  width: 20rem;
+  height: 6.75rem;
+  gap: 16px;
+  @media (max-width: 768px) {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Num = styled.div`
@@ -18,12 +29,6 @@ export const Num = styled.div`
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.25rem;
-`;
-
-export const ContentBox = styled.div`
-  width: 20rem;
-  height: 6.75rem;
-  gap: 0.5rem;
 `;
 
 export const Content = styled.h1`
@@ -47,6 +52,6 @@ export const Example = styled.div`
   width: 45rem;
   height: 12.75rem;
   left: 25rem;
-  bottom: 10rem;
+  bottom: 7rem;
   position: relative;
 `;
