@@ -20,6 +20,16 @@ export const CardSearchInputBox = styled.div`
   width: 27rem;
   margin: 0 auto;
   position: relative;
+
+  @media screen and (max-width: 720px) {
+    width: 22rem;
+    height: 3rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    height: 2.5rem;
+  }
 `;
 
 export const CardSearchInput = styled.input`
@@ -33,6 +43,10 @@ export const CardSearchInput = styled.input`
 
   &:focus {
     border: 1.5px solid ${colors['--Purple-600']};
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
   }
 
   @media screen and (max-width: 720px) {
@@ -54,6 +68,18 @@ export const SearchIcon = styled.img`
   position: absolute;
   top: 1rem;
   right: 1rem;
+
+  @media screen and (max-width: 720px) {
+    width: 1.3rem;
+    height: 1.3rem;
+    top: 0.9rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 1.2rem;
+    height: 1.2rem;
+    top: 0.7rem;
+  }
 `;
 
 export const ListHeaderWrap = styled.div`
@@ -187,7 +213,7 @@ export const ListTextLineBreak = styled.br`
   }
 `;
 
-export const CardListBox = styled.section`
+export const CardListBox = styled.ul`
   padding: 2rem 0 2.5rem;
   display: grid;
   grid-template-columns: repeat(4, 17.2rem);
