@@ -45,6 +45,5 @@
     "react/jsx-one-expression-per-line": "off", // JSX 코드에서 표현식을 한 줄에 하나씩 작성
     "no-confusing-arrow": "off", // 화살표 함수와 조건 표현식 혼합 사용 가능
     "implicit-arrow-linebreak": "warn"
-
   }
 }

@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
 
 /**
  * 데이터 로딩 및 오류 처리 로직을 처리합니다.
