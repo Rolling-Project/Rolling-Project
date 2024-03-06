@@ -8,7 +8,7 @@ const deleteRollingPaper = async ({ id }) => {
     method: 'DELETE'
   });
   if (!response.ok) {
-    throw new Error("롤링페이퍼 삭제 실패");
+    throw new Error('롤링페이퍼 삭제 실패');
   }
   return response;
 };
