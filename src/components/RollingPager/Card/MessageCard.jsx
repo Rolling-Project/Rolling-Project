@@ -26,6 +26,10 @@ const Message = styled.div`
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.18px;
+  
+  @media (max-width: 517px) {
+    font-size: 15px;
+  }
 `;
 
 function MessageCard({ message }) {

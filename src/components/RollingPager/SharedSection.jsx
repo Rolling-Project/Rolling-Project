@@ -26,6 +26,12 @@ const SharedDropDown = styled(BaseDropDown)`
   }
 `;
 
+const Icon = styled.img`
+    @media (max-width: 475px) {
+    width: 20px;
+  }
+`
+
 const { Kakao } = window;
 
 function SharedSection({ onClick }) {
@@ -74,8 +80,8 @@ function SharedSection({ onClick }) {
 
   return (
     <Shared ref={dropRef}>
-      <Outlined36Button w={'56px'} onClick={handleDropDown}>
-        <img src={shardIcon} />
+      <Outlined36Button onClick={handleDropDown}>
+        <Icon src={shardIcon} />
       </Outlined36Button>
       {showDropDown && (
         <SharedDropDown>

@@ -3,8 +3,18 @@ import Avatar from './Avatar';
 import Circle from './Circle';
 import formatNumber from '../../utils/helpers/numberUtils';
 import colors from '../../styles/colors';
+import Divider from './Divider';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 866px) {
+    display: none;
+  }
+`;
+
+const Content = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -60,6 +70,10 @@ const Text = styled.p`
   strong {
     font-weight: 700;
   }
+  
+  @media (max-width: 1019px) {
+    display: none;
+  }
 `;
 
 function ProfileSection({ messages }) {
@@ -69,26 +83,29 @@ function ProfileSection({ messages }) {
 
   return (
     <Container>
-      <Profiles count={count}>
-        {profiles
-          .filter((ele, idx) => idx < 3)
-          .map((sender) => (
-            <Item key={sender.id}>
-              <Avatar imgUrl={sender.profileImageURL} width={'28px'} height={'28px'} hasBorder />
+      <Content>
+        <Profiles count={count}>
+          {profiles
+            .slice(0, 3)
+            .map((sender) => (
+              <Item key={sender.id}>
+                <Avatar imgUrl={sender.profileImageURL} width={'28px'} height={'28px'} hasBorder />
+              </Item>
+            ))}
+          {count > 3 && (
+            <Item>
+              <Others>
+                <Count>{`+${formatNumber(count - 3)}`}</Count>
+              </Others>
             </Item>
-          ))}
-        {count > 3 && (
-          <Item>
-            <Others>
-              <Count>{`+${formatNumber(count - 3)}`}</Count>
-            </Others>
-          </Item>
-        )}
-      </Profiles>
+          )}
+        </Profiles>
 
-      <Text>
-        <strong>{formatNumber(count - 3)}</strong>명이 작성했어요!
-      </Text>
+        <Text>
+          <strong>{formatNumber(count - 3)}</strong>명이 작성했어요!
+        </Text>
+      </Content>
+      <Divider vertical />
     </Container>
   );
 }

@@ -16,11 +16,17 @@ import copyClipboardText from '../../utils/helpers/copyClipboardText';
 const Service = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  
+  @media (max-width: 475px) {
+    width: 100%;
+  }
 `;
 
 const SideSection = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 13px;
 `;
 
@@ -29,11 +35,10 @@ const Container = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-  height: 68px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 24px;
+  padding: 13px 24px;
   background-color: ${colors['--White']};
 `;
 
@@ -43,6 +48,10 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 475px) {
+    flex-wrap: wrap;
+  }
 `;
 
 const Name = styled.p`
@@ -52,6 +61,10 @@ const Name = styled.p`
   letter-spacing: -0.28px;
   color: ${colors['--Gray-800']};
   cursor: default;
+
+  @media (max-width: 475px) {
+    font-size: 18px;
+  }
 `;
 
 const Emoji = styled.div`
@@ -64,9 +77,15 @@ const EmojiAdd = styled.div`
 `;
 
 const Picker = styled.div`
+  width: 350px;
   position: absolute;
   top: 42px;
   right: 0;
+
+  @media (max-width: 475px) {
+    width: 315px;
+    transform: translate(20%, 0);
+  }
 `;
 
 function Header(props) {
@@ -127,8 +146,6 @@ function Header(props) {
         <Service>
           <ProfileSection {...props} />
 
-          <Divider vertical />
-
           <SideSection>
             <Emoji>
               <EmojiDropDown reactions={reactions?.results} />
@@ -136,7 +153,9 @@ function Header(props) {
                 <Outlined36IconButton onClick={handleEmojiPicker} width={'90px'}>
                   추가
                 </Outlined36IconButton>
-                <Picker>{showEmojiPicker && <EmojiPicker onEmojiClick={onEmojiClick} />}</Picker>
+                <Picker>
+                  {showEmojiPicker && <EmojiPicker onEmojiClick={onEmojiClick} emojiStyle={'native'} width={'100%'} />}
+                </Picker>
               </EmojiAdd>
             </Emoji>
 

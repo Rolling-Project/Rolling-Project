@@ -80,7 +80,7 @@ const Outlined = styled(BaseButton)`
 `;
 
 const Outlined36Button = styled(Outlined)`
-  width: ${(props) => props?.w};
+  width: fit-content;
   height: fit-content;
   border-radius: 6px;
   padding: 6px 16px;
@@ -89,13 +89,25 @@ const Outlined36Button = styled(Outlined)`
   line-height: 24px;
   display: flex;
   gap: 4px;
+  @media (max-width: 475px) {
+    padding: 6px 8px;
+    span {
+      display: none;
+    }
+  }
 `;
+
+const Icon = styled.img`
+    @media (max-width: 475px) {
+    width: 20px;
+  }
+`
 
 function Outlined36IconButton({ children, onClick, disabled, width }) {
   return (
     <Outlined36Button onClick={onClick} disabled={disabled} w={width}>
-      <img src={addIcon} />
-      {children}
+      <Icon src={addIcon} />
+      <span>{children}</span>
     </Outlined36Button>
   );
 }

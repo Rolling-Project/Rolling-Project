@@ -7,6 +7,14 @@ import BaseDropDown from './DropDown';
 const DropDown = styled.div`
   position: relative;
   margin: 0 8px 0 28px;
+
+  @media (max-width: 648px) {
+    display: none;
+  }
+
+  @media (max-width: 475px) {
+    display: block;
+  }
 `;
 
 const Item = styled.div`
@@ -22,6 +30,11 @@ const Item = styled.div`
   gap: 5px;
   span {
     transform: translate(0px, 1.5px);
+  }
+  @media (max-width: 475px) {
+    width: 53px;
+    height: 28px;
+    font-size: 14px;
   }
 `;
 

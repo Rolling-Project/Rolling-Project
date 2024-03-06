@@ -15,6 +15,10 @@ const Name = styled.div`
   span {
     font-weight: bold;
   }
+  
+  @media (max-width: 517px) {
+    font-size: 16px;
+  }
 `;
 
 const Badge = styled.div`

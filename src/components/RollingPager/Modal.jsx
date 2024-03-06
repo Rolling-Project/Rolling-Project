@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import Profile from './Profile';
@@ -18,6 +18,7 @@ const Modal = styled.div`
   border-radius: 16px;
   background: ${colors['--White']};
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  max-width: calc(100vw - 16px * 2);
 `;
 
 const Header = styled.div`
@@ -28,7 +29,7 @@ const Header = styled.div`
 `;
 
 const Content = styled.div`
-  width: 520px;
+  width: 100%;
   height: 240px;
   margin: 16px 0 24px;
   padding-right: 8px;
@@ -60,11 +61,11 @@ const Backdrop = styled.div`
   background: rgba(0, 0, 0, 0.6);
 `;
 
-function MessageModal({ message, onClose }){
+function MessageModal({ message, onClose }) {
   const { sender, profileImageURL, relationship, content, createdAt } = message;
-  
+
   const modalRef = useRef(null);
-  
+
   const handleOutSideClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       onClose();
@@ -72,9 +73,9 @@ function MessageModal({ message, onClose }){
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleOutSideClick);
+    document.addEventListener('mousedown', handleOutSideClick);
     return () => {
-      document.removeEventListener("mousedown", handleOutSideClick);
+      document.removeEventListener('mousedown', handleOutSideClick);
     };
   });
 
@@ -99,6 +100,6 @@ function MessageModal({ message, onClose }){
       </Modal>
     </div>
   );
-};
+}
 
 export default MessageModal;
