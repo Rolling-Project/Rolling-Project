@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
@@ -65,10 +65,12 @@ function AllListPage() {
   const {
     data: initialData,
     isLoading: isInitialLoading,
-    isError: isInitialError
+    isError: isInitialError,
+    isFetching: isInitialFetching
   } = useQuery({
     queryKey: ['latestData'],
-    queryFn: fetchLatestData
+    queryFn: fetchLatestData,
+    refetchOnWindowFocus: false
   });
 
   const { data, isError, refetch, isFetching } = useQuery({
@@ -85,7 +87,7 @@ function AllListPage() {
     return <Error />;
   }
 
-  if (isInitialLoading || isFetching) {
+  if (isInitialLoading || isFetching || isInitialFetching) {
     return <Loading />;
   }
   return (

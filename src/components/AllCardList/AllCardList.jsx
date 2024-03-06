@@ -11,7 +11,7 @@ const filter = 'filter';
 function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFilter, listFilterValue }) {
   const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
-
+  console.log(cardList);
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
     if (e.target.dataset.status === filter) {
