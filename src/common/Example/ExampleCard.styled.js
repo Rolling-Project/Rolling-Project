@@ -20,7 +20,7 @@ export const Card = styled.div`
             case 'blue':
               return colors['--Blue-200'];
             case 'green':
-              return colors['--Green4-200'];
+              return colors['--Green-200'];
             default:
               return 'none';
           }
