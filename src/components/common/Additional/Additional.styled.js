@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
 
-// 추가적으로 몇 명이 더 작성했는지
 export const Additional = styled.div`
   padding: ${({ $isBig }) => ($isBig ? '0.5rem 0.5rem 0.26rem' : '0.34rem 0.5rem 0.24rem')};
   border-radius: 1.875rem;

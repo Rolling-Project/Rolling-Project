@@ -16,16 +16,17 @@ function ListPage() {
     return { dataCount, latestData, popularData };
   };
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ['recipients'],
-    queryFn: fetchData
+    queryFn: fetchData,
+    refetchOnWindowFocus: false
   });
 
   if (isError) {
     return <Error />;
   }
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <Loading />;
   }
 

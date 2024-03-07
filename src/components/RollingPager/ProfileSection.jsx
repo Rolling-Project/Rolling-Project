@@ -70,7 +70,7 @@ const Text = styled.p`
   strong {
     font-weight: 700;
   }
-  
+
   @media (max-width: 1019px) {
     display: none;
   }
@@ -85,13 +85,11 @@ function ProfileSection({ messages }) {
     <Container>
       <Content>
         <Profiles count={count}>
-          {profiles
-            .slice(0, 3)
-            .map((sender) => (
-              <Item key={sender.id}>
-                <Avatar imgUrl={sender.profileImageURL} width={'28px'} height={'28px'} hasBorder />
-              </Item>
-            ))}
+          {profiles.slice(0, 3).map((sender) => (
+            <Item key={sender.id}>
+              <Avatar imgUrl={sender.profileImageURL} width="28px" height="28px" hasBorder />
+            </Item>
+          ))}
           {count > 3 && (
             <Item>
               <Others>

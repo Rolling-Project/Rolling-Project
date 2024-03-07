@@ -6,15 +6,16 @@ import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/search.svg';
 import EmptyCard from '../EmptyCard/EmptyCard';
 
-const latest = '최신순';
-const filter = 'filter';
+const LATEST = '최신순';
+const FILTET = 'filter';
+
 function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFilter, listFilterValue }) {
   const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
-  console.log(cardList);
+
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
-    if (e.target.dataset.status === filter) {
+    if (e.target.dataset.status === FILTET) {
       setListFilterToggle(!lstFilterToggle);
       return;
     }
@@ -34,7 +35,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
 
   // 데이터 정렬(최신순, 인기순)
   useEffect(() => {
-    if (listFilterValue === latest) {
+    if (listFilterValue === LATEST) {
       setData(cacheData.current.latestList);
       return;
     }
@@ -51,7 +52,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
   const handleSearchChange = (value) => {
     if (!value) {
       // 인풋 값이 없을 때
-      if (listFilterValue === latest) {
+      if (listFilterValue === LATEST) {
         setData(cacheData.current.latestList); // 최신순 정렬
         return;
       }
@@ -61,7 +62,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
     const regex = new RegExp(value, 'i');
 
     // 최신순 검색 결과
-    if (listFilterValue === latest) {
+    if (listFilterValue === LATEST) {
       const searchResult = cacheData.current.latestList.filter((list) => regex.test(list.name));
       setData(searchResult);
       return;
@@ -113,8 +114,8 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
               alt="롤링 페이퍼 리스트 필터 토글 아이콘"
             />
             <Styled.ListFilter $lstFilterToggle={lstFilterToggle}>
-              <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>최신순</Styled.ListFilterItem>
-              <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>인기순</Styled.ListFilterItem>
+              <Styled.ListFilterItem onClick={handleListFilterValue}>최신순</Styled.ListFilterItem>
+              <Styled.ListFilterItem onClick={handleListFilterValue}>인기순</Styled.ListFilterItem>
             </Styled.ListFilter>
           </Styled.ListFilterBox>
         </Styled.ListHeaderBox>
@@ -127,7 +128,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
 
       {cardList.length !== 0 ? (
         <Styled.CardListBox>
-          {cardList?.map((data) => (
+          {cardList.map((data) => (
             <Card key={data.id} data={data} isBig />
           ))}
         </Styled.CardListBox>

@@ -25,7 +25,7 @@ function CardList({ messages, lastRef, onClick }) {
       {messages?.map((message, idx) => (
         <li key={message.id} onClick={() => onClick(message)}>
           <MessageCard message={message} />
-          <div ref={idx === messages.length - 3 ? lastRef : null}></div>
+          <div ref={idx === messages.length - 3 ? lastRef : null} />
         </li>
       ))}
     </List>

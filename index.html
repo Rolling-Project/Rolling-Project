@@ -7,8 +7,18 @@
     <!-- 파비콘 설정 -->
     <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
 
+    <!-- 이미지 리소스 사전 로드(랜더링 시간 단축) -->
+    <link rel="preload" fetchpriority="high" as="image" href="/public/logo.svg" type="image/svg+xml" />
     <!-- 반응형 웹 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 카카오 SDK -->
+    <script
+      defer
+      src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js"
+      integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- 페이지 설명 -->
     <title>Rolling</title>
@@ -30,8 +40,6 @@
     <meta property="twitter:site" content="사이트 URL" />
     <meta name="twitter:image" content="이미지" />
     <meta property="twitter:image:alt" content="Rolling 홈페이지 이미지" />
-
-    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.0/kakao.min.js" integrity="sha384-l+xbElFSnPZ2rOaPrU//2FF5B4LB8FiX5q4fXYTlfcG4PGpMkE1vcL7kNXI6Cci0" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="root"></div>

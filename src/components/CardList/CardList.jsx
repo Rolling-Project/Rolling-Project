@@ -83,8 +83,8 @@ function CardList({ title, cardList }) {
           {cardList.length === 0 && <EmptyCard />}
         </Styled.CardList>
       </Styled.CardContainer>
-      {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}
-      {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} alt="다음 버튼" />}
+      {buttonVisible.prev && <Styled.PrevButton onClick={handlePrevCard} src={PrevButton} alt="이전 버튼" />}
+      {buttonVisible.next && <Styled.NextButton onClick={handleNextCard} src={NextButton} alt="다음 버튼" />}
     </Styled.CardWrap>
   );
 }

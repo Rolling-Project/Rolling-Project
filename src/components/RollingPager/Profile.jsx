@@ -15,7 +15,7 @@ const Name = styled.div`
   span {
     font-weight: bold;
   }
-  
+
   @media (max-width: 517px) {
     font-size: 16px;
   }
@@ -35,7 +35,7 @@ const Badge = styled.div`
 function Profile({ imgUrl, sender = '김동훈', relationship = '동료' }) {
   return (
     <Container>
-      <Avatar imgUrl={imgUrl} width={'56px'} height={'56px'} />
+      <Avatar imgUrl={imgUrl} width="56px" height="56px" />
       <div>
         <Name>
           From.
