@@ -77,7 +77,7 @@ function CardList({ title, cardList }) {
     <Styled.CardWrap>
       <Styled.ListTitleBox>
         <Styled.ListTitle>{title}</Styled.ListTitle>
-        {!cardList.length && (
+        {cardList.length && (
           <Styled.CardDetailBox>
             <Styled.CardDetail>
               카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.

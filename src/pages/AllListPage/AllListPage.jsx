@@ -16,7 +16,7 @@ const POPULAR_OPTION = '&sort=like';
 function AllListPage() {
   const location = useLocation();
   const [listFilterValue, setListFilterValue] = useState('최신순'); // 정렬 필터
-  const [currentList, setCurrentList] = useState(null); // 롤링 페이퍼 카드 리스트
+  const [currentList, setCurrentList] = useState([]); // 롤링 페이퍼 카드 리스트
 
   // 인기순
   const fetchPopularData = async () => {
@@ -45,7 +45,8 @@ function AllListPage() {
   const {
     data: latestData,
     isLoading: isLatestDataLoading,
-    isError: isLatestDataError
+    isError: isLatestDataError,
+    refetch
   } = useQuery({
     queryKey: ['latestData'],
     queryFn: fetchLatestData,
@@ -104,7 +105,7 @@ function AllListPage() {
   return (
     <>
       <Helmet>
-        <title>Rolling | 전체 보기</title>
+        <title>Rolling | 롤링 페이퍼 전체 보기</title>
       </Helmet>
       <Header isStatic={false} />
       <AllCardList
