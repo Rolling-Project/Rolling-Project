@@ -29,15 +29,11 @@ function CardList({ title, cardList }) {
   };
 
   const handleScroll = () => {
-    if (cardContainer.current.scrollLeft >= 4700) {
-      setButtonVisible({
-        prev: true,
-        next: false
-      });
-      return;
-    }
+    const maxScrollLeft = cardContainer.current.scrollWidth - cardContainer.current.clientWidth;
+    const isStart = cardContainer.current.scrollLeft === 0;
+    const isEnd = cardContainer.current.scrollLeft >= maxScrollLeft - 10; // 여기서 10은 여유값으로 조절 가능
 
-    if (cardContainer.current.scrollLeft === 0) {
+    if (isStart) {
       setButtonVisible({
         prev: false,
         next: true
@@ -45,6 +41,13 @@ function CardList({ title, cardList }) {
       return;
     }
 
+    if (isEnd) {
+      setButtonVisible({
+        prev: true,
+        next: false
+      });
+      return;
+    }
     setButtonVisible({
       prev: true,
       next: true
