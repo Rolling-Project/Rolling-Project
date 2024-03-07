@@ -32,19 +32,19 @@ const Message = styled.div`
   }
 `;
 
-function MessageCard({ message, isEdit }) {
+function MessageCard({ message, isEdit, onClick }) {
   const { id, sender, profileImageURL, relationship, content, createdAt } = message;
   return (
-    <Card>
+    <Card onClick={() => onClick(message)}>
       <Header>
-        <Profile id={id} imgUrl={profileImageURL} sender={sender} relationship={relationship} isEdit={isEdit}/>
+        <Profile id={id} imgUrl={profileImageURL} sender={sender} relationship={relationship} isEdit={isEdit} />
       </Header>
 
       <Divider />
 
       <Message>{content}</Message>
 
-      <Date fontSize={'12px'}>{formatDate(createdAt)}</Date>
+      <Date fontSize="12px">{formatDate(createdAt)}</Date>
     </Card>
   );
 }

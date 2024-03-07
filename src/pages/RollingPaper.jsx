@@ -45,19 +45,21 @@ const DeletedSection = styled.div`
 
 function RollingPaper() {
   const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
+
   const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetMessages();
+
+  const { mutate } = useDeleteRollingPaper();
+
   const [ref, inView] = useInView();
+
+  const { id: recipientId } = useParams();
 
   const location = useLocation().pathname;
   const regex = /post\/\d+\/edit/;
   const isEdit = regex.test(location);
 
-  const { mutate } = useDeleteRollingPaper();
-
-  const { id: recipientId } = useParams();
-
-  const handleDelete = (data) => {
-    mutate(data);
+  const handleDelete = () => {
+    mutate({ id: recipientId });
   };
 
   useEffect(() => {
@@ -71,11 +73,14 @@ function RollingPaper() {
       <Header messages={data?.pages} />
       <Content>
         <DeletedSection>
-          <div>
-            {isEdit && <Primary40Button onClick={() => handleDelete({ id: recipientId })}>삭제하기</Primary40Button>}
-          </div>
+          <div>{isEdit && <Primary40Button onClick={handleDelete}>삭제하기</Primary40Button>}</div>
         </DeletedSection>
-        <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />
+        <CardList
+          messages={data?.pages.map((page) => page.result).flat()}
+          onClick={openModal}
+          lastRef={ref}
+          isEdit={isEdit}
+        />
         {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
       </Content>
     </Container>

@@ -4,7 +4,7 @@ import BaseCard from './Card/BaseCard';
 import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import formatDate from '../../utils/helpers/dateUtils';
-import Divider from '../RollingPager/Divider'
+import Divider from './Divider';
 
 const Card = styled(BaseCard)`
   padding: 0 24px;
