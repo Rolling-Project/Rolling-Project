@@ -9,8 +9,10 @@ import Header from '../components/RollingPager/Header';
 import colors from '../styles/colors';
 import { useLocation, useParams } from 'react-router-dom';
 import useDeleteRollingPaper from '../utils/hooks/useDeleteRollingPaper';
+import { Primary40Button } from '../components/common/Button/Button';
 
 const Container = styled.div`
+  position: relative;
   background-color: ${colors['--Orange-200']};
 `;
 
@@ -21,6 +23,18 @@ const Content = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 246px 24px;
+`;
+
+const DeletedButton = styled.div`
+  margin-left: auto;
+  margin-bottom: 11px;
+
+  @media (max-width: 820px) {
+    position: fixed;
+    bottom: 25px;
+    width: 100%;
+    max-width: calc(100vw - 24px * 2);
+  }
 `;
 
 function RollingPaper() {
@@ -50,7 +64,9 @@ function RollingPaper() {
     <Container>
       <Header messages={data?.pages} />
       <Content>
-        {isEdit && <button onClick={() => handleDelete({ id: recipientId })}>삭제하기</button>}
+        <DeletedButton>
+          {isEdit && <Primary40Button onClick={() => handleDelete({ id: recipientId })}>삭제하기</Primary40Button>}
+        </DeletedButton>
         <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />
         {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
       </Content>

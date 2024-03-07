@@ -3,8 +3,16 @@ import colors from '../../styles/colors';
 import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import useDeleteMessages from '../../utils/hooks/useDeleteMessages';
+import { Outlined36Button } from '../common/Button/Button';
+import deletedIcon from '../../assets/deleted.svg';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const Content = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
@@ -43,15 +51,22 @@ function Profile({ id: messageId, imgUrl, sender, relationship, isEdit }) {
 
   return (
     <Container>
-      <Avatar imgUrl={imgUrl} width={'56px'} height={'56px'} />
-      <div>
-        <Name>
-          From.
-          <span>{` ${sender}`}</span>
-        </Name>
-        <Badge relationship={relationship}>{relationship}</Badge>
-      </div>
-      {isEdit && <button onClick={handleDelete}>삭제</button>}
+      <Content>
+        <Avatar imgUrl={imgUrl} width={'56px'} height={'56px'} />
+        <div>
+          <Name>
+            From.
+            <span>{` ${sender}`}</span>
+          </Name>
+          <Badge relationship={relationship}>{relationship}</Badge>
+        </div>
+      </Content>
+
+      {isEdit && (
+        <Outlined36Button onClick={handleDelete} small>
+          <img src={deletedIcon} />
+        </Outlined36Button>
+      )}
     </Container>
   );
 }
