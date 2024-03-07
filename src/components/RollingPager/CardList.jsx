@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import styled from '@emotion/styled';
 import MessageCard from './Card/MessageCard';
 import PlusCard from './Card/PlusCard';

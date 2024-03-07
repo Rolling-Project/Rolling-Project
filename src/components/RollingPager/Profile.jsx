@@ -21,6 +21,7 @@ const Content = styled.div`
 const Name = styled.div`
   font-size: 20px;
   margin-bottom: 6px;
+
   span {
     font-weight: bold;
   }
@@ -52,7 +53,7 @@ function Profile({ id: messageId, imgUrl, sender, relationship, isEdit }) {
   return (
     <Container>
       <Content>
-        <Avatar imgUrl={imgUrl} width={'56px'} height={'56px'} />
+        <Avatar imgUrl={imgUrl} width="56px" height="56px" />
         <div>
           <Name>
             From.
@@ -64,7 +65,7 @@ function Profile({ id: messageId, imgUrl, sender, relationship, isEdit }) {
 
       {isEdit && (
         <Outlined36Button onClick={handleDelete} small>
-          <img src={deletedIcon} />
+          <img src={deletedIcon} alt="삭제 아이콘" />
         </Outlined36Button>
       )}
     </Container>
