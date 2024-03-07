@@ -109,4 +109,5 @@ export const BackgroundEffect = styled.img`
   right: 0px;
   z-index: 1;
   border-radius: 1rem;
+  z-index: 0;
 `;

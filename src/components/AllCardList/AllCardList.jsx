@@ -9,14 +9,14 @@ import EmptyCard from '../EmptyCard/EmptyCard';
 const LATEST = '최신순';
 const FILTET = 'filter';
 
-function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFilter, listFilterValue }) {
+function AllCardList({ latestData, popularData, listFilterValue, setListFilterValue, cardList, setCardList }) {
   const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
 
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
     if (e.target.dataset.status === FILTET) {
-      setListFilterToggle(!lstFilterToggle);
+      setListFilterToggle(true);
       return;
     }
     setListFilterToggle(false);
@@ -24,8 +24,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
 
   // 정렬 필터 설정(최신순, 인기순)
   const handleListFilterValue = (e) => {
-    setListFilter(e.target.textContent);
-    setListFilterToggle(!lstFilterToggle);
+    setListFilterValue(e.target.textContent);
   };
 
   // 인풋 값 관리
@@ -33,43 +32,28 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
     setSearchValue(e.target.value.trim());
   };
 
-  // 데이터 정렬(최신순, 인기순)
-  useEffect(() => {
-    if (listFilterValue === LATEST) {
-      setData(cacheData.current.latestList);
-      return;
-    }
-
-    if (cacheData.current.popularList.length) {
-      setData(cacheData.current.popularList);
-      return;
-    }
-
-    popularDataLoad();
-  }, [listFilterValue]);
-
   // 롤링 페이퍼 검색
   const handleSearchChange = (value) => {
     if (!value) {
       // 인풋 값이 없을 때
       if (listFilterValue === LATEST) {
-        setData(cacheData.current.latestList); // 최신순 정렬
+        setCardList(latestData); // 최신순 정렬
         return;
       }
-      setData(cacheData.current.popularList); // 인기순 정렬
+      setCardList(popularData); // 인기순 정렬
       return;
     }
     const regex = new RegExp(value, 'i');
 
     // 최신순 검색 결과
     if (listFilterValue === LATEST) {
-      const searchResult = cacheData.current.latestList.filter((list) => regex.test(list.name));
-      setData(searchResult);
+      const searchResult = latestData.filter((list) => regex.test(list.name));
+      setCardList(searchResult);
       return;
     }
     // 인기순 검색 결과
-    const searchResult = cacheData.current.popularList.filter((list) => regex.test(list.name));
-    setData(searchResult);
+    const searchResult = popularData.filter((list) => regex.test(list.name));
+    setCardList(searchResult);
   };
 
   useEffect(() => {
@@ -126,7 +110,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
         </Styled.ListText>
       </Styled.ListHeaderWrap>
 
-      {cardList.length !== 0 ? (
+      {cardList.length ? (
         <Styled.CardListBox>
           {cardList.map((data) => (
             <Card key={data.id} data={data} isBig />
