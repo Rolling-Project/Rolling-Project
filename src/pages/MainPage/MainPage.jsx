@@ -21,21 +21,21 @@ function MainPage() {
   );
 }
 
-export default MainPage;
-
 const Wrapper = styled.div`
   display: flex;
-  width: 1200px;
-  height: 678px;
-  margin: 0 auto;
-  margin-top: 124px;
-  gap: 30px;
+  width: 75rem;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 1.875rem;
+  margin: 0 auto;
+  padding-top: 8rem;
 `;
 
 const Container = styled.div`
-  width: 1200px;
-  height: 324px;
-  border-radius: 16px;
+  width: 75rem;
+  height: 20.25rem;
+  border-radius: 1rem;
   background-color: #f6f8ff;
 `;
+
+export default MainPage;

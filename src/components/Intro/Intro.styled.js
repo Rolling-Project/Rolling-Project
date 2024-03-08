@@ -1,64 +1,65 @@
 import styled from '@emotion/styled';
 
-export const Wrap = styled.div`
+export const IntroWrap = styled.div`
   display: flex;
-  padding: 60px 0px 60px 60px;
+  padding: 3.75rem 0rem 3.75rem 3.75rem;
   justify-content: flex-end;
   align-items: flex-start;
-  gap: 152px;
+  gap: 9.5rem;
 `;
 
 export const ContentBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  }
+  gap: 1rem;
 `;
 
 export const Num = styled.div`
   display: flex;
-  padding: 6px 12px;
+  padding: 0.375rem 0.75rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 50px;
+  gap: 0.625rem;
+  border-radius: 3.125rem;
   background: var(--Purple-600, #9935ff);
   color: var(--white, #fff);
   font-family: Pretendard;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 20px; /* 142.857% */
-  letter-spacing: -0.07px;
+  line-height: 1.25rem; /* 142.857% */
+  letter-spacing: -0.0044rem;
 `;
 
 export const Content = styled.h1`
   color: var(--gray-900, #181818);
+
+  /* Font/24 Bold */
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 36px; /* 150% */
-  letter-spacing: -0.24px;
+  line-height: 2.25rem; /* 150% */
+  letter-spacing: -0.015rem;
 `;
 
 export const Description = styled.p`
   color: var(--gray-500, #555);
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px;
-  letter-spacing: -0.18px;
+  line-height: 1.75rem;
+  letter-spacing: -0.0112rem;
 `;
 
 export const Example = styled.div`
   display: flex;
-  width: 720px;
-  height: 204px;
-  padding: 21px 40px 21.024px 40px;
+  width: 45rem;
+  height: 12.75rem;
+  padding: 1.3125rem 2.5rem 1.314rem 2.5rem;
   justify-content: center;
   align-items: center;
 `;
