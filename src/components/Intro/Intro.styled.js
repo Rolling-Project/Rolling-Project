@@ -14,6 +14,11 @@ export const IntroWrap = styled.div`
   justify-content: center;
   padding: 60px 60px;
   border-radius: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: -4rem;
+    overflow: hidden;
+  }
 `;
 
 export const ContentBox = styled.div`
@@ -21,6 +26,10 @@ export const ContentBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
+  @media (max-width: 768px) {
+    margin: 0 -20px;
+    padding-bottom: 40px;
+  }
 `;
 
 export const Num = styled.div`
@@ -70,4 +79,8 @@ export const Example = styled.div`
   padding: 1.3125rem 2.5rem 1.314rem 2.5rem;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 auto;
+  }
 `;

@@ -24,6 +24,7 @@ import MainButtonBox from '../../components/MainButtonBox/MainButtonBox';
 function MainPage() {
   return (
     <>
+      <Header isButotnVisible />
       <Wrapper>
         <Container>
           <Intro />
@@ -54,7 +55,7 @@ const Wrapper = styled.div`
 // Container는 안에 요소를 정렬시키기 위한 컨테이너라고 생각하시면 될 것 같습니다!
 const Container = styled.div`
   width: 100%;
-  padding: 20px 30px;
+  padding: 7.75rem 30px;
   display: flex;
   align-items: center;
   justify-content: center;
