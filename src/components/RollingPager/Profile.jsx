@@ -42,7 +42,7 @@ const Badge = styled.div`
   letter-spacing: -0.07px;
 `;
 
-function Profile({ id: messageId, imgUrl, sender, relationship, isEdit }) {
+function Profile({ id: messageId, imgUrl, sender, relationship, isEditPage }) {
   const { mutate } = useDeleteMessages();
 
   const handleDelete = (e) => {
@@ -63,7 +63,7 @@ function Profile({ id: messageId, imgUrl, sender, relationship, isEdit }) {
         </div>
       </Content>
 
-      {isEdit && (
+      {isEditPage && (
         <Outlined36Button onClick={handleDelete} small>
           <img src={deletedIcon} alt="삭제 아이콘" />
         </Outlined36Button>

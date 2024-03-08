@@ -10,10 +10,12 @@ import Header from '../components/RollingPager/Header';
 import colors from '../styles/colors';
 import useDeleteRollingPaper from '../utils/hooks/useDeleteRollingPaper';
 import { Primary40Button } from '../components/common/Button/Button';
+import { isValidUrl, isLogin } from '../utils/helpers/validator';
 
 const Container = styled.div`
   position: relative;
-  background-color: ${colors['--Orange-200']};
+  background: ${(props) => (isValidUrl(props.bg) ? `url(${props.bg})` : colors[props.bg])};
+  background-size: cover;
 `;
 
 const Content = styled.div`
@@ -54,9 +56,19 @@ function RollingPaper() {
 
   const { id: recipientId } = useParams();
 
-  const location = useLocation().pathname;
-  const regex = /post\/\d+\/edit/;
-  const isEdit = regex.test(location);
+  const location = useLocation();
+  const path = location.pathname;
+
+  if (location.state) {
+    const { effect: background, name } = location.state;
+    localStorage.setItem('background', background);
+    localStorage.setItem('name', name);
+  }
+
+  const background = localStorage.getItem('background');
+  const name = localStorage.getItem('name');
+
+  const isEditPage = isLogin(path);
 
   const handleDelete = () => {
     mutate({ id: recipientId });
@@ -69,18 +81,21 @@ function RollingPaper() {
   }, [inView, hasNextPage]);
 
   return (
-    <Container>
-      <Header messages={data?.pages} />
+    <Container bg={background}>
+      <Header messages={data?.pages} name={name} />
+
       <Content>
         <DeletedSection>
-          <div>{isEdit && <Primary40Button onClick={handleDelete}>삭제하기</Primary40Button>}</div>
+          <div>{isEditPage && <Primary40Button onClick={handleDelete}>삭제하기</Primary40Button>}</div>
         </DeletedSection>
+
         <CardList
           messages={data?.pages.map((page) => page.result).flat()}
           onClick={openModal}
           lastRef={ref}
-          isEdit={isEdit}
+          isEditPage={isEditPage}
         />
+
         {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
       </Content>
     </Container>
