@@ -15,6 +15,10 @@ const Name = styled.div`
   span {
     font-weight: bold;
   }
+  
+  @media (max-width: 517px) {
+    font-size: 16px;
+  }
 `;
 
 const Badge = styled.div`
@@ -28,17 +32,19 @@ const Badge = styled.div`
   letter-spacing: -0.07px;
 `;
 
-const Profile = ({ imgUrl, sender = '김동훈', relationship = '동료' }) => (
-  <Container>
-    <Avatar imgUrl={imgUrl} />
-    <div>
-      <Name>
-        From.
-        <span>{` ${sender}`}</span>
-      </Name>
-      <Badge relationship={relationship}>{relationship}</Badge>
-    </div>
-  </Container>
-);
+function Profile({ imgUrl, sender = '김동훈', relationship = '동료' }) {
+  return (
+    <Container>
+      <Avatar imgUrl={imgUrl} width={'56px'} height={'56px'} />
+      <div>
+        <Name>
+          From.
+          <span>{` ${sender}`}</span>
+        </Name>
+        <Badge relationship={relationship}>{relationship}</Badge>
+      </div>
+    </Container>
+  );
+}
 
 export default Profile;

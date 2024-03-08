@@ -1,23 +1,20 @@
-import { useEffect, useState, useRef } from 'react';
-import * as Styled from './AllCardStyled';
-import Loading from '../../components/Loading/Loading';
-import Error from '../../components/Error/Error';
-import Card from '../../components/Card/Card';
-import HiddenLabel from '../../components/common/HiddenLabel/HiddenLabel';
+import { useEffect, useState } from 'react';
+import * as Styled from './AllCardList.styled';
+import Card from '../Card/Card';
+import HiddenLabel from '../common/HiddenLabel/HiddenLabel';
 import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/search.svg';
-import listFilterConverter from '../../utils/helpers/filterConverter';
+import EmptyCard from '../EmptyCard/EmptyCard';
 
-function AllCardList({ allData, allDataStatus }) {
-  const [listFilterValue, setListFilterValue] = useState('최신순'); // 정렬 필터
+const latest = '최신순';
+const filter = 'filter';
+function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFilter, listFilterValue }) {
   const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
-  const [allCardList, setAllCardList] = useState(allData); // 롤링 페이퍼 카드 리스트
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
-  const popularList = useRef([]); // 인기순 데이터 보관
 
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
-    if (e.target.dataset.status === 'filter') {
+    if (e.target.dataset.status === filter) {
       setListFilterToggle(!lstFilterToggle);
       return;
     }
@@ -26,46 +23,52 @@ function AllCardList({ allData, allDataStatus }) {
 
   // 정렬 필터 설정(최신순, 인기순)
   const handleListFilterValue = (e) => {
-    setListFilterValue(e.target.textContent);
+    setListFilter(e.target.textContent);
     setListFilterToggle(!lstFilterToggle);
   };
 
   // 인풋 값 관리
   const handleCardSearch = (e) => {
-    setSearchValue(e.target.value);
+    setSearchValue(e.target.value.trim());
   };
-
-  useEffect(() => {
-    setAllCardList(allData);
-  }, [allData]);
 
   // 데이터 정렬(최신순, 인기순)
   useEffect(() => {
-    const listFilter = listFilterConverter(listFilterValue);
-    const sortResult = [...allCardList].sort((a, b) => new Date(b[listFilter]) - new Date(a[listFilter]));
-    setAllCardList(sortResult);
-
-    // 인기순 데이터 보관
-    if (listFilterValue === '인기순' && !popularList.current.length) {
-      popularList.current = sortResult;
+    if (listFilterValue === latest) {
+      setData(cacheData.current.latestList);
+      return;
     }
+
+    if (cacheData.current.popularList.length) {
+      setData(cacheData.current.popularList);
+      return;
+    }
+
+    popularDataLoad();
   }, [listFilterValue]);
 
   // 롤링 페이퍼 검색
   const handleSearchChange = (value) => {
-    if (searchValue === '') {
+    if (!value) {
       // 인풋 값이 없을 때
-      if (listFilterValue === '인기순') {
-        // 인기순 정렬
-        setAllCardList(popularList.current);
+      if (listFilterValue === latest) {
+        setData(cacheData.current.latestList); // 최신순 정렬
         return;
       }
-      setAllCardList(allData); // 최신순 정렬
+      setData(cacheData.current.popularList); // 인기순 정렬
       return;
     }
     const regex = new RegExp(value, 'i');
-    const searchResult = allData.filter((list) => regex.test(list.name));
-    setAllCardList(searchResult);
+
+    // 최신순 검색 결과
+    if (listFilterValue === latest) {
+      const searchResult = cacheData.current.latestList.filter((list) => regex.test(list.name));
+      setData(searchResult);
+      return;
+    }
+    // 인기순 검색 결과
+    const searchResult = cacheData.current.popularList.filter((list) => regex.test(list.name));
+    setData(searchResult);
   };
 
   useEffect(() => {
@@ -78,14 +81,6 @@ function AllCardList({ allData, allDataStatus }) {
     return () => clearTimeout(timer);
   }, [searchValue]);
 
-  if (allDataStatus.current.isError) {
-    return <Error />;
-  }
-
-  if (allDataStatus.current.isLoading) {
-    return <Loading />;
-  }
-
   return (
     <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
       <Styled.CardSearchInputContainer>
@@ -95,7 +90,7 @@ function AllCardList({ allData, allDataStatus }) {
             id="card-search-input"
             value={searchValue}
             onChange={(e) => handleCardSearch(e)}
-            type="text"
+            type="search"
             placeholder="롤링 페이퍼를 전하고 싶은 대상을 입력해 주세요"
           />
           <Styled.SearchIcon src={SearchIcon} alt="롤링 페이퍼 검색 아이콘" />
@@ -130,11 +125,15 @@ function AllCardList({ allData, allDataStatus }) {
         </Styled.ListText>
       </Styled.ListHeaderWrap>
 
-      <Styled.CardListBox>
-        {allCardList?.map((data) => (
-          <Card key={data.id} data={data} isBig />
-        ))}
-      </Styled.CardListBox>
+      {cardList.length !== 0 ? (
+        <Styled.CardListBox>
+          {cardList?.map((data) => (
+            <Card key={data.id} data={data} isBig />
+          ))}
+        </Styled.CardListBox>
+      ) : (
+        <EmptyCard all />
+      )}
     </Styled.AllCardListWrap>
   );
 }
