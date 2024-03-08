@@ -10,9 +10,11 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Global styles={reset} />
-      <Routers />
-      <ReactQueryDevtools />
+      <Router>
+        <Global styles={reset} />
+        <Routers />
+        <ReactQueryDevtools />
+      </Router>
     </QueryClientProvider>
   );
 }
