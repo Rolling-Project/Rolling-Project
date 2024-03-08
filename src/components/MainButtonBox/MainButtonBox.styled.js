@@ -12,7 +12,11 @@ export const MainButtonBox = styled.div`
   margin-top: 2rem;
   @media (max-width: 768px) {
     width: 100%;
-    margin: 0 1.5rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    width: 100%;
+    margin: 0 auto;
   }
 `;
 

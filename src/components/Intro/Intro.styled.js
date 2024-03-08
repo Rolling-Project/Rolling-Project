@@ -19,6 +19,11 @@ export const IntroWrap = styled.div`
     margin-top: -4rem;
     overflow: hidden;
   }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    flex-direction: column;
+    margin-top: -4rem;
+    overflow: hidden;
+  }
 `;
 
 export const ContentBox = styled.div`
@@ -29,6 +34,11 @@ export const ContentBox = styled.div`
   @media (max-width: 768px) {
     margin: 0 -20px;
     padding-bottom: 40px;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    width: 100%;
+    padding: 1.13rem 4rem;
+    width: 100%;
   }
 `;
 
@@ -60,6 +70,11 @@ export const Content = styled.h1`
   font-weight: 700;
   line-height: 2.25rem; /* 150% */
   letter-spacing: -0.015rem;
+  @media (min-width: 768px) and (max-width: 1200px) {
+    br {
+      display: none;
+    }
+  }
 `;
 
 export const Description = styled.p`
@@ -82,5 +97,9 @@ export const Example = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     margin: 0 auto;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    padding: 1.13rem 4rem;
+    width: 100%;
   }
 `;
