@@ -1,11 +1,19 @@
 import styled from '@emotion/styled';
 
 export const IntroWrap = styled.div`
-  display: flex;
+  /* display: flex;
+  width: 75rem;
   padding: 3.75rem 0rem 3.75rem 3.75rem;
   justify-content: flex-end;
   align-items: flex-start;
-  gap: 9.5rem;
+  gap: 9.5rem; */
+  display: flex;
+  width: 100%;
+  max-width: 75rem;
+  background-color: #f6f8ff;
+  justify-content: center;
+  padding: 60px 60px;
+  border-radius: 1rem;
 `;
 
 export const ContentBox = styled.div`
