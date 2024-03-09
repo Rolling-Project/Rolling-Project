@@ -1,16 +1,21 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-quotes */
 /* eslint-disable react/jsx-curly-brace-presence */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
 import * as S from './CreateTo.styled';
 import Input from '../../common/Input/Input';
 import Option from '../../common/SelectOption/Option';
 import { Primary56Button } from '../../common/Button/Button';
+import { errorToast, showToast } from './ToastCreateTo';
+import API_PATH from '../../services/api-path';
 
 function CreateTo() {
   const [name, setName] = useState('');
   const [toggleValue, setToggleValue] = useState('컬러');
-  const [background, setBackground] = useState({ color: 'beige', ing: null });
+  const [color, setColor] = useState('beige');
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const handleChangeInput = (value) => {
@@ -22,17 +27,35 @@ function CreateTo() {
   };
 
   const handleBackground = (type, value) => {
-    setBackground((prev) => ({
-      ...prev,
-      [type]: value
-    }));
+    if (type === 'color') {
+      setColor(value);
+    } else {
+      setImage(value);
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // navigate(`/post/${id}`);
-    // 예시
-    console.log('제출 완료');
+  const handleSubmit = async () => {
+    if (name === '' || name === undefined) {
+      return;
+    }
+    await fetch(API_PATH.CREATE_TO, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        backgroundColor: color,
+        backgroundImageURL: toggleValue === '컬러' ? null : image
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        navigate(`/post/${data.id}`);
+      })
+      .catch((error) => {
+        console.error('생성 실패', error);
+      });
   };
 
   return (
