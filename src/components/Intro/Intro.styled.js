@@ -1,12 +1,6 @@
 import styled from '@emotion/styled';
 
 export const IntroWrap = styled.div`
-  /* display: flex;
-  width: 75rem;
-  padding: 3.75rem 0rem 3.75rem 3.75rem;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 9.5rem; */
   display: flex;
   width: 100%;
   max-width: 75rem;
@@ -30,12 +24,12 @@ export const ContentBox = styled.div`
   align-items: flex-start;
   gap: 1rem;
   @media (max-width: 768px) {
-    margin: 0 -20px;
+    margin: 0 -43px;
     padding-bottom: 40px;
   }
   @media (min-width: 768px) and (max-width: 1200px) {
     width: 100%;
-    padding: 1.13rem 4rem;
+    padding: 1.13rem 1.8rem;
   }
 `;
 

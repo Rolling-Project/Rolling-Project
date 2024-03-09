@@ -1,29 +1,30 @@
 import styled from '@emotion/styled';
 
 export const EmojiWrap = styled.div`
-  /* display: flex;
-  width: 75rem;
-  padding: 3.75rem 0rem 3.75rem 3.75rem;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 9.5rem; */
-  // display: flex;
-  // align-items: center;
   width: 100%;
   max-width: 75rem;
   background-color: #f6f8ff;
   padding: 60px 60px;
   border-radius: 1rem;
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    // justify-content: center;
-    flex-direction: column;
-    // overflow: hidden;
-  }
+  display: flex;
+  height: 20.25rem;
+  justify-content: space-between;
+
   @media (min-width: 768px) and (max-width: 1200px) {
     flex-direction: column;
     overflow: hidden;
+    gap: 2rem;
+    height: auto;
+    padding-bottom: 10rem;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow: hidden;
+    gap: 2rem;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+    padding-left: 1rem;
   }
 `;
 
@@ -31,10 +32,12 @@ export const AddEmojiBox = styled.div`
   width: 25rem;
   height: 3.875rem;
   background-color: white;
-  margin: 3.125rem 0rem 0rem 8.75rem;
-  margin-left: 7rem;
-  margin-top: -2rem;
+  margin: 0 6.5rem;
   @media (max-width: 768px) {
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
     margin: 0 auto;
   }
 `;
@@ -42,10 +45,10 @@ export const AddEmojiBox = styled.div`
 export const AddEmoji = styled.div`
   width: auto;
   height: 1.06rem;
-  margin: 1.56rem 0 0.9rem 1.25rem;
   gap: 0.1138rem;
+  padding-left: 2rem;
   display: flex;
-  // position: relative;
+  position: relative;
   align-items: center;
 `;
 
@@ -77,12 +80,10 @@ export const AddButton = styled.div`
   gap: 0.3125rem;
   margin-bottom: -2.2rem;
   display: flex;
-  // justify-content: center;
   align-items: center;
 `;
 
 export const ClickIcon = styled.div`
-  // width: 2rem;
   height: 2rem;
   position: relative;
   right: 0.2rem;
@@ -92,11 +93,12 @@ export const ClickIcon = styled.div`
 export const EmojiTypeBox = styled.div`
   width: 18rem;
   height: 9rem;
-  margin: 2.5rem 12rem 1rem 1.5rem;
   background-color: white;
   border-radius: 0.57rem;
   border: 0.06rem solid #0000004d;
   box-shadow: 0rem 0.14rem 0.85rem 0rem #00000014;
+  position: absolute;
+  top: 3rem;
 `;
 
 export const EmojiBox = styled.div`
@@ -107,7 +109,6 @@ export const EmojiBox = styled.div`
 
 export const EmojiContent = styled.div`
   width: 14.7681rem;
-  // height: 2.425rem;
   float: left;
   color: white;
   display: flex;
@@ -130,7 +131,14 @@ export const EmojiContentType = styled.div`
 export const EmojiContentBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin: -3.5rem 0rem 0rem 40rem;
+  margin-right: 2rem;
+  @media (min-width: 768px) and (max-width: 1200px) {
+    order: -1;
+    padding: 1rem 1.8rem;
+  }
+  @media (max-width: 768px) {
+    order: -1;
+  }
 `;
 
 export const EmojiNum = styled.div`
@@ -148,12 +156,17 @@ export const EmojiNum = styled.div`
 `;
 
 export const EmojiContentTitle = styled.h1`
-  width: 18.75rem;
+  // width: 18.75rem;
   height: 4.5rem;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2.25rem;
-  margin-top: 0.625rem;
+  margin-top: 0.8rem;
+  @media (min-width: 768px) and (max-width: 1200px) {
+    br {
+      display: none;
+    }
+  }
 `;
 
 export const EmojiContentDescription = styled.p`
@@ -162,5 +175,11 @@ export const EmojiContentDescription = styled.p`
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.75rem;
-  margin-top: 0.625rem;
+  margin-top: 1.5rem;
+  @media (min-width: 768px) and (max-width: 1200px) {
+    margin-top: -1rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 `;

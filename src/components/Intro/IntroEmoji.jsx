@@ -21,27 +21,27 @@ function IntroEmoji() {
           <Styled.ClickIcon>
             <img src={click} alt="클릭아이콘" />
           </Styled.ClickIcon>
+          <Styled.EmojiTypeBox>
+            <Styled.EmojiBox>
+              <Styled.EmojiContent>
+                <Styled.EmojiContentType>👍 24</Styled.EmojiContentType>
+                <Styled.EmojiContentType>😍 12</Styled.EmojiContentType>
+                <Styled.EmojiContentType>🎉 24</Styled.EmojiContentType>
+              </Styled.EmojiContent>
+              <Styled.EmojiContent>
+                <Styled.EmojiContentType>🥺 10</Styled.EmojiContentType>
+                <Styled.EmojiContentType>🥳 8</Styled.EmojiContentType>
+                <Styled.EmojiContentType>👏 10</Styled.EmojiContentType>
+              </Styled.EmojiContent>
+            </Styled.EmojiBox>
+          </Styled.EmojiTypeBox>
         </Styled.AddEmoji>
-        <Styled.EmojiTypeBox>
-          <Styled.EmojiBox>
-            <Styled.EmojiContent>
-              <Styled.EmojiContentType>👍 24</Styled.EmojiContentType>
-              <Styled.EmojiContentType>😍 12</Styled.EmojiContentType>
-              <Styled.EmojiContentType>🎉 24</Styled.EmojiContentType>
-            </Styled.EmojiContent>
-            <Styled.EmojiContent>
-              <Styled.EmojiContentType>🥺 10</Styled.EmojiContentType>
-              <Styled.EmojiContentType>🥳 8</Styled.EmojiContentType>
-              <Styled.EmojiContentType>👏 10</Styled.EmojiContentType>
-            </Styled.EmojiContent>
-          </Styled.EmojiBox>
-        </Styled.EmojiTypeBox>
       </Styled.AddEmojiBox>
+
       <Styled.EmojiContentBox>
         <Styled.EmojiNum>Point.02</Styled.EmojiNum>
         <Styled.EmojiContentTitle>
-          서로에게 이모지로 감정을
-          <br />
+          서로에게 이모지로 감정을 <br />
           표현해보세요
         </Styled.EmojiContentTitle>
         <Styled.EmojiContentDescription>롤링 페이퍼에 이모지를 추가할 수 있어요.</Styled.EmojiContentDescription>
