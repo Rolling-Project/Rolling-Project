@@ -3,6 +3,8 @@ import colors from '../../styles/colors';
 
 export const AllCardListWrap = styled.main`
   width: 72.5rem;
+  max-width: 120rem;
+  min-width: 21rem;
   margin: 0 auto;
   padding-top: 2rem;
   @media screen and (max-width: 1200px) {
