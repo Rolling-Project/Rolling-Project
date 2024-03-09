@@ -4,7 +4,6 @@ import colors from '../../../styles/colors';
 
 export const HeaderBox = styled.header`
   width: 100%;
-  max-width: 120rem;
   min-width: 20rem;
   height: 4rem;
   border-bottom: 0.0625rem solid ${colors['--Gray-270']};
