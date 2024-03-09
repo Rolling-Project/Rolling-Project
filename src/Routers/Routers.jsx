@@ -9,7 +9,7 @@ function Routers() {
       <Routes>
         <Route path="/list" element={<ListPage />} />
         <Route path="/post/:id" element={<RollingPaper />} />
-        <Route path="/" element={<MainPage />} />
+        <Route path="index" element={<MainPage />} />
       </Routes>
     </Router>
   );
