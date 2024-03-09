@@ -29,9 +29,9 @@ function MainPage() {
         <Container>
           <Intro />
         </Container>
-        {/* <Container>
+        <Container>
           <IntroEmoji />
-        </Container> */}
+        </Container>
       </Wrapper>
       <MainButtonBox />
     </>
@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 // Container는 안에 요소를 정렬시키기 위한 컨테이너라고 생각하시면 될 것 같습니다!
 const Container = styled.div`
   width: 100%;
-  padding: 7.75rem 30px;
+  padding: 3rem 1.875rem;
   display: flex;
   align-items: center;
   justify-content: center;

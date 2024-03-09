@@ -5,7 +5,7 @@ import click from '../../assets/images/click.svg';
 
 function IntroEmoji() {
   return (
-    <>
+    <Styled.EmojiWrap>
       <Styled.AddEmojiBox>
         <Styled.AddEmoji>
           <Styled.Emoji>👍10</Styled.Emoji>
@@ -46,7 +46,7 @@ function IntroEmoji() {
         </Styled.EmojiContentTitle>
         <Styled.EmojiContentDescription>롤링 페이퍼에 이모지를 추가할 수 있어요.</Styled.EmojiContentDescription>
       </Styled.EmojiContentBox>
-    </>
+    </Styled.EmojiWrap>
   );
 }
 

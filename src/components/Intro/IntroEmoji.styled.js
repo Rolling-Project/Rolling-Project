@@ -1,10 +1,28 @@
 import styled from '@emotion/styled';
 
+export const EmojiWrap = styled.div`
+  /* display: flex;
+  width: 75rem;
+  padding: 3.75rem 0rem 3.75rem 3.75rem;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 9.5rem; */
+  // display: flex;
+  // justify-content: center;
+  width: 100%;
+  max-width: 75rem;
+  background-color: #f6f8ff;
+  padding: 60px 60px;
+  border-radius: 1rem;
+`;
+
 export const AddEmojiBox = styled.div`
   width: 25rem;
   height: 3.875rem;
   background-color: white;
-  margin: 3.125rem 0rem 0rem 8.75rem;
+  // margin: 3.125rem 0rem 0rem 8.75rem;
+  margin-left: 7rem;
+  // margin-top: -2rem;
 `;
 
 export const AddEmoji = styled.div`
@@ -98,7 +116,7 @@ export const EmojiContentType = styled.div`
 export const EmojiContentBox = styled.div`
   width: 18.75rem;
   height: 9.75rem;
-  margin: -3.4375rem 0rem 0rem 46.25rem;
+  margin: -3.4375rem 0rem 0rem 40rem;
   gap: 1rem;
 `;
 
@@ -126,7 +144,7 @@ export const EmojiContentTitle = styled.h1`
 `;
 
 export const EmojiContentDescription = styled.p`
-  width: 21.25rem;
+  width: 25rem;
   height: 1.75rem;
   font-size: 1.125rem;
   font-weight: 400;
