@@ -8,7 +8,6 @@ import * as S from './CreateTo.styled';
 import Input from '../../common/Input/Input';
 import Option from '../../common/SelectOption/Option';
 import { Primary56Button } from '../../common/Button/Button';
-import { errorToast, showToast } from './ToastCreateTo';
 import API_PATH from '../../services/api-path';
 
 function CreateTo() {
