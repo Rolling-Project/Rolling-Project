@@ -3,10 +3,10 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
 import * as S from './CreateTo.styled';
 import Input from '../../common/Input/Input';
 import Option from '../../common/SelectOption/Option';
+import HiddenLabel from '../common/HiddenLabel/HiddenLabel';
 import { Primary56Button } from '../../common/Button/Button';
 import API_PATH from '../../services/api-path';
 
@@ -50,15 +50,14 @@ function CreateTo() {
       .then((data) => {
         navigate(`/post/${data.id}`);
       })
-      .catch((error) => {
-        console.error('생성 실패', error);
-      });
+      .catch((error) => error);
   };
 
   return (
     <S.Div>
       <S.To>
         <S.Title>To.</S.Title>
+        <HiddenLabel htmlFor="name" />
         <Input
           placeholder={'받는 사람 이름을 입력해 주세요'}
           value={name}
@@ -75,7 +74,7 @@ function CreateTo() {
         <Option background={toggleValue === '컬러' ? 'color' : 'img'} onSelect={handleBackground} />
       </S.Background>
 
-      <Primary56Button w='72rem' styled={{ marginBottom: '2.4rem' }} onClick={handleSubmit}>
+      <Primary56Button w="72rem" styled={{ marginBottom: '2.4rem' }} onClick={handleSubmit}>
         생성하기
       </Primary56Button>
     </S.Div>

@@ -64,13 +64,14 @@ function Input({ value, placeholder, onInputChange }) {
   return (
     <>
       <Styled.Input
-        type='text'
-        id='name'
+        type="text"
+        id="name"
         value={value}
         placeholder={placeholder}
         $isEmpty={isEmpty}
         onChange={handleInputChange}
         onBlur={handleInputBlur}
+        autoComplete="username"
       />
       {isEmpty && <Styled.InputError>값을 입력해 주세요.</Styled.InputError>}
     </>

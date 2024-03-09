@@ -34,7 +34,7 @@ export const Background = styled.div`
     margin-bottom: 8.2rem;
   }
 `;
-export const Title = styled.h1`
+export const Title = styled.h2`
   display: flex;
   width: 100%;
   max-width: 72rem;
@@ -46,7 +46,7 @@ export const Title = styled.h1`
   line-height: 4.2rem; /* 175% */
   letter-spacing: -0.024rem;
 `;
-export const SubTitle = styled.h2`
+export const SubTitle = styled.h3`
   width: 100%;
   margin-top: 0.4rem;
   margin-bottom: 2.4rem;
