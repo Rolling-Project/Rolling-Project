@@ -4,10 +4,8 @@ import colors from '../../styles/colors';
 export const ListTitleBox = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 3.5rem 0 0.9rem;
-  @media (max-width: 1200px) {
-    flex-direction: column;
-  }
+  margin: 2.5rem 0 0.7rem;
+  flex-direction: column;
 
   @media (max-width: 768px) {
     height: 4rem;
@@ -25,32 +23,23 @@ export const ListTitle = styled.h2`
 `;
 
 export const CardDetailBox = styled.div`
-  @media (max-width: 1200px) {
-    padding: 0.3rem 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
+  padding: 0.3rem 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
 
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
 export const CardDetail = styled.span`
   padding-top: 0.5rem;
   display: inline-block;
-  color: ${colors['--Gray-400']};
+  color: ${colors['--Gray-600']};
   font-size: 0.8rem;
 
   @media (max-width: 360px) {
     font-size: 0.7rem;
-  }
-`;
-
-export const CardDeviceDetail = styled(CardDetail)`
-  display: none;
-  @media (max-width: 1200px) {
-    display: inline;
   }
 `;
 
@@ -59,14 +48,11 @@ export const CardWrap = styled.section`
 `;
 
 export const CardContainer = styled.div`
-  overflow: hidden;
-
-  @media (max-width: 1200px) {
-    overflow-x: auto; // 가로방향 스크롤
-    scrollbar-width: none; // 스크롤바 표시 x
-    scroll-behavior: smooth; // 스크롤 부드럽게
-    scroll-snap-type: x mandatory; // 스크롤이 스냅 지점에 정렬
-  }
+  overflow-y: hidden;
+  overflow-x: auto; // 가로방향 스크롤
+  scrollbar-width: none; // 스크롤바 표시 x
+  scroll-behavior: smooth; // 스크롤 부드럽게
+  scroll-snap-type: x mandatory; // 스크롤이 스냅 지점에 정렬
 `;
 
 export const CardList = styled.ul`

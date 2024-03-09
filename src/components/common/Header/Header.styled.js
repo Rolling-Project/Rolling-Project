@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import colors from '../../../styles/colors';
 
 export const HeaderBox = styled.header`
-  width: 100vw;
+  width: 100%;
   max-width: 120rem;
-  min-width: 24rem;
+  min-width: 20rem;
   height: 4rem;
   border-bottom: 0.0625rem solid #ededed;
+  background-color: ${colors['--White']};
+  position: ${({ $isStatic }) => ($isStatic ? 'static' : 'sticky')};
+  top: 0;
+  z-index: 999;
 `;
 
 export const Header = styled.nav`
@@ -17,6 +21,7 @@ export const Header = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   @media screen and (max-width: 1200px) {
     width: auto;
     padding: 0 1.5rem;
@@ -38,12 +43,17 @@ export const HeaderButton = styled(Link)`
   }
 `;
 
-export const HeaderLogoBox = styled.div`
+export const HeaderLogoBox = styled(Link)`
   display: flex;
   gap: 0.5rem;
   color: ${colors['--gray-light-gray-90']};
   justify-content: space-between;
   align-items: center;
+`;
+
+export const HeaderLogoImage = styled.img`
+  width: 1.75rem;
+  height: 1.75rem;
 `;
 
 export const HeaderLogoText = styled.span`

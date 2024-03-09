@@ -1,5 +1,5 @@
-import Logo from "../../../public/logo.svg";
-import * as Styled from "./Loading.styled";
+import Logo from '../../../public/logo.svg';
+import * as Styled from './Loading.styled';
 
 function Loading() {
   return (

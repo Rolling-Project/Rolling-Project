@@ -1,32 +1,46 @@
 import styled from '@emotion/styled';
-import { useQuery } from '@tanstack/react-query';
 import CardList from '../components/RollingPager/CardList';
-import useFetch from '../utils/hooks/useFetch';
-
-const baseUrl = import.meta.env.VITE_API_BASE_URL;
+import MessageModal from '../components/RollingPager/Modal';
+import useModal from '../utils/hooks/useModal';
+import useGetMessages from '../utils/hooks/useGetMessages';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
+import Header from '../components/RollingPager/Header';
+import colors from '../styles/colors';
 
 const Container = styled.div`
+  background-color: ${colors['--Orange-200']};
+`;
+
+const Content = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 24px;
+  flex-direction: column;
+  align-items: center;
+  padding: 246px 24px;
 `;
 
-const RollingPaper = () => {
-  const recipientId = 2687; /* 하드 코딩 */
+function RollingPaper() {
+  const { isModalOpen, clickedItem, openModal, closeModal } = useModal();
+  const { data, status, fetchNextPage, hasNextPage, isFetchingNextPage } = useGetMessages();
+  const [ref, inView] = useInView();
 
-  const fetchMessages = () => useFetch(`${baseUrl}recipients/${recipientId}/messages/`);
-
-  const { data, isLoading, error } = useQuery(['messages', recipientId], fetchMessages);
-
-  if (isLoading) return <p>로딩 컴포넌트</p>;
-  if (error) return <p>에러 컴포넌트</p>;
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage]);
 
   return (
     <Container>
-      <CardList messages={data.results} />
+      <Header messages={data?.pages} />
+      <Content>
+        <CardList messages={data?.pages.map((page) => page.result).flat()} onClick={openModal} lastRef={ref} />
+        {isModalOpen && <MessageModal message={clickedItem} onClose={closeModal} />}
+      </Content>
     </Container>
   );
-};
+}
 
 export default RollingPaper;

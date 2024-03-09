@@ -1,22 +1,25 @@
+import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet-async';
 import Header from '../../components/common/Header/Header';
-import DefaultCardList from '../../Layout/DefaultCardList/DefaultCardList';
-import AllCardList from '../../Layout/AllCardList/AllCardList';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
-import useDataFetch from '../../utils/hooks/useDataFetch';
-import { useState } from 'react';
+import CardList from '../../components/CardList/CardList';
+import ListButtonBox from '../../components/ListButtonBox/ListButtonBox';
+import fetchTwentyCard from '../../services/fetchTwetyCard';
+import * as Styled from './ListPage.styled';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const POPULAR_OPTION = '&sort=like';
 
 function ListPage() {
-  const [viewAllList, setViewAllList] = useState(false);
-  const { data, isLoading, isError } = useDataFetch(`${BASE_URL}recipients/?limit=20`);
-  const latestData = data;
-  const popularData = [...data].sort((a, b) => b.reactionCount - a.reactionCount);
-
-  const handleViewAllList = () => {
-    setViewAllList(true);
+  const fetchData = async () => {
+    const [dataCount, latestData, popularData] = await fetchTwentyCard(POPULAR_OPTION);
+    return { dataCount, latestData, popularData };
   };
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['recipients'],
+    queryFn: fetchData
+  });
 
   if (isError) {
     return <Error />;
@@ -26,14 +29,19 @@ function ListPage() {
     return <Loading />;
   }
 
+  const { dataCount, latestData, popularData } = data;
+
   return (
     <>
-      <Header isButotnVisible={false} />
-      {viewAllList ? (
-        <AllCardList />
-      ) : (
-        <DefaultCardList handleViewAllList={handleViewAllList} latestData={latestData} popularData={popularData} />
-      )}
+      <Helmet>
+        <title>Rolling | 최신순 & 인기순 TOP 20</title>
+      </Helmet>
+      <Header isStatic={false} />
+      <Styled.Container>
+        <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={popularData} />
+        <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={latestData} />
+        <ListButtonBox dataCount={dataCount} />
+      </Styled.Container>
     </>
   );
 }
