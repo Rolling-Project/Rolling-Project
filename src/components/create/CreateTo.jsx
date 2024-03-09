@@ -28,13 +28,11 @@ function CreateTo() {
   const handleBackground = (type, value) => {
     if (type === 'color') {
       setColor(value);
-    } else {
-      setImage(value);
     }
   };
 
   const handleSubmit = async () => {
-    if (name === '' || name === undefined) {
+    if (!name) {
       return;
     }
     await fetch(API_PATH.CREATE_TO, {
