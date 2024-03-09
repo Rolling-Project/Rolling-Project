@@ -45,10 +45,9 @@ function AllListPage() {
   const {
     data: latestData,
     isLoading: isLatestDataLoading,
-    isError: isLatestDataError,
-    refetch
+    isError: isLatestDataError
   } = useQuery({
-    queryKey: ['latestData'],
+    queryKey: ['latestCard'],
     queryFn: fetchLatestData,
     refetchOnWindowFocus: false,
     cacheTime: 30 * 60 * 1000,
@@ -61,7 +60,7 @@ function AllListPage() {
     isError: isPopularDataError,
     refetch: popularDataLoad
   } = useQuery({
-    queryKey: ['popularData'],
+    queryKey: ['popularCard'],
     queryFn: fetchPopularData,
     enabled: false,
     refetchOnWindowFocus: false,
