@@ -3,13 +3,15 @@ import ListPage from '../pages/ListPage/ListPage';
 import RollingPaper from '../pages/RollingPaper';
 import MainPage from '../pages/MainPage/MainPage';
 
-const Routers = () => (
-  <Router>
-    <Routes>
-      <Route path="/list" element={<ListPage />} />
-      <Route path="/post/:id" element={<RollingPaper />} />
-      <Route path="/" element={<MainPage />} />
-    </Routes>
-  </Router>
-);
+function Routers() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/list" element={<ListPage />} />
+        <Route path="/post/:id" element={<RollingPaper />} />
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </Router>
+  );
+}
 export default Routers;
