@@ -4,7 +4,7 @@ import colors from '../../../styles/colors';
 
 export const HeaderBox = styled.header`
   width: 100vw;
-  max-width: 120rem;
+  max-width: 100%;
   min-width: 24rem;
   height: 4rem;
   border-bottom: 0.0625rem solid #ededed;

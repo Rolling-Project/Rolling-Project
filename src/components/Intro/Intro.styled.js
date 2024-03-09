@@ -16,12 +16,10 @@ export const IntroWrap = styled.div`
   border-radius: 1rem;
   @media (max-width: 768px) {
     flex-direction: column;
-    margin-top: -4rem;
     overflow: hidden;
   }
   @media (min-width: 768px) and (max-width: 1200px) {
     flex-direction: column;
-    margin-top: -4rem;
     overflow: hidden;
   }
 `;
@@ -38,7 +36,6 @@ export const ContentBox = styled.div`
   @media (min-width: 768px) and (max-width: 1200px) {
     width: 100%;
     padding: 1.13rem 4rem;
-    width: 100%;
   }
 `;
 
@@ -91,7 +88,7 @@ export const Example = styled.div`
   display: flex;
   width: 45rem;
   height: 12.75rem;
-  padding: 1.3125rem 2.5rem 1.314rem 2.5rem;
+  padding: 1.3125rem 1.5rem 1.314rem 2.5rem;
   justify-content: center;
   align-items: center;
   @media (max-width: 768px) {
