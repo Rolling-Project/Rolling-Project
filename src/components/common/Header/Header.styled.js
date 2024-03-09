@@ -7,7 +7,7 @@ export const HeaderBox = styled.header`
   max-width: 120rem;
   min-width: 20rem;
   height: 4rem;
-  border-bottom: 0.0625rem solid #ededed;
+  border-bottom: 0.0625rem solid ${colors['--Gray-270']};
   background-color: ${colors['--White']};
   position: ${({ $isStatic }) => ($isStatic ? 'static' : 'sticky')};
   top: 0;
@@ -15,6 +15,7 @@ export const HeaderBox = styled.header`
 `;
 
 export const Header = styled.nav`
+  max-width: 120rem;
   width: 75rem;
   height: 100%;
   margin: 0 auto;

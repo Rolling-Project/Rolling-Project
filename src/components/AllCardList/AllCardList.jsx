@@ -22,6 +22,14 @@ function AllCardList({ latestData, popularData, listFilterValue, setListFilterVa
     setListFilterToggle(false);
   };
 
+  useEffect(() => {
+    document.addEventListener('click', handleListFilterToggle);
+
+    return () => {
+      document.removeEventListener('click', handleListFilterToggle);
+    };
+  });
+
   // 정렬 필터 설정(최신순, 인기순)
   const handleListFilterValue = (e) => {
     setListFilterValue(e.target.textContent);
@@ -67,7 +75,7 @@ function AllCardList({ latestData, popularData, listFilterValue, setListFilterVa
   }, [searchValue]);
 
   return (
-    <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
+    <Styled.AllCardListWrap>
       <Styled.CardSearchInputContainer>
         <Styled.CardSearchInputBox>
           <HiddenLabel htmlFor="card-search-input">롤링 페이퍼 검색창</HiddenLabel>
