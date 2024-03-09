@@ -6,7 +6,7 @@ export const IntroWrap = styled.div`
   max-width: 75rem;
   background-color: #f6f8ff;
   justify-content: center;
-  padding: 60px 60px;
+  padding: 3.75rem 3.75rem;
   border-radius: 1rem;
   @media (max-width: 768px) {
     flex-direction: column;
