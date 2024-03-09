@@ -8,30 +8,44 @@ export const EmojiWrap = styled.div`
   align-items: flex-start;
   gap: 9.5rem; */
   // display: flex;
-  // justify-content: center;
+  // align-items: center;
   width: 100%;
   max-width: 75rem;
   background-color: #f6f8ff;
   padding: 60px 60px;
   border-radius: 1rem;
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    flex-direction: column;
+    // overflow: hidden;
+  }
+  @media (min-width: 768px) and (max-width: 1200px) {
+    flex-direction: column;
+    overflow: hidden;
+  }
 `;
 
 export const AddEmojiBox = styled.div`
   width: 25rem;
   height: 3.875rem;
   background-color: white;
-  // margin: 3.125rem 0rem 0rem 8.75rem;
+  margin: 3.125rem 0rem 0rem 8.75rem;
   margin-left: 7rem;
-  // margin-top: -2rem;
+  margin-top: -2rem;
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
 `;
 
 export const AddEmoji = styled.div`
   width: auto;
-  height: 1.0625rem;
-  margin: 1.5625rem 0 0.915rem 1.25rem;
+  height: 1.06rem;
+  margin: 1.56rem 0 0.9rem 1.25rem;
   gap: 0.1138rem;
   display: flex;
-  position: relative;
+  // position: relative;
   align-items: center;
 `;
 
@@ -43,46 +57,46 @@ export const Emoji = styled.div`
   color: white;
   text-align: center;
   background-color: #0000008a;
-  margin-right: 0.625rem;
-  margin-top: 2.1875rem;
+  margin-right: 0.6rem;
+  margin-top: 2.2rem;
 `;
 
 export const DownButton = styled.div`
-  width: 2.0456rem;
-  height: 2.0456rem;
+  width: 2.05rem;
+  height: 2.05rem;
   padding-top: 1.375rem;
 `;
 
 export const AddButton = styled.div`
-  height: 2.0456rem;
-  border: 0.0569rem solid #dadcdf;
-  border-radius: 5.6819rem;
-  padding: 0 0.9375rem;
-  font-size: 0.9094rem;
+  height: 2.05rem;
+  border: 0.055rem solid #dadcdf;
+  border-radius: 5.6rem;
+  padding: 0 0.9rem;
+  font-size: 0.9rem;
   font-weight: 500;
   gap: 0.3125rem;
-  margin-bottom: -2.1875rem;
+  margin-bottom: -2.2rem;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
 `;
 
 export const ClickIcon = styled.div`
-  width: 2.0625rem;
-  height: 2.0625rem;
-  position: absolute;
-  right: 1.125rem;
-  top: 1.25rem;
+  // width: 2rem;
+  height: 2rem;
+  position: relative;
+  right: 0.2rem;
+  top: 1.5rem;
 `;
 
 export const EmojiTypeBox = styled.div`
-  width: 18.1962rem;
-  height: 8.9925rem;
-  margin: 2.1875rem 12.2613rem 0.915rem 1.25rem;
+  width: 18rem;
+  height: 9rem;
+  margin: 2.5rem 12rem 1rem 1.5rem;
   background-color: white;
-  border-radius: 0.5713rem;
-  border: 0.0625rem solid #0000004d;
-  box-shadow: 0rem 0.1428rem 0.857rem 0rem #00000014;
+  border-radius: 0.57rem;
+  border: 0.06rem solid #0000004d;
+  box-shadow: 0rem 0.14rem 0.85rem 0rem #00000014;
 `;
 
 export const EmojiBox = styled.div`
@@ -93,12 +107,12 @@ export const EmojiBox = styled.div`
 
 export const EmojiContent = styled.div`
   width: 14.7681rem;
-  height: 2.425rem;
+  // height: 2.425rem;
   float: left;
   color: white;
   display: flex;
   justify-content: space-between;
-  margin-left: 1.7138rem;
+  margin-left: 1.7rem;
   margin-top: 1.25rem;
 `;
 
@@ -114,10 +128,9 @@ export const EmojiContentType = styled.div`
 `;
 
 export const EmojiContentBox = styled.div`
-  width: 18.75rem;
-  height: 9.75rem;
-  margin: -3.4375rem 0rem 0rem 40rem;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: -3.5rem 0rem 0rem 40rem;
 `;
 
 export const EmojiNum = styled.div`
