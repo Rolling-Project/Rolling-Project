@@ -20,6 +20,9 @@ const Primary = styled(BaseButton)`
   }
 
   &:hover {
+    &:disabled {
+      background-color: ${colors['--Gray-300']};
+    }
     background-color: ${colors['--Purple-700']};
   }
 

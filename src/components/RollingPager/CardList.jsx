@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import MessageCard from './Card/MessageCard';
 import PlusCard from './Card/PlusCard';
+import { Link } from 'react-router-dom';
 
 const List = styled.ul`
   width: 100%;
@@ -21,7 +22,11 @@ const List = styled.ul`
 function CardList({ messages, lastRef, onClick, isEditPage }) {
   return (
     <List>
-      {!isEditPage && <PlusCard />}
+      {!isEditPage && (
+        <Link to="message">
+          <PlusCard />
+        </Link>
+      )}
       {messages?.map((message, idx) => (
         <li key={message.id}>
           <MessageCard message={message} isEditPage={isEditPage} onClick={onClick} />
