@@ -82,7 +82,7 @@ const Outlined36Button = styled(Outlined)`
   width: fit-content;
   height: fit-content;
   border-radius: 6px;
-  padding: ${({small}) => (small ? '6px 8px' : '6px 16px')};
+  padding: ${({ small }) => (small ? '6px 8px' : '6px 16px')};
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -95,6 +95,5 @@ const Outlined36Button = styled(Outlined)`
     }
   }
 `;
-
 
 export { Primary56Button, Primary40Button, Outlined, Outlined36Button };

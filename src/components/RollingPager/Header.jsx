@@ -89,7 +89,7 @@ const Picker = styled.div`
   }
 `;
 
-function Header({ messages }) {
+function Header({ messages, name }) {
   const { id: recipientId } = useParams();
 
   const { data: reactions, isLoading, error } = useGetReactions(recipientId);
@@ -144,7 +144,7 @@ function Header({ messages }) {
   return (
     <Container>
       <Content>
-        <Name>To. Ashley Kim</Name>
+        <Name>{`To. ${name}`}</Name>
 
         <Service>
           <ProfileSection messages={messages} />
