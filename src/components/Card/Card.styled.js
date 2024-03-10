@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 
@@ -31,6 +32,12 @@ export const Card = styled.li`
     opacity: 0.7;
     transition: 0.7s;
   }
+`;
+
+export const CardLink = styled(Link)`
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 `;
 
 // 대상
@@ -74,7 +81,7 @@ export const TextBoldEffect = styled.span`
 // 리액션 상자
 export const ReactionBox = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 0.45rem;
   width: 14.3rem;
   padding-top: ${({ $isBig }) => ($isBig ? '1.5em' : '1rem')};
   margin-top: ${({ $isBig }) => ($isBig ? '3rem' : '2.3rem')};
@@ -82,15 +89,7 @@ export const ReactionBox = styled.div`
     $isImage ? '1.5px solid rgba(0, 0, 0, 0.12)' : '1.5px solid rgba(255, 255, 255, 0.5)'};
   position: absolute;
   z-index: 2;
-`;
-
-// 가장 많은 3개 리액션
-export const TopReaction = styled.div`
-  padding: 0.75rem 0.8rem 0.55rem;
-  border-radius: 2rem;
-  background: ${({ $isImage }) => ($isImage ? 'rgba(0, 0, 0, 0.54)' : 'rgba(255, 255, 255, 0.7)')};
-  line-height: 1.25rem;
-  color: ${({ $isImage }) => ($isImage ? `${colors['--White']}` : `${colors['--Black']}`)};
+  font-size: 0.95rem;
 `;
 
 export const DefaultReaction = styled.div`

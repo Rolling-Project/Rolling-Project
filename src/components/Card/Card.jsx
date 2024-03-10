@@ -16,7 +16,7 @@ function Card({ data, isBig = false }) {
   };
   return (
     <Styled.Card $effect={effect} $isImage={isImage} $isBig={isBig}>
-      <Link to={`/post/${data.id}`} state={dataProps}>
+      <Styled.CardLink to={`/post/${data.id}`} state={dataProps}>
         <Styled.Recipient $isImage={isImage} $isBig={isBig}>
           {`To. ${name}`}
         </Styled.Recipient>
@@ -67,7 +67,7 @@ function Card({ data, isBig = false }) {
         {isImage && (
           <Styled.BackgroundEffect src={BACKGROUND_IMAGE_EFFECT[backgroundColor]} alt="카드 배경 효과" loading="lazy" />
         )}
-      </Link>
+      </Styled.CardLink>
     </Styled.Card>
   );
 }
