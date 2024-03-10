@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import arrowDownIcon from '../../assets/arrow_down.svg';
 import colors from '../../styles/colors';
 import BaseDropDown from './DropDown';
+import formatDate from '../../utils/helpers/numberUtils';
 
 const DropDown = styled.div`
   position: relative;
@@ -81,7 +82,7 @@ function EmojiDropDown({ reactions }) {
     };
   });
 
-  if (!reactions) return;
+  if (!reactions) return null;
 
   return (
     <DropDown ref={dropRef}>
@@ -89,10 +90,10 @@ function EmojiDropDown({ reactions }) {
         {reactions.slice(0, 3).map(({ id, emoji, count }) => (
           <Item key={id}>
             <span>{emoji}</span>
-            <span>{count}</span>
+            <span>{formatDate(count)}</span>
           </Item>
         ))}
-        {reactions.length > 3 && <img src={arrowDownIcon} />}
+        {reactions.length > 3 && <img src={arrowDownIcon} alt="화살표 이미지" />}
       </Bar>
 
       {isDropDown && (
@@ -100,7 +101,7 @@ function EmojiDropDown({ reactions }) {
           {reactions.slice(3).map(({ id, emoji, count }) => (
             <Item key={id}>
               <span>{emoji}</span>
-              <span>{count}</span>
+              <span>{formatDate(count)}</span>
             </Item>
           ))}
         </ExpandBox>

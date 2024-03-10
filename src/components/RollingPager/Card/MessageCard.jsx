@@ -32,13 +32,12 @@ const Message = styled.div`
   }
 `;
 
-function MessageCard({ message }) {
-  const { sender, profileImageURL, relationship, content, createdAt } = message;
-
+function MessageCard({ message, isEditPage, onClick }) {
+  const { id, sender, profileImageURL, relationship, content, createdAt } = message;
   return (
-    <Card>
+    <Card onClick={() => onClick(message)}>
       <Header>
-        <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
+        <Profile id={id} imgUrl={profileImageURL} sender={sender} relationship={relationship} isEditPage={isEditPage} />
       </Header>
 
       <Divider />

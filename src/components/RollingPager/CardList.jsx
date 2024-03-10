@@ -18,13 +18,13 @@ const List = styled.ul`
   }
 `;
 
-function CardList({ messages, lastRef, onClick }) {
+function CardList({ messages, lastRef, onClick, isEditPage }) {
   return (
     <List>
-      <PlusCard />
+      {!isEditPage && <PlusCard />}
       {messages?.map((message, idx) => (
-        <li key={message.id} onClick={() => onClick(message)}>
-          <MessageCard message={message} />
+        <li key={message.id}>
+          <MessageCard message={message} isEditPage={isEditPage} onClick={onClick} />
           <div ref={idx === messages.length - 3 ? lastRef : null} />
         </li>
       ))}

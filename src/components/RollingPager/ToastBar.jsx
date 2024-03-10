@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
-import completedIcon from '../../assets/completed.png';
-import closedIcon from '../../assets/close.png';
 
-const Container = styled.div`
+const Toast = styled.div`
   position: fixed;
   bottom: 10%;
   display: flex;
@@ -21,33 +19,8 @@ const Container = styled.div`
   backdrop-filter: blur(5px);
 `;
 
-const Item = styled.div`
-  &:nth-of-type(2) {
-    flex: 1;
-  }
-`;
-
-const ClosedButton = styled.button`
-  background: none;
-  border: none;
-`;
-
 function ToastBar({ children }) {
-  return (
-    <Container>
-      <Item>
-        <img src={completedIcon} />
-      </Item>
-      <Item>
-        <p>{children}</p>
-      </Item>
-      <Item>
-        <ClosedButton>
-          <img src={closedIcon} />
-        </ClosedButton>
-      </Item>
-    </Container>
-  );
+  return <Toast>{children}</Toast>;
 }
 
 export default ToastBar;

@@ -1,22 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import * as Styled from './Header.styled';
 import HeaderLogoIcon from '../../../../public/logo.svg';
 
-let isButtonVisible;
-let isStatic;
-const URL = window.location.href;
-
 function Header() {
+  const location = useLocation();
+  const [isStatic, setIsStatic] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
+
   const shouldCheckEffect = () => {
-    if (URL.includes('post')) {
-      isStatic = true;
-      isButtonVisible = false;
+    const { pathname } = location;
+    console.log(pathname);
+    if (pathname.includes('post')) {
+      setIsStatic(true);
+      setIsButtonVisible(false);
+      return;
     }
-    isStatic = false;
-    isButtonVisible = true;
+    setIsStatic(false);
+    setIsButtonVisible(true);
   };
 
-  shouldCheckEffect();
+  useEffect(() => {
+    shouldCheckEffect();
+  }, [location.pathname]);
 
   return (
     <Styled.HeaderBox $isStatic={isStatic}>

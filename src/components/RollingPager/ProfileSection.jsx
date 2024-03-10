@@ -77,9 +77,10 @@ const Text = styled.p`
 `;
 
 function ProfileSection({ messages }) {
-  if (!messages) return;
+  if (!messages) return null;
+
   const [senders] = messages;
-  const [count, profiles] = [senders.count, senders.result];
+  const { count, result: profiles } = senders;
 
   return (
     <Container>
@@ -100,7 +101,7 @@ function ProfileSection({ messages }) {
         </Profiles>
 
         <Text>
-          <strong>{formatNumber(count - 3)}</strong>명이 작성했어요!
+          <strong>{formatNumber(count)}</strong>명이 작성했어요!
         </Text>
       </Content>
       <Divider vertical />

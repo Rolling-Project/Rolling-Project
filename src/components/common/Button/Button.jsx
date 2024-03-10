@@ -82,7 +82,7 @@ const Outlined36Button = styled(Outlined)`
   width: fit-content;
   height: fit-content;
   border-radius: 6px;
-  padding: 6px 16px;
+  padding: ${({ small }) => (small ? '6px 8px' : '6px 16px')};
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -96,19 +96,4 @@ const Outlined36Button = styled(Outlined)`
   }
 `;
 
-const Icon = styled.img`
-  @media (max-width: 475px) {
-    width: 20px;
-  }
-`;
-
-function Outlined36IconButton({ children, onClick, disabled, width }) {
-  return (
-    <Outlined36Button onClick={onClick} disabled={disabled} w={width}>
-      <Icon src={addIcon} />
-      <span>{children}</span>
-    </Outlined36Button>
-  );
-}
-
-export { Primary56Button, Primary40Button, Outlined36Button, Outlined36IconButton };
+export { Primary56Button, Primary40Button, Outlined, Outlined36Button };

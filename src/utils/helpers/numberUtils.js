@@ -1,8 +1,8 @@
-const formatNumber = (number) => {
-  if (number >= 1000) {
-    return `${(number / 1000).toFixed(1)}k`;
+const formatNumber = (num) => {
+  if (Math.abs(num) > 999) {
+    return `${Math.sign(num) * (Math.abs(num) / 1000).toFixed(1)}k`;
   }
-  return number.toString();
+  return Math.sign(num) * Math.abs(num);
 };
 
 export default formatNumber;

@@ -89,7 +89,7 @@ const Picker = styled.div`
   }
 `;
 
-function Header(props) {
+function Header({ messages, name }) {
   const { id: recipientId } = useParams();
 
   const { data: reactions, isLoading, error } = useGetReactions(recipientId);
@@ -108,14 +108,16 @@ function Header(props) {
     const isCopied = await copyClipboardText();
 
     if (isCopied) {
-      setShowToast(true);
       setToastMessage('URL이 복사 되었습니다.');
-      setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
     } else {
       setToastMessage('URL 복사를 실패했습니다.');
     }
+
+    setShowToast(true);
+
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
   };
 
   const onEmojiClick = (emojiData, event) => {
@@ -142,10 +144,10 @@ function Header(props) {
   return (
     <Container>
       <Content>
-        <Name>To. Ashley Kim</Name>
+        <Name>{`To. ${name}`}</Name>
 
         <Service>
-          <ProfileSection {...props} />
+          <ProfileSection messages={messages} />
 
           <SideSection>
             <Emoji>

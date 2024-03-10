@@ -6,8 +6,8 @@ import colors from '../../styles/colors';
 const Styled = {
   Input: styled.input`
     width: 100%;
-    max-width: 72rem;
-    padding: 1.2rem 1.6rem;
+    max-width: 35rem;
+    padding: 0.6rem 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,11 +17,11 @@ const Styled = {
     background: ${colors['--White']};
 
     color: ${colors['--Gray-900']};
-    font-size: 1.6rem;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 2.6rem; /* 162.5% */
-    letter-spacing: -0.016rem;
+    line-height: 1.3rem; /* 162.5% */
+    letter-spacing: -0.008rem;
 
     &::placeholder {
       color: ${colors['--Gray-500']};
@@ -40,13 +40,13 @@ const Styled = {
 
   InputError: styled.span`
     display: flex;
-    max-width: 72rem;
-    width: 100%;
+    max-width: 36rem;
+    width: 50%;
     color: ${`1px solid ${colors['--Error']}`};
-    font-size: 1.2rem;
+    font-size: 0.6rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.8rem; /* 150% */
+    line-height: 0.9rem; /* 150% */
   `
 };
 
