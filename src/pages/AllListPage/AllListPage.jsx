@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import AllCardList from '../../components/AllCardList/AllCardList';
-import Header from '../../components/common/Header/Header';
 import ScrollToTopButton from '../../components/common/ScrollToTopButton/ScrollToTopButton';
 import fetchFirstCard from '../../services/fetchFirstCard';
 import fetchCard from '../../services/fetchCard';
@@ -106,7 +105,6 @@ function AllListPage() {
       <Helmet>
         <title>Rolling | 롤링 페이퍼 전체 보기</title>
       </Helmet>
-      <Header isStatic={false} />
       <AllCardList
         cardList={currentList}
         setCardList={setCardList}

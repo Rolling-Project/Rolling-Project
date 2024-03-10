@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 import CardList from '../components/RollingPager/CardList';
 import MessageModal from '../components/RollingPager/Modal';
 import useModal from '../utils/hooks/useModal';
 import useGetMessages from '../utils/hooks/useGetMessages';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
 import Header from '../components/RollingPager/Header';
 import colors from '../styles/colors';
 
