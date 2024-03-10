@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
-import Avatar from '../components/RollingPager/Avatar';
-import { InputLabel, FormControl, MenuItem, TextField } from '@mui/material';
+import { Editor } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import Avatar from '../components/RollingPaper/Avatar';
 import useSendMessage from '../utils/hooks/useSendMessage';
 import colors from '../styles/colors';
 import arrowDownIcon from '../assets/arrow_down.svg';
 import { Primary56Button } from '../components/common/Button/Button';
+import PROFILE_IMG from '../utils/constants/profileImages';
 
 const Container = styled.div`
   width: 100%;
@@ -22,18 +24,24 @@ const Container = styled.div`
 const Content = styled.div`
   display: grid;
   gap: 50px;
-  margin-top: 47px;
+  margin-top: 2.94rem;
+  margin-bottom: 3.87rem;
 `;
 
-const Profile = styled.div`
+const Profiles = styled.ul`
   display: flex;
+  gap: 0.4rem;
+  margin-top: 1rem;
+`;
+
+const Profile = styled.li`
+  border-radius: 50%;
+  border: ${(props) => (props.isSelected ? `0.13rem solid ${colors['--Purple-600']}` : 'none')};
 `;
 
 const Name = styled.div``;
 
 const Relationship = styled.div``;
-
-const TextEditor = styled.div``;
 
 const Font = styled.div``;
 
@@ -73,14 +81,24 @@ const Label = styled.label`
   font-weight: 700;
   line-height: 2.25rem;
   letter-spacing: -0.015rem;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+`;
+
+const TextEditor = styled.div`
+  .toastui-editor-contents {
+    font-size: 1.125rem;
+    font-family: ${({ font }) => font};
+  }
+  @media (max-width: 570px) {
+    max-width: 20rem;
+  }
 `;
 
 function MessageAddPage() {
   const { id: recipientId } = useParams();
   const [name, setName] = useState('');
-  const [selectedImage, setSelectedImage] = useState(
-    'https://fastly.picsum.photos/id/311/200/200.jpg?hmac=CHiYGYQ3Xpesshw5eYWH7U0Kyl9zMTZLQuRDU4OtyH8'
-  );
+  const [image, setImage] = useState(PROFILE_IMG[0]);
   const [relationship, setRelationship] = useState('지인');
   const [content, setContent] = useState('');
   const [font, setFont] = useState('Noto Sans');
@@ -93,15 +111,29 @@ function MessageAddPage() {
       relationship,
       content,
       font,
-      profileImageURL: selectedImage
+      profileImageURL: image.url
     };
     mutate({ recipientId, data });
-
-    console.log({ name, selectedImage, relationship, content, font });
   };
 
-  const handleImageSelect = (imageName) => {
-    setSelectedImage(imageName);
+  const editorRef = useRef();
+
+  const handleEditor = () => {
+    const data = editorRef.current.getInstance().getHTML();
+    setContent(data);
+  };
+
+  const isEmptyText = () => {
+    if (content) {
+      const parser = new DOMParser();
+      const innerText = parser.parseFromString(content, 'text/html');
+      return innerText?.body.firstChild.textContent.trim() && name.trim();
+    }
+    return null;
+  };
+
+  const handleProfile = (profile) => {
+    setImage(profile);
   };
 
   return (
@@ -115,18 +147,20 @@ function MessageAddPage() {
 
           <div>
             <Label>프로필 이미지</Label>
-            <Profile>
-              <Avatar width="80px" height="80px" />
-              <Avatar width="56px" height="56px" onClick={() => handleImageSelect('image1.jpg')} />
-              <Avatar width="56px" height="56px" onClick={() => handleImageSelect('image2.jpg')} />
-              <Avatar width="56px" height="56px" onClick={() => handleImageSelect('image3.jpg')} />
-            </Profile>
+            <p>프로필 이미지를 선택해주세요</p>
+            <Profiles>
+              {PROFILE_IMG.map((profile) => (
+                <Profile key={profile.id} isSelected={image === profile}>
+                  <Avatar width="5rem" height="5rem" imgUrl={profile.img} onClick={() => handleProfile(profile)} />
+                </Profile>
+              ))}
+            </Profiles>
           </div>
 
           <Relationship>
             <Label htmlFor="font">상대와의 관계</Label>
             <Select>
-              <select value={relationship} onChange={(e) => setRelationship(e.target.value)} displayEmpty>
+              <select value={relationship} onChange={(e) => setRelationship(e.target.value)}>
                 <option value="지인">지인</option>
                 <option value="동료">동료</option>
                 <option value="가족">가족</option>
@@ -135,23 +169,31 @@ function MessageAddPage() {
             </Select>
           </Relationship>
 
-          <TextEditor>
+          <TextEditor font={font}>
             <Label>내용을 입력해주세요</Label>
-            <TextField variant="outlined" fullWidth value={content} onChange={(e) => setContent(e.target.value)} />
-            <InputLabel />
+            <Editor
+              toolbarItems={[
+                ['heading', 'bold', 'italic', 'strike'],
+                ['hr', 'quote'],
+                ['ul', 'ol']
+              ]}
+              initialValue=" "
+              height="16.25rem"
+              initialEditType="wysiwyg"
+              hideModeSwitch
+              language="ko-KR"
+              ref={editorRef}
+              onChange={handleEditor}
+              useCommandShortcut
+            />
           </TextEditor>
 
           <Font>
             <Label htmlFor="font">폰트 선택</Label>
             <Select>
-              <select
-                value={font}
-                name="font"
-                id="font"
-                onChange={(e) => setFont(e.target.value)}
-                defaultValue="Noto Sans"
-              >
+              <select value={font} name="font" id="font" onChange={(e) => setFont(e.target.value)}>
                 <option value="Noto Sans">Noto Sans</option>
+                <option value="Pretendard">Pretendard</option>
                 <option value="나눔명조">나눔명조</option>
                 <option value="나눔손글씨 손편지체">나눔손글씨 손편지체</option>
               </select>
@@ -159,7 +201,7 @@ function MessageAddPage() {
           </Font>
         </Content>
 
-        <Primary56Button type="submit" disabled={!name.trim()}>
+        <Primary56Button type="submit" disabled={!isEmptyText()}>
           생성하기
         </Primary56Button>
       </form>

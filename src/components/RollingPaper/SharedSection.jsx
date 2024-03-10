@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import { useState, useEffect, useRef } from 'react';
 import BaseDropDown from './DropDown';
-import { Outlined36Button } from '../../components/common/Button/Button';
+import { Outlined36Button } from '../common/Button/Button';
 import shardIcon from '../../assets/share-24.svg';
 
 const Shared = styled.div`
@@ -27,10 +27,10 @@ const SharedDropDown = styled(BaseDropDown)`
 `;
 
 const Icon = styled.img`
-    @media (max-width: 475px) {
+  @media (max-width: 475px) {
     width: 20px;
   }
-`
+`;
 
 const { Kakao } = window;
 

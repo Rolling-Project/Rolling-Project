@@ -5,6 +5,7 @@ import Profile from '../Profile';
 import Date from '../Date';
 import Divider from '../Divider';
 import formatDate from '../../../utils/helpers/dateUtils';
+import TextViewer from '../TextViewer';
 
 const Card = styled(BaseCard)`
   padding: 28px 24px;
@@ -33,7 +34,7 @@ const Message = styled.div`
 `;
 
 function MessageCard({ message, isEditPage, onClick }) {
-  const { id, sender, profileImageURL, relationship, content, createdAt } = message;
+  const { id, sender, profileImageURL, relationship, font, content, createdAt } = message;
   return (
     <Card onClick={() => onClick(message)}>
       <Header>
@@ -42,7 +43,9 @@ function MessageCard({ message, isEditPage, onClick }) {
 
       <Divider />
 
-      <Message>{content}</Message>
+      <Message>
+        <TextViewer message={content} font={font} />
+      </Message>
 
       <Date fontSize="12px">{formatDate(createdAt)}</Date>
     </Card>

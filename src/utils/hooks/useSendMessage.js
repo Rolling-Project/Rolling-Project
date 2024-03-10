@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const postMessage = async ({ recipientId, data }) => {
-  console.log(data)
   const response = await fetch(`${BASE_URL}recipients/${recipientId}/messages/`, {
     method: 'POST',
     headers: {
@@ -20,7 +19,7 @@ const useSendMessage = () => {
   const navigate = useNavigate();
   return useMutation(postMessage, {
     onSuccess: () => {
-      navigate('/list');
+      navigate(-1);
     }
   });
 };

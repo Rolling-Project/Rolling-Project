@@ -6,6 +6,7 @@ import Date from './Date';
 import Divider from './Divider';
 import { Primary40Button } from '../common/Button/Button';
 import formatDate from '../../utils/helpers/dateUtils';
+import TextViewer from './TextViewer';
 
 const Modal = styled.div`
   position: fixed;
@@ -62,7 +63,7 @@ const Backdrop = styled.div`
 `;
 
 function MessageModal({ message, onClose }) {
-  const { sender, profileImageURL, relationship, content, createdAt } = message;
+  const { sender, profileImageURL, relationship, font, content, createdAt } = message;
 
   const modalRef = useRef(null);
 
@@ -89,8 +90,9 @@ function MessageModal({ message, onClose }) {
         </Header>
 
         <Divider />
-
-        <Content>{content}</Content>
+        <Content>
+          <TextViewer message={content} font={font} />
+        </Content>
 
         <Footer>
           <Primary40Button w="120px" onClick={() => onClose()}>
