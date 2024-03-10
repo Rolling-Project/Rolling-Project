@@ -175,7 +175,7 @@ export const EmojiContentDescription = styled.p`
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.75rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   @media (min-width: 768px) and (max-width: 1200px) {
     margin-top: -1rem;
   }

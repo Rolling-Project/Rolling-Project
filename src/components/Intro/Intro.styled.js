@@ -53,8 +53,6 @@ export const Num = styled.div`
 
 export const Content = styled.h1`
   color: var(--gray-900, #181818);
-
-  /* Font/24 Bold */
   font-family: Pretendard;
   font-size: 1.5rem;
   font-style: normal;
@@ -74,7 +72,7 @@ export const Description = styled.p`
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.75rem;
+  line-height: 1.5rem;
   letter-spacing: -0.01rem;
 `;
 
