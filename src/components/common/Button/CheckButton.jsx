@@ -1,7 +1,7 @@
 /* eslint-disable jsx-quotes */
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 import CheckIcon from '../../assets/checkIcon.svg';
 
 const CheckButtonBackground = styled.div`
@@ -45,7 +45,7 @@ function CheckButton({ status }) {
       onFocus={() => handleChangeBtnState('focus')}
       onBlur={() => handleChangeBtnState('enabled')}
     >
-      <img src={CheckIcon} alt='check icon' />
+      <img src={CheckIcon} alt="check icon" />
     </CheckButtonBackground>
   );
 }

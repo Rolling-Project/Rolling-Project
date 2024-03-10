@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
 export const ToggleDiv = styled.div`
   width: 12.2rem;

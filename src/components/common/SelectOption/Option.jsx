@@ -65,7 +65,7 @@ function Option({ background, onSelect }) {
           {cards.map((card) => (
             <ExampleCard
               key={card.key}
-              usage='option'
+              usage="option"
               color={card.color}
               onClick={() => handleCheckColor(card.color)}
               isChecked={check[card.color]}
@@ -78,7 +78,7 @@ function Option({ background, onSelect }) {
             <ExampleCard
               // eslint-disable-next-line react/no-array-index-key
               key={idx}
-              usage='option'
+              usage="option"
               cardUrl={img}
               onClick={() => handleCheckImg(img)}
               isChecked={checkImg[idx]}

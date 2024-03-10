@@ -1,7 +1,7 @@
 /* eslint-disable jsx-quotes */
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
 const Styled = {
   Input: styled.input`
