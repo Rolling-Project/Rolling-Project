@@ -57,8 +57,8 @@ function CreateTo() {
 
   return (
     <S.Div>
+      <S.Title>To.</S.Title>
       <S.To>
-        <S.Title>To.</S.Title>
         <Input
           placeholder={'받는 사람 이름을 입력해 주세요'}
           value={name}
@@ -66,16 +66,16 @@ function CreateTo() {
         />
       </S.To>
 
-      <S.Background>
-        <S.Title>배경화면을 선택해 주세요.</S.Title>
-        <S.SubTitle>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</S.SubTitle>
+      <S.Title>배경화면을 선택해 주세요.</S.Title>
+      <S.SubTitle>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</S.SubTitle>
 
+      <S.Background>
         <S.Toggle onToggle={handleToggleValue} />
 
         <Option background={toggleValue === '컬러' ? 'color' : 'img'} onSelect={handleBackground} />
       </S.Background>
 
-      <Primary56Button w='72rem' styled={{ marginBottom: '2.4rem' }} onClick={handleSubmit}>
+      <Primary56Button w="35rem" styled={{ marginBottom: '2.4rem' }} onClick={handleSubmit}>
         생성하기
       </Primary56Button>
     </S.Div>
