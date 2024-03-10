@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import Header from '../../components/common/Header/Header';
 import Intro from '../../components/Intro/Intro';
 import IntroEmoji from '../../components/Intro/IntroEmoji';
 import MainButtonBox from '../../components/MainButtonBox/MainButtonBox';

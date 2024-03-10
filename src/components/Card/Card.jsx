@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import * as Styled from './Card.styled';
 import Additional from '../common/Additional/Additional';
 import RecentUserProfile from '../common/RecentUserProfile/RecentUserProfile';
