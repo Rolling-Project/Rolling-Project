@@ -26,6 +26,7 @@ export const ContentBox = styled.div`
   @media (max-width: 768px) {
     margin: 0 -2.6rem;
     padding-bottom: 2.5rem;
+    margin-top: -2rem;
   }
   @media (min-width: 768px) and (max-width: 1200px) {
     width: 100%;
