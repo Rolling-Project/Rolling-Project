@@ -84,6 +84,9 @@ function RollingPaper() {
 
   return (
     <Container bg={background}>
+      <Helmet>
+        <title>Rolling | </title>
+      </Helmet>
       <Header messages={data?.pages} name={name} />
 
       <Content>
