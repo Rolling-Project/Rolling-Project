@@ -10,7 +10,6 @@ function Header() {
 
   const shouldCheckEffect = () => {
     const { pathname } = location;
-    console.log(pathname);
     if (pathname.includes('post')) {
       setIsStatic(true);
       setIsButtonVisible(false);
