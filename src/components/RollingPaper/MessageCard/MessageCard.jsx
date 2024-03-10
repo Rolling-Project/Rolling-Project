@@ -16,13 +16,13 @@ const Header = styled.div`
 `;
 
 const Message = styled.div`
-  height: 106px;
+  height: 6rem;
   margin: 16px 0;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   color: ${colors['--Gray-600']};
   font-size: 18px;
   line-height: 28px;

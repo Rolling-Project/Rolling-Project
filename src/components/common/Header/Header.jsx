@@ -1,7 +1,12 @@
+import { useLocation } from 'react-router-dom';
 import * as Styled from './Header.styled';
 import HeaderLogoIcon from '../../../../public/logo.svg';
 
-function Header({ isStatic = true, isButotnVisible = true }) {
+function Header() {
+  const path = useLocation().pathname;
+  const isButotnVisible = !/^\/post/.test(path);
+  const isStatic = /^\/post\/\d+$/.test(path);
+
   return (
     <Styled.HeaderBox $isStatic={isStatic}>
       <Styled.Header>

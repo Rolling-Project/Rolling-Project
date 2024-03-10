@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useState, useEffect, useRef } from 'react';
-import arrowDownIcon from '../../assets/arrow_down.svg';
+import arrowDownIcon from '../../assets/images/icons/arrow_down.svg';
 import colors from '../../styles/colors';
 import BaseDropDown from './DropDown';
 import formatDate from '../../utils/helpers/numberUtils';
@@ -66,7 +66,9 @@ function EmojiDropDown({ reactions }) {
   const [isDropDown, setIsDropDown] = useState(false);
 
   const handleDropDown = () => {
-    setIsDropDown((prev) => !prev);
+    if (reactions.length > 3) {
+      setIsDropDown((prev) => !prev);
+    }
   };
 
   const handleOutSideClick = (e) => {

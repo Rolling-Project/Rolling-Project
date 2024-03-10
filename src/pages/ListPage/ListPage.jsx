@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { Helmet } from 'react-helmet-async';
-import Header from '../../components/common/Header/Header';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import CardList from '../../components/CardList/CardList';
@@ -36,7 +35,6 @@ function ListPage() {
       <Helmet>
         <title>Rolling | 최신순 & 인기순 TOP 20</title>
       </Helmet>
-      <Header isStatic={false} />
       <Styled.Container>
         <CardList title="🔥 인기 롤링 페이퍼 TOP 20" cardList={popularData} />
         <CardList title="⭐️ 최신 롤링 페이퍼 TOP 20" cardList={latestData} />

@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 import BADGE_COLORS from '../../utils/constants/badgeColors';
 import useDeleteMessages from '../../utils/hooks/useDeleteMessages';
 import { Outlined36Button } from '../common/Button/Button';
-import deletedIcon from '../../assets/deleted.svg';
+import deletedIcon from '../../assets/images/icons/deleted.svg';
 
 const Container = styled.div`
   display: flex;

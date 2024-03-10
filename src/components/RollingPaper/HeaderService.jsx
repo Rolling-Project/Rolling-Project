@@ -12,7 +12,7 @@ import ProfileSection from './ProfileSection';
 import SharedSection from './SharedSection';
 import ToastBar from './ToastBar';
 import copyClipboardText from '../../utils/helpers/copyClipboardText';
-import addIcon from '../../assets/add-24.svg';
+import addIcon from '../../assets/images/icons/add-24.svg';
 
 const Service = styled.div`
   display: flex;
@@ -32,9 +32,8 @@ const SideSection = styled.div`
 `;
 
 const Container = styled.div`
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: sticky;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;

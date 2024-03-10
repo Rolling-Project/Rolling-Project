@@ -3,6 +3,8 @@ import AllListPage from '../pages/AllListPage/AllListPage';
 import ListPage from '../pages/ListPage/ListPage';
 import RollingPaper from '../pages/RollingPaper';
 import Header from '../components/common/Header/Header';
+import CreateTo from '../components/create/CreateTo';
+import MainPage from '../pages/MainPage/MainPage';
 import MessageAddPage from '../pages/MessageAddPage';
 
 function Routers() {
@@ -14,6 +16,8 @@ function Routers() {
         <Route path="/list/all" element={<AllListPage />} />
         <Route path="/post/:id" element={<RollingPaper />} />
         <Route path="/post/:id/edit" element={<RollingPaper />} />
+        <Route path="/post" element={<CreateTo />} />
+        <Route index element={<MainPage />} />
         <Route path="/post/:id/message" element={<MessageAddPage />} />
       </Routes>
     </Router>

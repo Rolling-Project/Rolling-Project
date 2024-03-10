@@ -6,7 +6,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import Avatar from '../components/RollingPaper/Avatar';
 import useSendMessage from '../utils/hooks/useSendMessage';
 import colors from '../styles/colors';
-import arrowDownIcon from '../assets/arrow_down.svg';
+import arrowDownIcon from '../assets/images/icons/arrow_down.svg';
 import { Primary56Button } from '../components/common/Button/Button';
 import PROFILE_IMG from '../utils/constants/profileImages';
 

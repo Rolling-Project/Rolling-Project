@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
 import { useState, useEffect, useRef } from 'react';
+import colors from '../../styles/colors';
 import BaseDropDown from './DropDown';
 import { Outlined36Button } from '../common/Button/Button';
-import shardIcon from '../../assets/share-24.svg';
+import shardIcon from '../../assets/images/icons/share-24.svg';
 
 const Shared = styled.div`
   position: relative;
@@ -85,8 +85,12 @@ function SharedSection({ onClick }) {
       </Outlined36Button>
       {showDropDown && (
         <SharedDropDown>
-          <span onClick={sharedKakao}>카카오톡 공유</span>
-          <span onClick={onClick}>URL 공유</span>
+          <span onClick={sharedKakao} onKeyDown={sharedKakao} role="presentation">
+            카카오톡 공유
+          </span>
+          <span onClick={onClick} onKeyDown={sharedKakao} role="presentation">
+            URL 공유
+          </span>
         </SharedDropDown>
       )}
     </Shared>

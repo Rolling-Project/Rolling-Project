@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import MessageCard from './Card/MessageCard';
-import PlusCard from './Card/PlusCard';
 import { Link } from 'react-router-dom';
+import MessageCard from './MessageCard/MessageCard';
+import PlusCard from './MessageCard/PlusCard';
 
 const List = styled.ul`
   width: 100%;

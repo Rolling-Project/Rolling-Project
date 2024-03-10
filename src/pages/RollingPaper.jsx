@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLocation, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import styled from '@emotion/styled';
-import CardList from '../components/RollingPaper/CardList';
+import CardList from '../components/RollingPaper/MessageCardList';
 import MessageModal from '../components/RollingPaper/Modal';
 import useModal from '../utils/hooks/useModal';
 import useGetMessages from '../utils/hooks/useGetMessages';
-import Header from '../components/RollingPaper/Header';
+import Header from '../components/RollingPaper/HeaderService';
 import colors from '../styles/colors';
 import useDeleteRollingPaper from '../utils/hooks/useDeleteRollingPaper';
 import { Primary40Button } from '../components/common/Button/Button';
@@ -14,6 +15,7 @@ import { isValidUrl, isLogin } from '../utils/helpers/validator';
 
 const Container = styled.div`
   position: relative;
+  min-height: 100vh;
   background: ${(props) => (isValidUrl(props.bg) ? `url(${props.bg})` : colors[props.bg])};
   background-size: cover;
 `;
@@ -24,7 +26,7 @@ const Content = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 246px 24px;
+  padding: 7rem 1.5rem;
 `;
 
 const DeletedSection = styled.div`
@@ -85,9 +87,13 @@ function RollingPaper() {
       <Header messages={data?.pages} name={name} />
 
       <Content>
-        <DeletedSection>
-          <div>{isEditPage && <Primary40Button onClick={handleDelete}>삭제하기</Primary40Button>}</div>
-        </DeletedSection>
+        {isEditPage && (
+          <DeletedSection>
+            <div>
+              <Primary40Button onClick={handleDelete}>삭제하기</Primary40Button>
+            </div>
+          </DeletedSection>
+        )}
 
         <CardList
           messages={data?.pages.map((page) => page.result).flat()}
