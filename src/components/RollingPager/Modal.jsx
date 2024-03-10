@@ -85,7 +85,7 @@ function MessageModal({ message, onClose }) {
       <Modal ref={modalRef}>
         <Header>
           <Profile imgUrl={profileImageURL} sender={sender} relationship={relationship} />
-          <Date fontSize={'14px'}>{formatDate(createdAt)}</Date>
+          <Date fontSize="14px">{formatDate(createdAt)}</Date>
         </Header>
 
         <Divider />
@@ -93,7 +93,7 @@ function MessageModal({ message, onClose }) {
         <Content>{content}</Content>
 
         <Footer>
-          <Primary40Button w={'120px'} onClick={() => onClose()}>
+          <Primary40Button w="120px" onClick={() => onClose()}>
             확인
           </Primary40Button>
         </Footer>

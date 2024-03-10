@@ -11,6 +11,7 @@ function Routers() {
         <Route path="/list" element={<ListPage />} />
         <Route path="/list/all" element={<AllListPage />} />
         <Route path="/post/:id" element={<RollingPaper />} />
+        <Route path="/post/:id/edit" element={<RollingPaper />} />
         <Route path="/post" element={<CreateTo />} />
       </Routes>
     </Router>
