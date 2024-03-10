@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
-const Toast = styled.div`
+export const Toast = styled.div`
   position: fixed;
   bottom: 10%;
   display: flex;
@@ -18,9 +18,3 @@ const Toast = styled.div`
   gap: 12px;
   backdrop-filter: blur(5px);
 `;
-
-function ToastBar({ children }) {
-  return <Toast>{children}</Toast>;
-}
-
-export default ToastBar;

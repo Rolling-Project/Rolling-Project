@@ -1,36 +1,7 @@
-import styled from '@emotion/styled';
 import { useState, useEffect, useRef } from 'react';
-import colors from '../../styles/colors';
-import BaseDropDown from './DropDown';
-import { Outlined36Button } from '../common/Button/Button';
-import shardIcon from '../../assets/images/icons/share-24.svg';
-
-const Shared = styled.div`
-  position: relative;
-`;
-
-const SharedDropDown = styled(BaseDropDown)`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 42px;
-  right: 0;
-  padding: 10px 1px;
-  cursor: pointer;
-  span {
-    width: 138px;
-    padding: 12px 16px;
-    &:hover {
-      background-color: ${colors['--Gray-100']};
-    }
-  }
-`;
-
-const Icon = styled.img`
-  @media (max-width: 475px) {
-    width: 20px;
-  }
-`;
+import { Outlined36Button } from '../../common/Button/Button';
+import shardIcon from '../../../assets/images/icons/share-24.svg';
+import * as S from './SharedSection.styled';
 
 const { Kakao } = window;
 
@@ -79,21 +50,21 @@ function SharedSection({ onClick }) {
   }, []);
 
   return (
-    <Shared ref={dropRef}>
+    <S.Shared Shared ref={dropRef}>
       <Outlined36Button onClick={handleDropDown}>
-        <Icon src={shardIcon} />
+        <S.Icon src={shardIcon} />
       </Outlined36Button>
       {showDropDown && (
-        <SharedDropDown>
+        <S.SharedDropDown>
           <span onClick={sharedKakao} onKeyDown={sharedKakao} role="presentation">
             카카오톡 공유
           </span>
           <span onClick={onClick} onKeyDown={sharedKakao} role="presentation">
             URL 공유
           </span>
-        </SharedDropDown>
+        </S.SharedDropDown>
       )}
-    </Shared>
+    </S.Shared>
   );
 }
 

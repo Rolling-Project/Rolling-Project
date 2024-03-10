@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
 const Circle = styled.div`
   width: ${(props) => props.width};
