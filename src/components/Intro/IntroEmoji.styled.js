@@ -4,7 +4,7 @@ export const EmojiWrap = styled.div`
   width: 100%;
   max-width: 75rem;
   background-color: #f6f8ff;
-  padding: 60px 60px;
+  padding: 3.75rem 3.75rem;
   border-radius: 1rem;
   display: flex;
   height: 20.25rem;
