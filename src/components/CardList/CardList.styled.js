@@ -61,6 +61,10 @@ export const CardContainer = styled.div`
   @media (max-width: 1200px) {
     scrollbar-width: auto;
   }
+
+  @media (max-width: 768px) {
+    scrollbar-width: none;
+  }
 `;
 
 export const CardList = styled.ul`
@@ -79,6 +83,10 @@ export const SliderButton = styled.img`
   border: 1px solid ${colors['--Gray-300']};
   padding: 0.5rem;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const PrevButton = styled(SliderButton)`
