@@ -4,6 +4,11 @@ import BaseCard from '../BaseCard.styled';
 
 export const Card = styled(BaseCard)`
   padding: 1.75rem 1.5rem;
+
+  &:hover{
+    transition: 0.5s;
+    transform: scale(1.05);
+  }
 `;
 
 export const Header = styled.div`
