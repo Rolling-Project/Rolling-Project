@@ -44,7 +44,6 @@ export const Num = styled.div`
   border-radius: 3.125rem;
   background: var(--Purple-600, #9935ff);
   color: var(--white, #fff);
-  font-family: Pretendard;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
