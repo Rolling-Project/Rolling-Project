@@ -22,7 +22,7 @@ function SharedSection({ onClick }) {
       content: {
         title: 'Rolling',
         description: '누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요',
-        imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+        imageUrl: 'https://lh3.googleusercontent.com/u/0/drive-viewer/AKGpihbREyvk-h_Uknv5ftE3dYQSzEOPL0hvEFVnVV2Zk6ScZo-1O75ww8Q22KKZ9CWCW4b6yhnQ8kCHz8xb9WRMHjB6udmCrw=w2480-h1608',
         link: {
           mobileWebUrl: currentUrl,
           webUrl: currentUrl
