@@ -82,9 +82,9 @@ function MessageAddPage() {
             </div>
 
             <div>
-              <S.Label htmlFor="font">상대와의 관계</S.Label>
+              <S.Label htmlFor="relationship">상대와의 관계</S.Label>
               <S.Select>
-                <select value={relationship} onChange={(e) => setRelationship(e.target.value)}>
+                <select id="relationship" value={relationship} onChange={(e) => setRelationship(e.target.value)}>
                   <option value="지인">지인</option>
                   <option value="동료">동료</option>
                   <option value="가족">가족</option>
