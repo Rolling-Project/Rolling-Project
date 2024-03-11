@@ -8,7 +8,7 @@ export default defineConfig({
     outDir: 'dist',
     // 코드를 최적화(압축)하여 용량을 줄아고 성능을 향상
     minify: true,
-    // 소스 맵(개발 중 디버깅) 비활성화
+    // 소스 맵(개발 중 디버깅)비활성화
     sourcemap: false,
     // CSS 압축 설정
     cssCodeSplit: true,
