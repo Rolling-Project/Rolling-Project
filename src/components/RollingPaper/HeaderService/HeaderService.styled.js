@@ -27,6 +27,7 @@ export const Container = styled.div`
   align-items: center;
   padding: .8125rem 1.5rem;
   background-color: ${colors['--White']};
+  z-index: 999;
 `;
 
 export const Content = styled.div`
