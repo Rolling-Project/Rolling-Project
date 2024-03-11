@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import * as Styled from './AllCardList.styled';
 import Card from '../Card/Card';
 import HiddenLabel from '../common/HiddenLabel/HiddenLabel';
-import ArrowToggleDown from '../../assets/arrow-toggle-down.svg';
-import SearchIcon from '../../assets/search.svg';
+import ArrowToggleDown from '../../assets/images/icons/arrow-toggle-down.svg';
+import SearchIcon from '../../assets/images/icons/search.svg';
 import EmptyCard from '../EmptyCard/EmptyCard';
 
 const LATEST = '최신순';

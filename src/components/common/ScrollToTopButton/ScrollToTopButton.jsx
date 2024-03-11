@@ -1,5 +1,5 @@
 import * as Styled from './ScrollToTopButton.styled';
-import TopButtonIcon from '../../../assets/scroll-top.svg';
+import TopButtonIcon from '../../../assets/images/icons/scroll-top.svg';
 
 function ScrollToTopButton({ onClick }) {
   return (

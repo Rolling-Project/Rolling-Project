@@ -3,7 +3,7 @@ import { Outlined36Button } from './Button';
 
 const Icon = styled.img`
   @media (max-width: 475px) {
-    width: 20px;
+    width: 1.25rem;
   }
 `;
 

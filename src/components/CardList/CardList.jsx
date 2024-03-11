@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import * as Styled from './CardList.styled';
-import PrevButton from '../../assets/arrow-left.svg';
-import NextButton from '../../assets/arrow-right.svg';
+import PrevButton from '../../assets/images/icons/arrow-left.svg';
+import NextButton from '../../assets/images/icons/arrow-right.svg';
 import Card from '../Card/Card';
 import EmptyCard from '../EmptyCard/EmptyCard';
 

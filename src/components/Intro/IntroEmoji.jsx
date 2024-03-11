@@ -1,7 +1,7 @@
 import * as Styled from './IntroEmoji.styled';
-import downButton from '../../assets/images/down.svg';
-import smile from '../../assets/images/smile.svg';
-import click from '../../assets/images/click.svg';
+import downButton from '../../assets/images/icons/down.svg';
+import smile from '../../assets/images/icons/smile.svg';
+import click from '../../assets/images/icons/click.svg';
 
 function IntroEmoji() {
   return (
