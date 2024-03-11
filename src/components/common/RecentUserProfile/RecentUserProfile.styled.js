@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
 
 // 최근 메세지 3명
-export const RecentMessage = styled.img`
+export const RecentUserProfile = styled.img`
   width: ${({ $isBig }) => ($isBig ? '2rem' : '1.75rem')};
   height: ${({ $isBig }) => ($isBig ? '2rem' : '1.75rem')};
   border-radius: 3.125rem;

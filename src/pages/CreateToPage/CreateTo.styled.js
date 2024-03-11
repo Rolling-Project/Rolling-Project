@@ -35,7 +35,7 @@ export const Background = styled.div`
     margin-bottom: 4.1rem;
   }
 `;
-export const Title = styled.h1`
+export const Title = styled.h2`
   width: 50%;
   max-width: 36rem;
   color: ${colors['--Gray-900']};
@@ -49,7 +49,7 @@ export const Title = styled.h1`
   margin-top: 3rem;
 `;
 
-export const SubTitle = styled.h2`
+export const SubTitle = styled.h3`
   width: 50%;
   margin-top: 0.2rem;
   margin-bottom: 1.2rem;

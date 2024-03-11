@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import styled from '@emotion/styled';
 import Intro from '../../components/Intro/Intro';
 import IntroEmoji from '../../components/Intro/IntroEmoji';
@@ -6,6 +7,9 @@ import MainButtonBox from '../../components/MainButtonBox/MainButtonBox';
 function MainPage() {
   return (
     <>
+      <Helmet>
+        <title>Rolling</title>
+      </Helmet>
       <Wrapper>
         <Container>
           <Intro />

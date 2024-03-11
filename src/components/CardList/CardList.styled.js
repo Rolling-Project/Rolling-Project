@@ -38,8 +38,11 @@ export const CardDetail = styled.span`
   color: ${colors['--Gray-600']};
   font-size: 0.8rem;
 
-  @media (max-width: 360px) {
+  @media (max-width: 440px) {
     font-size: 0.7rem;
+  }
+  @media (max-width: 390px) {
+    font-size: 0.55rem;
   }
 `;
 

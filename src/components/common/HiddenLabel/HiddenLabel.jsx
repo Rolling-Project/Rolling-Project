@@ -1,7 +1,7 @@
 import * as Styled from './HiddenLabel.styled';
 
-function HiddenLabel({ children }) {
-  return <Styled.HiddenLabel>{children}</Styled.HiddenLabel>;
+function HiddenLabel({ htmlFor, children }) {
+  return <Styled.HiddenLabel htmlFor={htmlFor}>{children}</Styled.HiddenLabel>;
 }
 
 export default HiddenLabel;

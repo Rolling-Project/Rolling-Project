@@ -51,8 +51,8 @@ function SharedSection({ onClick }) {
 
   return (
     <S.Shared Shared ref={dropRef}>
-      <Outlined36Button onClick={handleDropDown}>
-        <S.Icon src={shardIcon} />
+      <Outlined36Button type="button" onClick={handleDropDown}>
+        <S.Icon src={shardIcon} alt="공유 아이콘" />
       </Outlined36Button>
       {showDropDown && (
         <S.SharedDropDown>

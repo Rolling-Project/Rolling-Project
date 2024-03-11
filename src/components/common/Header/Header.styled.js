@@ -6,7 +6,7 @@ export const HeaderBox = styled.header`
   width: 100%;
   min-width: 20rem;
   height: 4rem;
-  border-bottom: 0.0625rem solid #ededed;
+  border-bottom: 0.0625rem solid ${colors['--Gray-270']};
   background-color: ${colors['--White']};
   position: ${({ $isStatic }) => ($isStatic ? 'static' : 'sticky')};
   top: 0;

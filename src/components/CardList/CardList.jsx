@@ -29,15 +29,11 @@ function CardList({ title, cardList }) {
   };
 
   const handleScroll = () => {
-    if (cardContainer.current.scrollLeft >= 4700) {
-      setButtonVisible({
-        prev: true,
-        next: false
-      });
-      return;
-    }
+    const maxScrollLeft = cardContainer.current.scrollWidth - cardContainer.current.clientWidth;
+    const isStart = cardContainer.current.scrollLeft === 0;
+    const isEnd = cardContainer.current.scrollLeft >= maxScrollLeft - 10; // 여기서 10은 여유값으로 조절 가능
 
-    if (cardContainer.current.scrollLeft === 0) {
+    if (isStart) {
       setButtonVisible({
         prev: false,
         next: true
@@ -45,6 +41,13 @@ function CardList({ title, cardList }) {
       return;
     }
 
+    if (isEnd) {
+      setButtonVisible({
+        prev: true,
+        next: false
+      });
+      return;
+    }
     setButtonVisible({
       prev: true,
       next: true
@@ -58,14 +61,23 @@ function CardList({ title, cardList }) {
         next: true
       });
     }
-    cardContainer.current.addEventListener('scroll', handleScroll);
+
+    if (cardContainer.current) {
+      cardContainer.current.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (cardContainer.current) {
+        cardContainer.current.removeEventListener('scroll', handleScroll);
+      }
+    };
   }, []);
 
   return (
     <Styled.CardWrap>
       <Styled.ListTitleBox>
         <Styled.ListTitle>{title}</Styled.ListTitle>
-        {cardList.length !== 0 && (
+        {cardList.length && (
           <Styled.CardDetailBox>
             <Styled.CardDetail>
               카드를 좌우로 스와이프하거나 버튼을 클릭하여 목록을 확인할 수 있습니다.
@@ -77,14 +89,11 @@ function CardList({ title, cardList }) {
 
       <Styled.CardContainer ref={cardContainer}>
         <Styled.CardList>
-          {cardList?.map((data) => (
-            <Card key={data.id} data={data} />
-          ))}
-          {cardList.length === 0 && <EmptyCard />}
+          {cardList.length ? cardList.map((data) => <Card key={data.id} data={data} />) : <EmptyCard />}
         </Styled.CardList>
       </Styled.CardContainer>
-      {buttonVisible.prev && <Styled.PrevButton onClick={() => handlePrevCard()} src={PrevButton} alt="이전 버튼" />}
-      {buttonVisible.next && <Styled.NextButton onClick={() => handleNextCard()} src={NextButton} alt="다음 버튼" />}
+      {buttonVisible.prev && <Styled.PrevButton onClick={handlePrevCard} src={PrevButton} alt="이전 버튼" />}
+      {buttonVisible.next && <Styled.NextButton onClick={handleNextCard} src={NextButton} alt="다음 버튼" />}
     </Styled.CardWrap>
   );
 }

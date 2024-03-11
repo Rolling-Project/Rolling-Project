@@ -6,7 +6,7 @@ export const Root = styled.div`
   justify-content: center;
 `;
 
-export const Div = styled.div`
+export const Div = styled.ul`
   display: grid;
   align-items: flex-start;
   gap: 0.8rem;

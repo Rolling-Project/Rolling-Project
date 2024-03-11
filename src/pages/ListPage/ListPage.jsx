@@ -10,14 +10,17 @@ import * as Styled from './ListPage.styled';
 const POPULAR_OPTION = '&sort=like';
 
 function ListPage() {
-  const fetchData = async () => {
+  const fetchTopCard = async () => {
     const [dataCount, latestData, popularData] = await fetchTwentyCard(POPULAR_OPTION);
     return { dataCount, latestData, popularData };
   };
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['recipients'],
-    queryFn: fetchData
+    queryKey: ['twentyCard'],
+    queryFn: fetchTopCard,
+    refetchOnWindowFocus: false,
+    cacheTime: 30 * 60 * 1000,
+    staleTime: 30 * 60 * 1000
   });
 
   if (isError) {

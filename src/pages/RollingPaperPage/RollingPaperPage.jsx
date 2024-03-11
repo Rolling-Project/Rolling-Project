@@ -50,7 +50,7 @@ function RollingPaper() {
   return (
     <S.Container bg={background}>
       <Helmet>
-        <title>Rolling | </title>
+        <title>Rolling | 롤링 페이퍼 작성해준 사람들</title>
       </Helmet>
       <Header messages={data?.pages} name={name} />
 

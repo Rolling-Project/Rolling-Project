@@ -39,14 +39,13 @@ const Styled = {
   `,
 
   InputError: styled.span`
-    display: flex;
+    display: inline-block;
+    width: 100%;
     max-width: 36rem;
-    width: 50%;
-    color: ${`1px solid ${colors['--Error']}`};
-    font-size: 0.6rem;
-    font-style: normal;
-    font-weight: 400;
+    color: ${colors['--Error']};
+    font-size: 0.8rem;
     line-height: 0.9rem; /* 150% */
+    padding-left: 1rem;
   `
 };
 
@@ -71,6 +70,7 @@ function Input({ value, placeholder, onInputChange }) {
         $isEmpty={isEmpty}
         onChange={handleInputChange}
         onBlur={handleInputBlur}
+        autoComplete="username"
       />
       {isEmpty && <Styled.InputError>값을 입력해 주세요.</Styled.InputError>}
     </>

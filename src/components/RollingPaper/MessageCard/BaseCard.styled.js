@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
 
-const BaseCard = styled.div`
+const BaseCard = styled.li`
   height: 17.5rem;
   border-radius: 1rem;
   background: ${colors['--White']};

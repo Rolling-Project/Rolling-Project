@@ -6,25 +6,33 @@ import ArrowToggleDown from '../../assets/images/icons/arrow-toggle-down.svg';
 import SearchIcon from '../../assets/images/icons/search.svg';
 import EmptyCard from '../EmptyCard/EmptyCard';
 
-const latest = '최신순';
-const filter = 'filter';
-function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFilter, listFilterValue }) {
+const LATEST = '최신순';
+const FILTET = 'filter';
+
+function AllCardList({ latestData, popularData, listFilterValue, setListFilterValue, cardList, setCardList }) {
   const [lstFilterToggle, setListFilterToggle] = useState(false); // 정렬 필터 리스트 토글 버튼
   const [searchValue, setSearchValue] = useState(''); // 인풋 값
 
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
-    if (e.target.dataset.status === filter) {
-      setListFilterToggle(!lstFilterToggle);
+    if (e.target.dataset.status === FILTET) {
+      setListFilterToggle(true);
       return;
     }
     setListFilterToggle(false);
   };
 
+  useEffect(() => {
+    document.addEventListener('click', handleListFilterToggle);
+
+    return () => {
+      document.removeEventListener('click', handleListFilterToggle);
+    };
+  });
+
   // 정렬 필터 설정(최신순, 인기순)
   const handleListFilterValue = (e) => {
-    setListFilter(e.target.textContent);
-    setListFilterToggle(!lstFilterToggle);
+    setListFilterValue(e.target.textContent);
   };
 
   // 인풋 값 관리
@@ -32,43 +40,28 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
     setSearchValue(e.target.value.trim());
   };
 
-  // 데이터 정렬(최신순, 인기순)
-  useEffect(() => {
-    if (listFilterValue === latest) {
-      setData(cacheData.current.latestList);
-      return;
-    }
-
-    if (cacheData.current.popularList.length) {
-      setData(cacheData.current.popularList);
-      return;
-    }
-
-    popularDataLoad();
-  }, [listFilterValue]);
-
   // 롤링 페이퍼 검색
   const handleSearchChange = (value) => {
     if (!value) {
       // 인풋 값이 없을 때
-      if (listFilterValue === latest) {
-        setData(cacheData.current.latestList); // 최신순 정렬
+      if (listFilterValue === LATEST) {
+        setCardList(latestData); // 최신순 정렬
         return;
       }
-      setData(cacheData.current.popularList); // 인기순 정렬
+      setCardList(popularData); // 인기순 정렬
       return;
     }
     const regex = new RegExp(value, 'i');
 
     // 최신순 검색 결과
-    if (listFilterValue === latest) {
-      const searchResult = cacheData.current.latestList.filter((list) => regex.test(list.name));
-      setData(searchResult);
+    if (listFilterValue === LATEST) {
+      const searchResult = latestData.filter((list) => regex.test(list.name));
+      setCardList(searchResult);
       return;
     }
     // 인기순 검색 결과
-    const searchResult = cacheData.current.popularList.filter((list) => regex.test(list.name));
-    setData(searchResult);
+    const searchResult = popularData.filter((list) => regex.test(list.name));
+    setCardList(searchResult);
   };
 
   useEffect(() => {
@@ -82,7 +75,7 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
   }, [searchValue]);
 
   return (
-    <Styled.AllCardListWrap onClick={(e) => handleListFilterToggle(e)}>
+    <Styled.AllCardListWrap>
       <Styled.CardSearchInputContainer>
         <Styled.CardSearchInputBox>
           <HiddenLabel htmlFor="card-search-input">롤링 페이퍼 검색창</HiddenLabel>
@@ -113,8 +106,8 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
               alt="롤링 페이퍼 리스트 필터 토글 아이콘"
             />
             <Styled.ListFilter $lstFilterToggle={lstFilterToggle}>
-              <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>최신순</Styled.ListFilterItem>
-              <Styled.ListFilterItem onClick={(e) => handleListFilterValue(e)}>인기순</Styled.ListFilterItem>
+              <Styled.ListFilterItem onClick={handleListFilterValue}>최신순</Styled.ListFilterItem>
+              <Styled.ListFilterItem onClick={handleListFilterValue}>인기순</Styled.ListFilterItem>
             </Styled.ListFilter>
           </Styled.ListFilterBox>
         </Styled.ListHeaderBox>
@@ -125,9 +118,9 @@ function AllCardList({ cardList, setData, cacheData, popularDataLoad, setListFil
         </Styled.ListText>
       </Styled.ListHeaderWrap>
 
-      {cardList.length !== 0 ? (
+      {cardList.length ? (
         <Styled.CardListBox>
-          {cardList?.map((data) => (
+          {cardList.map((data) => (
             <Card key={data.id} data={data} isBig />
           ))}
         </Styled.CardListBox>

@@ -10,7 +10,7 @@ const Icon = styled.img`
 function Outlined36IconButton({ children, onClick, disabled, icon }) {
   return (
     <Outlined36Button onClick={onClick} disabled={disabled}>
-      <Icon src={icon} />
+      <Icon src={icon} alt="스마일 아이콘" />
       <span>{children}</span>
     </Outlined36Button>
   );

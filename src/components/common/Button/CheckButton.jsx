@@ -44,7 +44,7 @@ function CheckButton({ status }) {
       onFocus={() => handleChangeBtnState('focus')}
       onBlur={() => handleChangeBtnState('enabled')}
     >
-      <img src={CheckIcon} alt="check icon" />
+      <img style={{ width: '1.5rem', height: '1.5rem' }} src={CheckIcon} alt="check icon" />
     </CheckButtonBackground>
   );
 }
