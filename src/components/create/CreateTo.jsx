@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './CreateTo.styled';
-import Input from '../../common/Input/Input';
-import Option from '../../common/SelectOption/Option';
-import { Primary56Button } from '../../common/Button/Button';
+import Input from '../common/Input/Input';
+import Option from '../common/SelectOption/Option';
+import { Primary56Button } from '../common/Button/Button';
 import API_PATH from '../../services/api-path';
 import backgroundColorConveter from '../../utils/helpers/bgColorConverter';
 

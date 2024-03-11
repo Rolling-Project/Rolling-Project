@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import ToggleButton from '../../common/Button/ToggleButton';
+import ToggleButton from '../common/Button/ToggleButton';
 import colors from '../../styles/colors';
 
 export const Div = styled.div`

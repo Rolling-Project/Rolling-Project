@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
-import backgroundColorConveter from '../../utils/helpers/bgColorConverter';
+import colors from '../../../styles/colors';
+import backgroundColorConveter from '../../../utils/helpers/bgColorConverter';
 
 export const Card = styled.div`
   display: flex;
