@@ -30,9 +30,7 @@ const Styled = {
     &:active {
       border: ${colors['--Gray-700']};
     }
-    &:hover {
-      border: ${colors['--Gray-500']};
-    }
+
     &:focus {
       border: ${colors['--Gray-500']};
     }
