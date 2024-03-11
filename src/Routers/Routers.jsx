@@ -12,13 +12,14 @@ function Routers() {
     <Router>
       <Header />
       <Routes>
+        <Route index element={<MainPage />} />
         <Route path="/list" element={<ListPage />} />
         <Route path="/list/all" element={<AllListPage />} />
         <Route path="/post/:id" element={<RollingPaper />} />
         <Route path="/post/:id/edit" element={<RollingPaper />} />
         <Route path="/post" element={<CreateTo />} />
-        <Route index element={<MainPage />} />
         <Route path="/post/:id/message" element={<MessageAddPage />} />
+        <Route path="/*" element={<MainPage />} />
       </Routes>
     </Router>
   );
