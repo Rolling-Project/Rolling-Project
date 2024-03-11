@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Editor } from '@toast-ui/react-editor';
+import Editor from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import Avatar from '../../components/RollingPaper/Avatar/Avatar';
 import useSendMessage from '../../utils/hooks/useSendMessage';
