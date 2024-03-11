@@ -1,20 +1,18 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Global } from '@emotion/react';
-import styled from '@emotion/styled';
+import Routers from './Routers/Routers';
 import reset from './styles/reset';
-import colors from './styles/colors';
 
-// color variant 사용 예시
-const Button = styled.button`
-  background-color: ${colors['Blue-100']};
-  color: ${colors.Black};
-`;
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Global styles={reset} />
-      <Button>This is a hotpink button.</Button>
-    </div>
+      <Routers />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 
