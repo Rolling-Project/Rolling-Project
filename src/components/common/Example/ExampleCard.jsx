@@ -6,7 +6,7 @@ import CheckButton from '../Button/CheckButton';
 function ExampleCard({ usage = 'option', color, isChecked, onClick, cardUrl }) {
   return (
     <S.Card $usage={usage} color={color} onClick={onClick} $cardUrl={cardUrl} $isChecked={isChecked}>
-      {isChecked && <CheckButton status='enabled' />}
+      {isChecked && <CheckButton status="enabled" />}
     </S.Card>
   );
 }

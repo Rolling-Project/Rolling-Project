@@ -37,8 +37,8 @@ const Primary = styled(BaseButton)`
 
 const Primary56Button = styled(Primary)`
   width: ${(props) => props?.w};
-  border-radius: .75rem;
-  padding: .875rem 1.5rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.75rem;
@@ -47,8 +47,8 @@ const Primary56Button = styled(Primary)`
 
 const Primary40Button = styled(Primary)`
   width: ${(props) => props?.w};
-  border-radius: .375rem;
-  padding: .4375rem 1rem;
+  border-radius: 0.375rem;
+  padding: 0.4375rem 1rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.625rem;
@@ -84,15 +84,15 @@ const Outlined = styled(BaseButton)`
 const Outlined36Button = styled(Outlined)`
   width: fit-content;
   height: fit-content;
-  border-radius: .375rem;
+  border-radius: 0.375rem;
   padding: ${({ small }) => (small ? '.375rem .5rem' : '.375rem 1rem')};
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
   display: flex;
-  gap: .25rem;
+  gap: 0.25rem;
   @media (max-width: 475px) {
-    padding: .375rem .5rem;
+    padding: 0.375rem 0.5rem;
     span {
       display: none;
     }

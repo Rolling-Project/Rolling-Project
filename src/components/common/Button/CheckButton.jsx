@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import colors from '../../styles/colors';
-import CheckIcon from '../../assets/images/icons/checkIcon.svg';
+import colors from '../../../styles/colors';
+import CheckIcon from '../../../assets/images/icons/checkIcon.svg';
 
 const CheckButtonBackground = styled.div`
   width: 3rem;
