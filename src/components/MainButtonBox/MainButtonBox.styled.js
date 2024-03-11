@@ -7,7 +7,7 @@ export const MainButtonBox = styled.div`
   align-items: center;
   padding: 1.5rem 0;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
 `;
 
 export const MainButton = styled.button`

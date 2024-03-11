@@ -4,7 +4,6 @@ import colors from '../../../styles/colors';
 
 export const HeaderBox = styled.header`
   width: 100%;
-  max-width: 120rem;
   min-width: 20rem;
   height: 4rem;
   border-bottom: 0.0625rem solid #ededed;
@@ -15,6 +14,7 @@ export const HeaderBox = styled.header`
 `;
 
 export const Header = styled.nav`
+  max-width: 120rem;
   width: 75rem;
   height: 100%;
   margin: 0 auto;

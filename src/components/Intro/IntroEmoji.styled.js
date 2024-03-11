@@ -4,7 +4,7 @@ export const EmojiWrap = styled.div`
   width: 100%;
   max-width: 75rem;
   background-color: #f6f8ff;
-  padding: 60px 60px;
+  padding: 3.75rem 3.75rem;
   border-radius: 1rem;
   display: flex;
   height: 20.25rem;
@@ -175,7 +175,7 @@ export const EmojiContentDescription = styled.p`
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.75rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   @media (min-width: 768px) and (max-width: 1200px) {
     margin-top: -1rem;
   }

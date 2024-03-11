@@ -23,6 +23,7 @@ export default MainPage;
 
 const Wrapper = styled.div`
   width: 100%;
+  padding-top: 2rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -31,7 +32,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  padding: 3rem 1.875rem;
+  padding: 1.5rem 1.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
