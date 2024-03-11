@@ -1,14 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable jsx-quotes */
-/* eslint-disable react/jsx-curly-brace-presence */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
 import * as S from './CreateTo.styled';
 import Input from '../../common/Input/Input';
 import Option from '../../common/SelectOption/Option';
 import { Primary56Button } from '../../common/Button/Button';
 import API_PATH from '../../services/api-path';
+import backgroundColorConveter from '../../utils/helpers/bgColorConverter';
 
 function CreateTo() {
   const [name, setName] = useState('');
@@ -29,6 +26,7 @@ function CreateTo() {
     if (type === 'color') {
       setColor(value);
     }
+    setImage(value);
   };
 
   const handleSubmit = async () => {
@@ -48,11 +46,14 @@ function CreateTo() {
     })
       .then((res) => res.json())
       .then((data) => {
-        navigate(`/post/${data.id}`);
+        navigate(`/post/${data.id}`, {
+          state: {
+            name: data.name,
+            effect: data.backgroundImageURL ?? backgroundColorConveter(data.backgroundColor)
+          }
+        });
       })
-      .catch((error) => {
-        console.error('생성 실패', error);
-      });
+      .catch((error) => {});
   };
 
   return (
@@ -60,7 +61,7 @@ function CreateTo() {
       <S.Title>To.</S.Title>
       <S.To>
         <Input
-          placeholder={'받는 사람 이름을 입력해 주세요'}
+          placeholder="받는 사람 이름을 입력해 주세요"
           value={name}
           onInputChange={(value) => handleChangeInput(value)}
         />

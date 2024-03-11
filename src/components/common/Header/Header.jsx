@@ -1,7 +1,12 @@
+import { useLocation } from 'react-router-dom';
 import * as Styled from './Header.styled';
 import HeaderLogoIcon from '../../../../public/logo.svg';
 
-function Header({ isStatic = true, isButotnVisible = true }) {
+function Header() {
+  const path = useLocation().pathname;
+  const isButtonVisible = !/^\/post/.test(path);
+  const isStatic = /^\/post\/\d+$/.test(path);
+
   return (
     <Styled.HeaderBox $isStatic={isStatic}>
       <Styled.Header>
@@ -9,7 +14,7 @@ function Header({ isStatic = true, isButotnVisible = true }) {
           <Styled.HeaderLogoImage src={HeaderLogoIcon} alt="헤더 롤링 로고" />
           <Styled.HeaderLogoText>Rolling</Styled.HeaderLogoText>
         </Styled.HeaderLogoBox>
-        {isButotnVisible && <Styled.HeaderButton to="/post">롤링 페이퍼 만들기</Styled.HeaderButton>}
+        {isButtonVisible && <Styled.HeaderButton to="/post">롤링 페이퍼 만들기</Styled.HeaderButton>}
       </Styled.Header>
     </Styled.HeaderBox>
   );

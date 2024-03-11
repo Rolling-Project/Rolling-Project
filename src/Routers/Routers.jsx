@@ -1,10 +1,11 @@
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import AllListPage from '../pages/AllListPage/AllListPage';
 import ListPage from '../pages/ListPage/ListPage';
-import RollingPaper from '../pages/RollingPaper';
+import RollingPaper from '../pages/RollingPaperPage/RollingPaperPage';
 import Header from '../components/common/Header/Header';
 import CreateTo from '../components/create/CreateTo';
 import MainPage from '../pages/MainPage/MainPage';
+import MessageAddPage from '../pages/MessageAddPage/MessageAddPage';
 
 function Routers() {
   return (
@@ -17,6 +18,7 @@ function Routers() {
         <Route path="/post/:id/edit" element={<RollingPaper />} />
         <Route path="/post" element={<CreateTo />} />
         <Route index element={<MainPage />} />
+        <Route path="/post/:id/message" element={<MessageAddPage />} />
       </Routes>
     </Router>
   );

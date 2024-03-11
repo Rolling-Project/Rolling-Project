@@ -20,6 +20,9 @@ const Primary = styled(BaseButton)`
   }
 
   &:hover {
+    &:disabled {
+      background-color: ${colors['--Gray-300']};
+    }
     background-color: ${colors['--Purple-700']};
   }
 
@@ -34,22 +37,22 @@ const Primary = styled(BaseButton)`
 
 const Primary56Button = styled(Primary)`
   width: ${(props) => props?.w};
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-size: 18px;
+  border-radius: .75rem;
+  padding: .875rem 1.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  line-height: 28px;
-  letter-spacing: -0.18px;
+  line-height: 1.75rem;
+  letter-spacing: -0.0112rem;
 `;
 
 const Primary40Button = styled(Primary)`
   width: ${(props) => props?.w};
-  border-radius: 6px;
-  padding: 7px 16px;
-  font-size: 16px;
+  border-radius: .375rem;
+  padding: .4375rem 1rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 26px;
-  letter-spacing: -0.16px;
+  line-height: 1.625rem;
+  letter-spacing: -0.01rem;
 `;
 
 const Outlined = styled(BaseButton)`
@@ -81,15 +84,15 @@ const Outlined = styled(BaseButton)`
 const Outlined36Button = styled(Outlined)`
   width: fit-content;
   height: fit-content;
-  border-radius: 6px;
-  padding: ${({ small }) => (small ? '6px 8px' : '6px 16px')};
-  font-size: 16px;
+  border-radius: .375rem;
+  padding: ${({ small }) => (small ? '.375rem .5rem' : '.375rem 1rem')};
+  font-size: 1rem;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.5rem;
   display: flex;
-  gap: 4px;
+  gap: .25rem;
   @media (max-width: 475px) {
-    padding: 6px 8px;
+    padding: .375rem .5rem;
     span {
       display: none;
     }

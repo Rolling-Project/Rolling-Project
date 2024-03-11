@@ -1,5 +1,5 @@
 import * as Styled from './Intro.styled';
-import example from '../../assets/images/example.svg';
+import example from '../../assets/images/icons/example.svg';
 
 function Intro() {
   return (

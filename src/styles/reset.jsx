@@ -1,4 +1,8 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
+import NanumPen from '../assets/fonts/NanumPen.woff2';
+import NanumMyeongjo from '../assets/fonts/NanumMyeongjo.woff2';
+import NotoSansRegular from '../assets/fonts/NotoSans-Regular.woff2';
+import PretendardRegular from '../assets/fonts/Pretendard-Regular.woff2';
 
 const Reset = css`
   html,
@@ -118,7 +122,7 @@ const Reset = css`
   blockquote:after,
   q:before,
   q:after {
-    content: "";
+    content: '';
     content: none;
   }
   table {
@@ -130,9 +134,26 @@ const Reset = css`
   }
   * {
     box-sizing: border-box;
+    font-display: swap;
   }
   a {
     text-decoration: none;
+  }
+  @font-face {
+    font-family: '나눔명조';
+    src: url(${NanumMyeongjo});
+  }
+  @font-face {
+    font-family: '나눔손글씨 손편지체';
+    src: url(${NanumPen});
+  }
+  @font-face {
+    font-family: 'Noto Sans';
+    src: url(${NotoSansRegular});
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url(${PretendardRegular});
   }
 `;
 

@@ -1,4 +1,3 @@
-/* eslint-disable quotes */
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 
@@ -17,13 +16,13 @@ export const Toggle = styled.div`
   align-items: center;
   padding: 0.8rem 1.6rem;
   border-radius: 0.6rem;
-  border: 2px solid ${({ $isToggled }) => ($isToggled ? colors['--Purple-600'] : `transparent`)};
+  border: 2px solid ${({ $isToggled }) => ($isToggled ? colors['--Purple-600'] : 'transparent')};
   background: ${({ $isToggled }) => ($isToggled ? colors['--White'] : colors['--Gray-100'])};
 
   font-size: 0.8rem;
   font-style: normal;
   line-height: 2.6rem; /* 162.5% */
-  font-weight: ${({ $isToggled }) => ($isToggled ? `700` : `400`)};
+  font-weight: ${({ $isToggled }) => ($isToggled ? '700' : '400')};
   color: ${({ $isToggled }) => ($isToggled ? colors['--Purple-700'] : colors['--Gray-900'])};
   text-align: center;
 
