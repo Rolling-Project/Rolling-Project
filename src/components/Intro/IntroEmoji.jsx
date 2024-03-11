@@ -12,14 +12,14 @@ function IntroEmoji() {
           <Styled.Emoji>24</Styled.Emoji>
           <Styled.Emoji>😍24</Styled.Emoji>
           <Styled.DownButton>
-            <img width="0.8125rem" height="0.5rem" src={downButton} alt="아래방향 화살표" />
+            <img width="13px" height="8px" src={downButton} alt="아래방향 화살표" />
           </Styled.DownButton>
           <Styled.AddButton>
-            <img width="1.375rem" height="1.375rem" src={smile} alt="웃는얼굴" />
+            <img width="22px" height="22px" src={smile} alt="웃는얼굴" />
             추가
           </Styled.AddButton>
           <Styled.ClickIcon>
-            <img width="2.0625rem" height="2.0625rem" src={click} alt="클릭아이콘" />
+            <img width="33px" height="33px" src={click} alt="클릭아이콘" />
           </Styled.ClickIcon>
           <Styled.EmojiTypeBox>
             <Styled.EmojiBox>

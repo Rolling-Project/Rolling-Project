@@ -14,7 +14,7 @@ function Intro() {
         <Styled.Description>로그인 없이 자유롭게 만들어요.</Styled.Description>
       </Styled.ContentBox>
       <Styled.Example>
-        <img width="45rem" height="12.75rem" src={example} alt="Example" />
+        <img width="720px" height="204px" src={example} alt="Example" />
       </Styled.Example>
     </Styled.IntroWrap>
   );

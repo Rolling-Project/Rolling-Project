@@ -8,7 +8,7 @@ function CardList({ messages, lastRef, onClick, isEditPage }) {
     <S.List>
       {!isEditPage && (
 
-        <PlusCard> <Link to="message" /> </PlusCard>
+        <PlusCard> <Link to="message"> </Link></PlusCard>
       )}
       {messages?.map((message, idx) => (
         <li key={message.id}>
