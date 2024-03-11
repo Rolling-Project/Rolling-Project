@@ -53,9 +53,14 @@ export const CardWrap = styled.section`
 export const CardContainer = styled.div`
   overflow-y: hidden;
   overflow-x: auto; // 가로방향 스크롤
-  scrollbar-width: none; // 스크롤바 표시 x
   scroll-behavior: smooth; // 스크롤 부드럽게
   scroll-snap-type: x mandatory; // 스크롤이 스냅 지점에 정렬
+  scrollbar-width: thin;
+  scrollbar-color: ${colors['--Purple-500']} ${colors['--Purple-100']};
+
+  @media (max-width: 1200px) {
+    scrollbar-width: auto;
+  }
 `;
 
 export const CardList = styled.ul`
@@ -74,13 +79,12 @@ export const SliderButton = styled.img`
   border: 1px solid ${colors['--Gray-300']};
   padding: 0.5rem;
   cursor: pointer;
-  @media (max-width: 1200px) {
-    display: none;
-  }
 `;
+
 export const PrevButton = styled(SliderButton)`
   left: -0.1rem;
 `;
+
 export const NextButton = styled(SliderButton)`
   right: -2.2rem;
 `;
