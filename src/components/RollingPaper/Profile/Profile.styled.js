@@ -11,29 +11,29 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: .875rem;
 `;
 
 export const Name = styled.div`
-  font-size: 20px;
-  margin-bottom: 6px;
+  font-size: 1.25rem;
+  margin-bottom: .375rem;
 
   span {
     font-weight: bold;
   }
 
   @media (max-width: 517px) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
 export const Badge = styled.div`
   display: inline-block;
-  padding: 0 8px;
+  padding: 0 .5rem;
   background-color: ${(props) => colors[BADGE_COLORS[props.relationship]?.backgroundColor]};
   color: ${(props) => colors[BADGE_COLORS[props.relationship]?.color]};
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.07px;
+  border-radius: .25rem;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  letter-spacing: -0.0044rem;
 `;

@@ -6,37 +6,37 @@ export const Modal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 476px;
-  padding: 40px;
-  border-radius: 16px;
+  width: 37.5rem;
+  height: 29.75rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
   background: ${colors['--White']};
-  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
-  max-width: calc(100vw - 16px * 2);
+  box-shadow: 0 .125rem .75rem 0 rgba(0, 0, 0, 0.08);
+  max-width: calc(100vw - 1rem * 2);
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 `;
 
 export const Content = styled.div`
   width: 100%;
-  height: 240px;
-  margin: 16px 0 24px;
-  padding-right: 8px;
+  height: 15rem;
+  margin: 1rem 0 1.5rem;
+  padding-right: .5rem;
   color: #5a5a5a;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.18px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: -0.0112rem;
   overflow-y: auto;
   &::-webkit-scrollbar {
-    width: 4px;
+    width: .25rem;
   }
   &::-webkit-scrollbar-thumb {
-    border-radius: 4px;
+    border-radius: .25rem;
     background: ${colors['--Gray-300']};
   }
 `;

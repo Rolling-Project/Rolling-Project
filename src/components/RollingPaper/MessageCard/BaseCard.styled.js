@@ -2,10 +2,10 @@ import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
 
 const BaseCard = styled.div`
-  height: 280px;
-  border-radius: 16px;
+  height: 17.5rem;
+  border-radius: 1rem;
   background: ${colors['--White']};
-  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 .125rem .75rem 0 rgba(0, 0, 0, 0.08);
   cursor: pointer;
 `;
 

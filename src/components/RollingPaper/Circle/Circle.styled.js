@@ -6,7 +6,7 @@ const Circle = styled.div`
   height: ${(props) => props.height};
   background-color: ${colors['--White']};
   border-radius: 50%;
-  border: ${({ hasBorder }) => (hasBorder ? `1.4px solid ${colors['--White']}` : 'none')};
+  border: ${({ hasBorder }) => (hasBorder ? `0.08rem solid ${colors['--White']}` : 'none')};
   overflow: hidden;
 `;
 

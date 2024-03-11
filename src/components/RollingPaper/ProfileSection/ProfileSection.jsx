@@ -15,7 +15,7 @@ function ProfileSection({ messages }) {
         <S.Profiles count={count}>
           {profiles.slice(0, 3).map((sender) => (
             <S.Item key={sender.id}>
-              <Avatar imgUrl={sender.profileImageURL} width="28px" height="28px" hasBorder />
+              <Avatar imgUrl={sender.profileImageURL} width="1.75rem" height="1.75rem" hasBorder />
             </S.Item>
           ))}
           {count > 3 && (

@@ -2,10 +2,10 @@ import styled from '@emotion/styled';
 
 export const List = styled.ul`
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 1.25rem;
 
   @media (max-width: 820px) {
     grid-template-columns: repeat(2, 1fr);

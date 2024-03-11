@@ -15,7 +15,7 @@ export const SideSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 13px;
+  gap: .8125rem;
 `;
 
 export const Container = styled.div`
@@ -25,13 +25,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 13px 24px;
+  padding: .8125rem 1.5rem;
   background-color: ${colors['--White']};
 `;
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,15 +42,15 @@ export const Content = styled.div`
 `;
 
 export const Name = styled.p`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
-  line-height: 42px;
-  letter-spacing: -0.28px;
+  line-height: 2.625rem;
+  letter-spacing: -0.0175rem;
   color: ${colors['--Gray-800']};
   cursor: default;
 
   @media (max-width: 475px) {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 `;
 
@@ -64,13 +64,13 @@ export const EmojiAdd = styled.div`
 `;
 
 export const Picker = styled.div`
-  width: 350px;
+  width: 21.87rem;
   position: absolute;
-  top: 42px;
+  top: 2.625rem;
   right: 0;
 
   @media (max-width: 475px) {
-    width: 315px;
+    width: 19.68rem;
     transform: translate(20%, 0);
   }
 `;

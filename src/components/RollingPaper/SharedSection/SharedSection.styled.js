@@ -10,13 +10,13 @@ export const SharedDropDown = styled(BaseDropDown)`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 42px;
+  top: 2.625rem;
   right: 0;
-  padding: 10px 1px;
+  padding: .625rem .0625rem;
   cursor: pointer;
   span {
-    width: 138px;
-    padding: 12px 16px;
+    width: 8.625rem;
+    padding: .75rem 1rem;
     &:hover {
       background-color: ${colors['--Gray-100']};
     }
@@ -25,6 +25,6 @@ export const SharedDropDown = styled(BaseDropDown)`
 
 export const Icon = styled.img`
   @media (max-width: 475px) {
-    width: 20px;
+    width: 1.25rem;
   }
 `;

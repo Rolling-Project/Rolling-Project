@@ -4,7 +4,7 @@ import BaseDropDown from '../DropDown/DropDown.styled';
 
 export const DropDown = styled.div`
   position: relative;
-  margin: 0 8px 0 28px;
+  margin: 0 0.5rem 0 1.75rem;
 
   @media (max-width: 648px) {
     display: none;
@@ -16,41 +16,41 @@ export const DropDown = styled.div`
 `;
 
 export const Item = styled.div`
-  width: 63px;
-  height: 36px;
+  width: 4rem;
+  height: 2.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 12px;
-  border-radius: 32px;
+  padding: 0.5rem .75rem;
+  border-radius: 2rem;
   background: rgba(0, 0, 0, 0.54);
   color: ${colors['--White']};
-  gap: 5px;
+  gap: .31rem;
   span {
-    transform: translate(0px, 1.5px);
+    transform: translate(0, .09rem);
   }
   @media (max-width: 475px) {
-    width: 53px;
-    height: 28px;
-    font-size: 14px;
+    width: 3.3125rem;
+    height: 1.75rem;
+    font-size: .875rem;
   }
 `;
 
 export const Bar = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   cursor: pointer;
 `;
 
 export const ExpandBox = styled(BaseDropDown)`
   position: absolute;
-  top: 42px;
+  top: 2.625rem;
   right: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px 8px;
-  padding: 24px;
+  gap: .625rem 0.5rem;
+  padding: 1.5rem;
 
   @media (max-width: 360px) {
     grid-template-columns: repeat(3, 1fr);

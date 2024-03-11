@@ -28,30 +28,30 @@ const Primary = styled(BaseButton)`
   }
 
   &:focus {
-    border: 2px solid ${colors['--Purple-900']};
-    transform: translate(0, -1px);
+    border: .125rem solid ${colors['--Purple-900']};
+    transform: translate(0, -.0625rem);
     background: ${colors['--Purple-800']};
   }
 `;
 
 const Primary56Button = styled(Primary)`
   width: ${(props) => props?.w};
-  border-radius: 12px;
-  padding: 14px 24px;
-  font-size: 18px;
+  border-radius: .75rem;
+  padding: .875rem 1.5rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  line-height: 28px;
-  letter-spacing: -0.18px;
+  line-height: 1.75rem;
+  letter-spacing: -0.0112rem;
 `;
 
 const Primary40Button = styled(Primary)`
   width: ${(props) => props?.w};
-  border-radius: 6px;
-  padding: 7px 16px;
-  font-size: 16px;
+  border-radius: .375rem;
+  padding: .4375rem 1rem;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 26px;
-  letter-spacing: -0.16px;
+  line-height: 1.625rem;
+  letter-spacing: -0.01rem;
 `;
 
 export { Primary56Button, Primary40Button };

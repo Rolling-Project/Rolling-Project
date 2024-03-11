@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: grid;
-  gap: 50px;
+  gap: 3.125rem;
   margin-top: 2.94rem;
   margin-bottom: 3.87rem;
 `;

@@ -14,22 +14,22 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 28px;
+  gap: .625rem;
+  margin: 0 1.75rem;
 `;
 
 export const Profiles = styled.div`
   position: relative;
   display: flex;
-  width: ${({ count }) => (count <= 4 ? `${28 + (count - 1) * 16}px` : '76px')};
-  height: 28px;
+  width: ${({ count }) => (count <= 4 ? `${28 + (count - 1) * 16}px` : '4.75rem')};
+  height: 1.75rem;
 `;
 
 export const Others = styled(Circle)`
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   background-color: ${colors['--White']};
-  border: 1px solid ${colors['--Gray-250']};
+  border: .0625rem solid ${colors['--Gray-250']};
 `;
 
 export const Item = styled.div`
@@ -37,17 +37,17 @@ export const Item = styled.div`
 
   &:nth-of-type(2) {
     position: absolute;
-    left: 16px;
+    left: 1rem;
   }
 
   &:nth-of-type(3) {
     position: absolute;
-    left: 32px;
+    left: 2rem;
   }
 
   &:nth-of-type(4) {
     position: absolute;
-    left: 48px;
+    left: 3rem;
   }
 `;
 
@@ -56,14 +56,14 @@ export const Count = styled.p`
   left: 50%;
   top: 50%;
   color: #484848;
-  font-size: 12px;
+  font-size: .75rem;
   font-weight: 500;
   transform: translate(-52%, -41%);
 `;
 
 export const Text = styled.p`
-  font-size: 18px;
-  transform: translate(0, 2px);
+  font-size: 1.125rem;
+  transform: translate(0, .125rem);
   strong {
     font-weight: 700;
   }

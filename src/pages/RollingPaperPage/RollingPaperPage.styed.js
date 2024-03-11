@@ -20,18 +20,18 @@ export const Content = styled.div`
 
 export const DeletedSection = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 11px;
+  margin-bottom: .6875rem;
 
   div {
     width: fit-content;
     @media (max-width: 820px) {
       position: fixed;
-      bottom: 25px;
+      bottom: 1.5625rem;
       width: 100%;
-      max-width: calc(100vw - 24px * 2);
+      max-width: calc(100vw - 1.5rem * 2);
     }
   }
 `;

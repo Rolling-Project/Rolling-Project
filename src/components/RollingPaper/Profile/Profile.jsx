@@ -15,7 +15,7 @@ function Profile({ id: messageId, imgUrl, sender, relationship, isEditPage }) {
   return (
     <S.Container>
       <S.Content>
-        <Avatar imgUrl={imgUrl} width="56px" height="56px" />
+        <Avatar imgUrl={imgUrl} width="3.5rem" height="3.5rem" />
         <div>
           <S.Name>
             From.
