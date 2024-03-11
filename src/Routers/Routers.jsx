@@ -3,9 +3,9 @@ import AllListPage from '../pages/AllListPage/AllListPage';
 import ListPage from '../pages/ListPage/ListPage';
 import RollingPaper from '../pages/RollingPaperPage/RollingPaperPage';
 import Header from '../components/common/Header/Header';
-import CreateTo from '../components/create/CreateTo';
 import MainPage from '../pages/MainPage/MainPage';
 import MessageAddPage from '../pages/MessageAddPage/MessageAddPage';
+import CreateTo from '../pages/CreateToPage/CreateToPage';
 
 function Routers() {
   return (
