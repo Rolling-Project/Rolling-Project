@@ -134,7 +134,6 @@ const Reset = css`
   }
   * {
     box-sizing: border-box;
-    font-display: swap;
   }
   a {
     text-decoration: none;
@@ -154,6 +153,7 @@ const Reset = css`
   @font-face {
     font-family: 'Pretendard';
     src: url(${PretendardRegular});
+    font-display: swap;
   }
 `;
 
