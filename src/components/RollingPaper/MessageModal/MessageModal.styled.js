@@ -13,6 +13,7 @@ export const Modal = styled.div`
   background: ${colors['--White']};
   box-shadow: 0 .125rem .75rem 0 rgba(0, 0, 0, 0.08);
   max-width: calc(100vw - 1rem * 2);
+  z-index: 1001;
 `;
 
 export const Header = styled.div`
@@ -53,4 +54,5 @@ export const Backdrop = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
 `;
