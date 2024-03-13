@@ -11,10 +11,12 @@ function CardList({ title, cardList }) {
     next: false
   });
   const cardContainer = useRef(null);
+  const xDown = useRef(null);
+  const xUp = useRef(null);
 
   const handlePrevCard = () => {
     cardContainer.current.scrollBy({
-      left: -294.4, // 왼쪽으로 스크롤
+      left: -294.4,
       top: 0,
       behavior: 'smooth'
     });
@@ -22,7 +24,7 @@ function CardList({ title, cardList }) {
 
   const handleNextCard = () => {
     cardContainer.current.scrollBy({
-      left: 294.4, // 오른쪽으로 스크롤
+      left: 294.4,
       top: 0,
       behavior: 'smooth'
     });
@@ -31,7 +33,7 @@ function CardList({ title, cardList }) {
   const handleScroll = () => {
     const maxScrollLeft = cardContainer.current.scrollWidth - cardContainer.current.clientWidth;
     const isStart = cardContainer.current.scrollLeft === 0;
-    const isEnd = cardContainer.current.scrollLeft >= maxScrollLeft - 10; // 여기서 10은 여유값으로 조절 가능
+    const isEnd = cardContainer.current.scrollLeft >= maxScrollLeft - 10;
 
     if (isStart) {
       setButtonVisible({
@@ -52,6 +54,35 @@ function CardList({ title, cardList }) {
       prev: true,
       next: true
     });
+  };
+
+  const handleSwipeAction = (xDiff) => {
+    cardContainer.current.scrollBy({
+      left: xDiff,
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleMoveLink = () => {
+    const xDiff = xDown.current - xUp.current;
+    if (xDiff !== 0) {
+      handleSwipeAction(xDiff);
+    }
+    // 좌표 초기화
+    xDown.current = null;
+    xUp.current = null;
+  };
+
+  const handleMouseDown = (e) => {
+    xDown.current = e.clientX;
+    document.body.style.userSelect = 'none';
+  };
+
+  const handleMouseUp = (e) => {
+    xUp.current = e.clientX;
+    handleMoveLink();
+    document.body.style.userSelect = '';
   };
 
   useEffect(() => {
@@ -87,7 +118,11 @@ function CardList({ title, cardList }) {
         )}
       </Styled.ListTitleBox>
 
-      <Styled.CardContainer ref={cardContainer}>
+      <Styled.CardContainer
+        ref={cardContainer}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+      >
         <Styled.CardList>
           {cardList.length ? cardList.map((data) => <Card key={data.id} data={data} />) : <EmptyCard />}
         </Styled.CardList>
