@@ -136,15 +136,14 @@ export const ListFilterButton = styled.button`
   border-radius: 0.3rem;
   outline: none;
   border: 1px solid ${colors['--Purple-600']};
-  border: ${({ $lstFilterToggle }) =>
-    $lstFilterToggle ? `1px solid ${colors['--Purple-600']}` : `1px solid ${colors['--Gray-400']}`};
+  border: ${({ $lstFilterToggle }) => $lstFilterToggle ? `1px solid ${colors['--Purple-600']}` : `1px solid ${colors['--Gray-400']}`};
   background-color: ${colors['--White']};
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   text-align: left;
   cursor: pointer;
-  padding: 0 0.375rem 0 1rem;
+  padding: 0.3rem 0.4rem 0 1rem;
 
   @media screen and (max-width: 450px) {
     width: 7rem;
@@ -162,23 +161,25 @@ export const FilterToggleImage = styled.img`
 
 export const ListFilter = styled.ul`
   width: 7rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.2rem;
   position: absolute;
   background-color: ${colors['--White']};
-  border-radius: 0.2rem;
-  top: 100%;
+  border-radius: 0.3rem;
+  top: 101.2%;
   z-index: 998;
   transition: 0.4s;
   overflow: hidden;
-  height: ${({ $lstFilterToggle }) => ($lstFilterToggle ? '5rem' : '0')};
+  height: ${({ $lstFilterToggle }) => ($lstFilterToggle ? '5.5rem' : '0')};
   border: ${({ $lstFilterToggle }) => ($lstFilterToggle ? `1px solid ${colors['--Purple-600']}` : 'none')};
   cursor: pointer;
+  padding: 0.5rem 0 0.5rem 0;
+  border-top: none;
 `;
 
 export const ListFilterItem = styled.li`
-  padding: 0.65rem 0.375rem 0.65rem 1rem;
+  padding: 0.6rem 0.375rem 0.6rem 1rem;
   border-radius: 0.2rem;
 
   &:nth-of-type(2) {

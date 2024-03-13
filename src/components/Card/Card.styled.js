@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import BACKGROUND_IMAGE_EFFECT from '../../utils/constants/bgImageEffect';
 import colors from '../../styles/colors';
 
 export const Card = styled.li`
@@ -12,18 +13,18 @@ export const Card = styled.li`
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   padding: 2rem 1.3rem 1.25rem;
 
-  ${({ $effect, $isImage }) =>
-    $isImage
-      ? css`
+  ${({ $effect, $isImage, color }) => $isImage
+    ? css`
           background-color: ${colors[$effect]};
-          background-image: none;
+          background-image: url(${BACKGROUND_IMAGE_EFFECT[color]});
+          background-position: 100% 100%;
         `
-      : css`
+    : css`
           background-color: transparent;
           background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url(${$effect});
+          background-size: cover;
         `};
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   cursor: pointer;
   list-style-type: none;
@@ -85,8 +86,7 @@ export const ReactionBox = styled.div`
   width: 14.3rem;
   padding-top: ${({ $isBig }) => ($isBig ? '1.5em' : '1rem')};
   margin-top: ${({ $isBig }) => ($isBig ? '3rem' : '2.3rem')};
-  border-top: ${({ $isImage }) =>
-    $isImage ? '1.5px solid rgba(0, 0, 0, 0.12)' : '1.5px solid rgba(255, 255, 255, 0.5)'};
+  border-top: ${({ $isImage }) => $isImage ? '1.5px solid rgba(0, 0, 0, 0.12)' : '1.5px solid rgba(255, 255, 255, 0.5)'};
   position: absolute;
   z-index: 2;
   font-size: 0.95rem;

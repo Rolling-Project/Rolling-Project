@@ -55,16 +55,7 @@ export const CardContainer = styled.div`
   overflow-x: auto; // 가로방향 스크롤
   scroll-behavior: smooth; // 스크롤 부드럽게
   scroll-snap-type: x mandatory; // 스크롤이 스냅 지점에 정렬
-  scrollbar-width: thin;
-  scrollbar-color: ${colors['--Purple-500']} ${colors['--Purple-100']};
-
-  @media (max-width: 1200px) {
-    scrollbar-width: auto;
-  }
-
-  @media (max-width: 768px) {
-    scrollbar-width: none;
-  }
+  scrollbar-width: none;
 `;
 
 export const CardList = styled.ul`
