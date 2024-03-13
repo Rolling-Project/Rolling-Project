@@ -2012,7 +2012,6 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   border-radius: 3.125rem;
   background: var(--Purple-600, #9935ff);
   color: var(--white, #fff);
-  font-family: Pretendard;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 700;
@@ -2419,9 +2418,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     &:active {
       border: ${je["--Gray-700"]};
     }
-    &:hover {
-      border: ${je["--Gray-500"]};
-    }
+
     &:focus {
       border: ${je["--Gray-500"]};
     }
