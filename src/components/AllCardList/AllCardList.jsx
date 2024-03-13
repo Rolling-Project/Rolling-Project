@@ -16,7 +16,7 @@ function AllCardList({ latestData, popularData, listFilterValue, setListFilterVa
   // 정렬 필터 리스트 토글
   const handleListFilterToggle = (e) => {
     if (e.target.dataset.status === FILTET) {
-      setListFilterToggle(true);
+      setListFilterToggle(!lstFilterToggle);
       return;
     }
     setListFilterToggle(false);
