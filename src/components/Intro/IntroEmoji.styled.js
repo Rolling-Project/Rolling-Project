@@ -26,6 +26,9 @@ export const EmojiWrap = styled.div`
     padding-bottom: 10rem;
     padding-left: 1rem;
   }
+  @media (max-width: 400px) {
+    padding: 1.5rem 1.5rem 10rem;
+  }
 `;
 
 export const AddEmojiBox = styled.div`
@@ -131,7 +134,6 @@ export const EmojiContentType = styled.div`
 export const EmojiContentBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 2rem;
   @media (min-width: 768px) and (max-width: 1200px) {
     order: -1;
     padding: 1rem 1.8rem;
@@ -156,7 +158,6 @@ export const EmojiNum = styled.div`
 `;
 
 export const EmojiContentTitle = styled.h1`
-  // width: 18.75rem;
   height: 4.5rem;
   font-size: 1.5rem;
   font-weight: 700;
@@ -170,7 +171,6 @@ export const EmojiContentTitle = styled.h1`
 `;
 
 export const EmojiContentDescription = styled.p`
-  width: 25rem;
   height: 1.75rem;
   font-size: 1.125rem;
   font-weight: 400;
