@@ -30,9 +30,9 @@ export const Item = styled.div`
     transform: translate(0, 0.09rem);
   }
   @media (max-width: 475px) {
-    width: 3.3125rem;
+    width: 3.3rem;
     height: 1.75rem;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -45,11 +45,11 @@ export const Bar = styled.div`
 
 export const ExpandBox = styled(BaseDropDown)`
   position: absolute;
-  top: 2.625rem;
+  top: 2.62rem;
   right: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.625rem 0.5rem;
+  gap: 0.62rem 0.5rem;
   padding: 1.5rem;
 
   @media (max-width: 443px) {
