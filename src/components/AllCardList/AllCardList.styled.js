@@ -167,19 +167,19 @@ export const ListFilter = styled.ul`
   position: absolute;
   background-color: ${colors['--White']};
   border-radius: 0.3rem;
-  top: 101.2%;
+  top: 100%;
   z-index: 998;
   transition: 0.4s;
   overflow: hidden;
-  height: ${({ $lstFilterToggle }) => ($lstFilterToggle ? '5.5rem' : '0')};
+  height: ${({ $lstFilterToggle }) => ($lstFilterToggle ? '5rem' : '0')};
   border: ${({ $lstFilterToggle }) => ($lstFilterToggle ? `1px solid ${colors['--Purple-600']}` : 'none')};
   cursor: pointer;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.45rem 0 0.45rem 0;
   border-top: none;
 `;
 
 export const ListFilterItem = styled.li`
-  padding: 0.6rem 0.375rem 0.6rem 1rem;
+  padding: 0.5rem 0.375rem 0.5rem 1rem;
   border-radius: 0.2rem;
 
   &:nth-of-type(2) {

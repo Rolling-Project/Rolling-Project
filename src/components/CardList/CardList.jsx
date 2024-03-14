@@ -64,7 +64,7 @@ function CardList({ title, cardList }) {
     });
   };
 
-  const handleMoveLink = () => {
+  const handleMove = () => {
     const xDiff = xDown.current - xUp.current;
     if (xDiff !== 0) {
       handleSwipeAction(xDiff);
@@ -81,7 +81,7 @@ function CardList({ title, cardList }) {
 
   const handleMouseUp = (e) => {
     xUp.current = e.clientX;
-    handleMoveLink();
+    handleMove();
     document.body.style.userSelect = '';
   };
 

@@ -1,5 +1,14 @@
 import styled from '@emotion/styled';
 
+export const ScrollToTopBtn = styled.button`
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  border-radius: 50%;
+`;
+
 export const ScrollToTopImage = styled.img`
   width: 3rem;
   height: 3rem;
