@@ -21,18 +21,18 @@ export const Item = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem .75rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 2rem;
   background: rgba(0, 0, 0, 0.54);
   color: ${colors['--White']};
-  gap: .31rem;
+  gap: 0.31rem;
   span {
-    transform: translate(0, .09rem);
+    transform: translate(0, 0.09rem);
   }
   @media (max-width: 475px) {
     width: 3.3125rem;
     height: 1.75rem;
-    font-size: .875rem;
+    font-size: 0.875rem;
   }
 `;
 
@@ -49,10 +49,10 @@ export const ExpandBox = styled(BaseDropDown)`
   right: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: .625rem 0.5rem;
+  gap: 0.625rem 0.5rem;
   padding: 1.5rem;
 
-  @media (max-width: 360px) {
+  @media (max-width: 443px) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;
