@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Editor } from '@toast-ui/react-editor';
 import { Helmet } from 'react-helmet-async';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import Avatar from '../../components/RollingPaper/Avatar/Avatar';
+import Avatar from '../../components/Avatar/Avatar';
 import useSendMessage from '../../utils/hooks/useSendMessage';
 import { Primary56Button } from '../../components/common/Button/Button';
 import PROFILE_IMG from '../../utils/constants/profileImages';
@@ -45,10 +45,6 @@ function MessageAddPage() {
     return null;
   };
 
-  const handleProfile = (profile) => {
-    setImage(profile);
-  };
-
   return (
     <>
       <Helmet>
@@ -65,6 +61,7 @@ function MessageAddPage() {
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                placeholder="이름을 입력해주세요."
                 required
               />
             </div>
@@ -75,7 +72,7 @@ function MessageAddPage() {
               <S.Profiles>
                 {PROFILE_IMG.map((profile) => (
                   <S.Profile key={profile.id} isSelected={image === profile}>
-                    <Avatar width="4.5rem" height="4.5rem" imgUrl={profile.img} onClick={() => handleProfile(profile)} />
+                    <Avatar width="4.5rem" height="4.5rem" imgUrl={profile.img} onClick={() => setImage(profile)} />
                   </S.Profile>
                 ))}
               </S.Profiles>
