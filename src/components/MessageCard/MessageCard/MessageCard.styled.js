@@ -1,22 +1,13 @@
 import styled from '@emotion/styled';
 import colors from '../../../styles/colors';
+import BaseCard from '../BaseCard.styled';
 
-export const Card = styled.div`
-  height: 17.5rem;
-  border-radius: 1rem;
-  background: ${colors['--White']};
-  box-shadow: 0 .125rem .75rem 0 rgba(0, 0, 0, 0.08);
-  cursor: pointer;
+export const Card = styled(BaseCard)`
   padding: 1.75rem 1.5rem;
-
-  &:hover{
-    transition: 0.5s;
-    transform: scale(1.05);
-  }
 `;
 
 export const Header = styled.div`
-  margin-bottom: .9375rem;
+  margin-bottom: 1rem;
 `;
 
 export const Message = styled.div`
@@ -28,11 +19,11 @@ export const Message = styled.div`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   color: ${colors['--Gray-600']};
-  font-size: 1.125rem;
+  font-size: 1.12rem;
   line-height: 1.75rem;
-  letter-spacing: -0.0112rem;
+  letter-spacing: -0.01rem;
 
   @media (max-width: 517px) {
-    font-size: .9375rem;
+    font-size: 0.94rem;
   }
 `;
