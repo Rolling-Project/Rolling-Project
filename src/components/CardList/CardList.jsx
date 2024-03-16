@@ -118,11 +118,7 @@ function CardList({ title, cardList }) {
         )}
       </Styled.ListTitleBox>
 
-      <Styled.CardContainer
-        ref={cardContainer}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-      >
+      <Styled.CardContainer ref={cardContainer} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
         <Styled.CardList>
           {cardList.length ? cardList.map((data) => <Card key={data.id} data={data} />) : <EmptyCard />}
         </Styled.CardList>
