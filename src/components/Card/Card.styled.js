@@ -13,16 +13,14 @@ export const Card = styled.li`
   box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   padding: 2rem 1.3rem 1.25rem;
 
-  ${({ $effect, $isImage, color }) => $isImage
+  ${({ $effect, $isImage }) => $isImage
     ? css`
           background-color: ${colors[$effect]};
-          background-image: url(${BACKGROUND_IMAGE_EFFECT[color]});
-          background-position: 100% 100%;
+          background-image: none;
         `
     : css`
           background-color: transparent;
           background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url(${$effect});
-          background-size: cover;
         `};
   background-repeat: no-repeat;
   position: relative;

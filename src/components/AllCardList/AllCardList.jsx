@@ -118,15 +118,15 @@ function AllCardList({ latestData, popularData, listFilterValue, setListFilterVa
         </Styled.ListText>
       </Styled.ListHeaderWrap>
 
-      {cardList.length ? (
-        <Styled.CardListBox>
-          {cardList.map((data) => (
-            <Card key={data.id} data={data} isBig />
-          ))}
-        </Styled.CardListBox>
-      ) : (
-        <EmptyCard all />
-      )}
+      {cardList.length > 0
+        && (
+          <Styled.CardListBox>
+            {cardList.map((data) => (
+              <Card key={data.id} data={data} isBig />
+            ))}
+          </Styled.CardListBox>
+        )}
+      {(!cardList.length && !searchValue) && <EmptyCard all />}
     </Styled.AllCardListWrap>
   );
 }
